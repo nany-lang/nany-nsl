@@ -258,392 +258,392 @@ public class u64
 
 
 
-public operator == (a: __u64, b: __u64): bool
+public operator == (a: __u64, b: __u64): ref bool
 	-> !!nany_is_equal_u64__u64(a, b);
 
-public operator == (cref a: u64, cref b: u64): bool
+public operator == (cref a: u64, cref b: u64): ref bool
 	-> a.pod == b.pod;
 
-public operator == (cref a: u64, cref b: __u64): bool
+public operator == (cref a: u64, cref b: __u64): ref bool
 	-> a.pod == b;
 
-public operator == (cref a: __u64, cref b: u64): bool
+public operator == (cref a: __u64, cref b: u64): ref bool
 	-> a == b.pod;
 
 
-public operator == (a: __u64, b: __u32): bool
+public operator == (a: __u64, b: __u32): ref bool
 	-> !!nany_is_equal_u64__u32(a, b);
 
-public operator == (cref a: u64, cref b: u32): bool
+public operator == (cref a: u64, cref b: u32): ref bool
 	-> a.pod == b.pod;
 
-public operator == (cref a: u64, cref b: __u32): bool
+public operator == (cref a: u64, cref b: __u32): ref bool
 	-> a.pod == b;
 
-public operator == (cref a: __u64, cref b: u32): bool
+public operator == (cref a: __u64, cref b: u32): ref bool
 	-> a == b.pod;
 
 
-public operator == (a: __u64, b: __u16): bool
+public operator == (a: __u64, b: __u16): ref bool
 	-> !!nany_is_equal_u64__u16(a, b);
 
-public operator == (cref a: u64, cref b: u16): bool
+public operator == (cref a: u64, cref b: u16): ref bool
 	-> a.pod == b.pod;
 
-public operator == (cref a: u64, cref b: __u16): bool
+public operator == (cref a: u64, cref b: __u16): ref bool
 	-> a.pod == b;
 
-public operator == (cref a: __u64, cref b: u16): bool
+public operator == (cref a: __u64, cref b: u16): ref bool
 	-> a == b.pod;
 
 
-public operator == (a: __u64, b: __u8): bool
+public operator == (a: __u64, b: __u8): ref bool
 	-> !!nany_is_equal_u64__u8(a, b);
 
-public operator == (cref a: u64, cref b: u8): bool
+public operator == (cref a: u64, cref b: u8): ref bool
 	-> a.pod == b.pod;
 
-public operator == (cref a: u64, cref b: __u8): bool
+public operator == (cref a: u64, cref b: __u8): ref bool
 	-> a.pod == b;
 
-public operator == (cref a: __u64, cref b: u8): bool
+public operator == (cref a: __u64, cref b: u8): ref bool
 	-> a == b.pod;
 
 
 
 
-public operator != (a: __u64, b: __u64): bool
+public operator != (a: __u64, b: __u64): ref bool
 	-> !!nany_is_not_equal_u64__u64(a, b);
 
-public operator != (cref a: u64, cref b: u64): bool
+public operator != (cref a: u64, cref b: u64): ref bool
 	-> a.pod != b.pod;
 
-public operator != (cref a: u64, cref b: __u64): bool
+public operator != (cref a: u64, cref b: __u64): ref bool
 	-> a.pod != b;
 
-public operator != (cref a: __u64, cref b: u64): bool
+public operator != (cref a: __u64, cref b: u64): ref bool
 	-> a != b.pod;
 
 
-public operator != (a: __u64, b: __u32): bool
+public operator != (a: __u64, b: __u32): ref bool
 	-> !!nany_is_not_equal_u64__u32(a, b);
 
-public operator != (cref a: u64, cref b: u32): bool
+public operator != (cref a: u64, cref b: u32): ref bool
 	-> a.pod != b.pod;
 
-public operator != (cref a: u64, cref b: __u32): bool
+public operator != (cref a: u64, cref b: __u32): ref bool
 	-> a.pod != b;
 
-public operator != (cref a: __u64, cref b: u32): bool
+public operator != (cref a: __u64, cref b: u32): ref bool
 	-> a != b.pod;
 
 
-public operator != (a: __u64, b: __u16): bool
+public operator != (a: __u64, b: __u16): ref bool
 	-> !!nany_is_not_equal_u64__u16(a, b);
 
-public operator != (cref a: u64, cref b: u16): bool
+public operator != (cref a: u64, cref b: u16): ref bool
 	-> a.pod != b.pod;
 
-public operator != (cref a: u64, cref b: __u16): bool
+public operator != (cref a: u64, cref b: __u16): ref bool
 	-> a.pod != b;
 
-public operator != (cref a: __u64, cref b: u16): bool
+public operator != (cref a: __u64, cref b: u16): ref bool
 	-> a != b.pod;
 
 
-public operator != (a: __u64, b: __u8): bool
+public operator != (a: __u64, b: __u8): ref bool
 	-> !!nany_is_not_equal_u64__u8(a, b);
 
-public operator != (cref a: u64, cref b: u8): bool
+public operator != (cref a: u64, cref b: u8): ref bool
 	-> a.pod != b.pod;
 
-public operator != (cref a: u64, cref b: __u8): bool
+public operator != (cref a: u64, cref b: __u8): ref bool
 	-> a.pod != b;
 
-public operator != (cref a: __u64, cref b: u8): bool
+public operator != (cref a: __u64, cref b: u8): ref bool
 	-> a != b.pod;
 
 
 
 
-public operator < (a: __u64, b: __u64): bool
+public operator < (a: __u64, b: __u64): ref bool
 	-> !!nany_is_less_u64__u64(a, b);
 
-public operator < (cref a: u64, cref b: u64): bool
+public operator < (cref a: u64, cref b: u64): ref bool
 	-> a.pod < b.pod;
 
-public operator < (cref a: u64, cref b: __u64): bool
+public operator < (cref a: u64, cref b: __u64): ref bool
 	-> a.pod < b;
 
-public operator < (cref a: __u64, cref b: u64): bool
+public operator < (cref a: __u64, cref b: u64): ref bool
 	-> a < b.pod;
 
 
-public operator < (a: __u64, b: __u32): bool
+public operator < (a: __u64, b: __u32): ref bool
 	-> !!nany_is_less_u64__u32(a, b);
 
-public operator < (cref a: u64, cref b: u32): bool
+public operator < (cref a: u64, cref b: u32): ref bool
 	-> a.pod < b.pod;
 
-public operator < (cref a: u64, cref b: __u32): bool
+public operator < (cref a: u64, cref b: __u32): ref bool
 	-> a.pod < b;
 
-public operator < (cref a: __u64, cref b: u32): bool
+public operator < (cref a: __u64, cref b: u32): ref bool
 	-> a < b.pod;
 
 
-public operator < (a: __u64, b: __u16): bool
+public operator < (a: __u64, b: __u16): ref bool
 	-> !!nany_is_less_u64__u16(a, b);
 
-public operator < (cref a: u64, cref b: u16): bool
+public operator < (cref a: u64, cref b: u16): ref bool
 	-> a.pod < b.pod;
 
-public operator < (cref a: u64, cref b: __u16): bool
+public operator < (cref a: u64, cref b: __u16): ref bool
 	-> a.pod < b;
 
-public operator < (cref a: __u64, cref b: u16): bool
+public operator < (cref a: __u64, cref b: u16): ref bool
 	-> a < b.pod;
 
 
-public operator < (a: __u64, b: __u8): bool
+public operator < (a: __u64, b: __u8): ref bool
 	-> !!nany_is_less_u64__u8(a, b);
 
-public operator < (cref a: u64, cref b: u8): bool
+public operator < (cref a: u64, cref b: u8): ref bool
 	-> a.pod < b.pod;
 
-public operator < (cref a: u64, cref b: __u8): bool
+public operator < (cref a: u64, cref b: __u8): ref bool
 	-> a.pod < b;
 
-public operator < (cref a: __u64, cref b: u8): bool
+public operator < (cref a: __u64, cref b: u8): ref bool
 	-> a < b.pod;
 
 
 
 
-public operator <= (a: __u64, b: __u64): bool
+public operator <= (a: __u64, b: __u64): ref bool
 	-> !!nany_is_less_or_equal_u64__u64(a, b);
 
-public operator <= (cref a: u64, cref b: u64): bool
+public operator <= (cref a: u64, cref b: u64): ref bool
 	-> a.pod <= b.pod;
 
-public operator <= (cref a: u64, cref b: __u64): bool
+public operator <= (cref a: u64, cref b: __u64): ref bool
 	-> a.pod <= b;
 
-public operator <= (cref a: __u64, cref b: u64): bool
+public operator <= (cref a: __u64, cref b: u64): ref bool
 	-> a <= b.pod;
 
 
-public operator <= (a: __u64, b: __u32): bool
+public operator <= (a: __u64, b: __u32): ref bool
 	-> !!nany_is_less_or_equal_u64__u32(a, b);
 
-public operator <= (cref a: u64, cref b: u32): bool
+public operator <= (cref a: u64, cref b: u32): ref bool
 	-> a.pod <= b.pod;
 
-public operator <= (cref a: u64, cref b: __u32): bool
+public operator <= (cref a: u64, cref b: __u32): ref bool
 	-> a.pod <= b;
 
-public operator <= (cref a: __u64, cref b: u32): bool
+public operator <= (cref a: __u64, cref b: u32): ref bool
 	-> a <= b.pod;
 
 
-public operator <= (a: __u64, b: __u16): bool
+public operator <= (a: __u64, b: __u16): ref bool
 	-> !!nany_is_less_or_equal_u64__u16(a, b);
 
-public operator <= (cref a: u64, cref b: u16): bool
+public operator <= (cref a: u64, cref b: u16): ref bool
 	-> a.pod <= b.pod;
 
-public operator <= (cref a: u64, cref b: __u16): bool
+public operator <= (cref a: u64, cref b: __u16): ref bool
 	-> a.pod <= b;
 
-public operator <= (cref a: __u64, cref b: u16): bool
+public operator <= (cref a: __u64, cref b: u16): ref bool
 	-> a <= b.pod;
 
 
-public operator <= (a: __u64, b: __u8): bool
+public operator <= (a: __u64, b: __u8): ref bool
 	-> !!nany_is_less_or_equal_u64__u8(a, b);
 
-public operator <= (cref a: u64, cref b: u8): bool
+public operator <= (cref a: u64, cref b: u8): ref bool
 	-> a.pod <= b.pod;
 
-public operator <= (cref a: u64, cref b: __u8): bool
+public operator <= (cref a: u64, cref b: __u8): ref bool
 	-> a.pod <= b;
 
-public operator <= (cref a: __u64, cref b: u8): bool
+public operator <= (cref a: __u64, cref b: u8): ref bool
 	-> a <= b.pod;
 
 
 
 
-public operator > (a: __u64, b: __u64): bool
+public operator > (a: __u64, b: __u64): ref bool
 	-> !!nany_is_greater_u64__u64(a, b);
 
-public operator > (cref a: u64, cref b: u64): bool
+public operator > (cref a: u64, cref b: u64): ref bool
 	-> a.pod > b.pod;
 
-public operator > (cref a: u64, cref b: __u64): bool
+public operator > (cref a: u64, cref b: __u64): ref bool
 	-> a.pod > b;
 
-public operator > (cref a: __u64, cref b: u64): bool
+public operator > (cref a: __u64, cref b: u64): ref bool
 	-> a > b.pod;
 
 
-public operator > (a: __u64, b: __u32): bool
+public operator > (a: __u64, b: __u32): ref bool
 	-> !!nany_is_greater_u64__u32(a, b);
 
-public operator > (cref a: u64, cref b: u32): bool
+public operator > (cref a: u64, cref b: u32): ref bool
 	-> a.pod > b.pod;
 
-public operator > (cref a: u64, cref b: __u32): bool
+public operator > (cref a: u64, cref b: __u32): ref bool
 	-> a.pod > b;
 
-public operator > (cref a: __u64, cref b: u32): bool
+public operator > (cref a: __u64, cref b: u32): ref bool
 	-> a > b.pod;
 
 
-public operator > (a: __u64, b: __u16): bool
+public operator > (a: __u64, b: __u16): ref bool
 	-> !!nany_is_greater_u64__u16(a, b);
 
-public operator > (cref a: u64, cref b: u16): bool
+public operator > (cref a: u64, cref b: u16): ref bool
 	-> a.pod > b.pod;
 
-public operator > (cref a: u64, cref b: __u16): bool
+public operator > (cref a: u64, cref b: __u16): ref bool
 	-> a.pod > b;
 
-public operator > (cref a: __u64, cref b: u16): bool
+public operator > (cref a: __u64, cref b: u16): ref bool
 	-> a > b.pod;
 
 
-public operator > (a: __u64, b: __u8): bool
+public operator > (a: __u64, b: __u8): ref bool
 	-> !!nany_is_greater_u64__u8(a, b);
 
-public operator > (cref a: u64, cref b: u8): bool
+public operator > (cref a: u64, cref b: u8): ref bool
 	-> a.pod > b.pod;
 
-public operator > (cref a: u64, cref b: __u8): bool
+public operator > (cref a: u64, cref b: __u8): ref bool
 	-> a.pod > b;
 
-public operator > (cref a: __u64, cref b: u8): bool
+public operator > (cref a: __u64, cref b: u8): ref bool
 	-> a > b.pod;
 
 
 
 
-public operator >= (a: __u64, b: __u64): bool
+public operator >= (a: __u64, b: __u64): ref bool
 	-> !!nany_is_greater_or_equal_u64__u64(a, b);
 
-public operator >= (cref a: u64, cref b: u64): bool
+public operator >= (cref a: u64, cref b: u64): ref bool
 	-> a.pod >= b.pod;
 
-public operator >= (cref a: u64, cref b: __u64): bool
+public operator >= (cref a: u64, cref b: __u64): ref bool
 	-> a.pod >= b;
 
-public operator >= (cref a: __u64, cref b: u64): bool
+public operator >= (cref a: __u64, cref b: u64): ref bool
 	-> a >= b.pod;
 
 
-public operator >= (a: __u64, b: __u32): bool
+public operator >= (a: __u64, b: __u32): ref bool
 	-> !!nany_is_greater_or_equal_u64__u32(a, b);
 
-public operator >= (cref a: u64, cref b: u32): bool
+public operator >= (cref a: u64, cref b: u32): ref bool
 	-> a.pod >= b.pod;
 
-public operator >= (cref a: u64, cref b: __u32): bool
+public operator >= (cref a: u64, cref b: __u32): ref bool
 	-> a.pod >= b;
 
-public operator >= (cref a: __u64, cref b: u32): bool
+public operator >= (cref a: __u64, cref b: u32): ref bool
 	-> a >= b.pod;
 
 
-public operator >= (a: __u64, b: __u16): bool
+public operator >= (a: __u64, b: __u16): ref bool
 	-> !!nany_is_greater_or_equal_u64__u16(a, b);
 
-public operator >= (cref a: u64, cref b: u16): bool
+public operator >= (cref a: u64, cref b: u16): ref bool
 	-> a.pod >= b.pod;
 
-public operator >= (cref a: u64, cref b: __u16): bool
+public operator >= (cref a: u64, cref b: __u16): ref bool
 	-> a.pod >= b;
 
-public operator >= (cref a: __u64, cref b: u16): bool
+public operator >= (cref a: __u64, cref b: u16): ref bool
 	-> a >= b.pod;
 
 
-public operator >= (a: __u64, b: __u8): bool
+public operator >= (a: __u64, b: __u8): ref bool
 	-> !!nany_is_greater_or_equal_u64__u8(a, b);
 
-public operator >= (cref a: u64, cref b: u8): bool
+public operator >= (cref a: u64, cref b: u8): ref bool
 	-> a.pod >= b.pod;
 
-public operator >= (cref a: u64, cref b: __u8): bool
+public operator >= (cref a: u64, cref b: __u8): ref bool
 	-> a.pod >= b;
 
-public operator >= (cref a: __u64, cref b: u8): bool
+public operator >= (cref a: __u64, cref b: u8): ref bool
 	-> a >= b.pod;
 
 
 
 
-public operator + (cref a: u64, cref b): u64
+public operator + (cref a: u64, cref b): ref u64
 	-> (new a) += b;
 
-public operator + (cref a: __u64, cref b: u64): u64
+public operator + (cref a: __u64, cref b: u64): ref u64
 	-> (new u64(a)) += b;
 
-public operator + (cref a: __u32, cref b: u64): u64
+public operator + (cref a: __u32, cref b: u64): ref u64
 	-> (new u64(a)) += b;
 
-public operator + (cref a: __u16, cref b: u64): u64
+public operator + (cref a: __u16, cref b: u64): ref u64
 	-> (new u64(a)) += b;
 
-public operator + (cref a: __u8, cref b: u64): u64
+public operator + (cref a: __u8, cref b: u64): ref u64
 	-> (new u64(a)) += b;
 
 
 
-public operator - (cref a: u64, cref b): u64
+public operator - (cref a: u64, cref b): ref u64
 	-> (new a) -= b;
 
-public operator - (cref a: __u64, cref b: u64): u64
+public operator - (cref a: __u64, cref b: u64): ref u64
 	-> (new u64(a)) -= b;
 
-public operator - (cref a: __u32, cref b: u64): u64
+public operator - (cref a: __u32, cref b: u64): ref u64
 	-> (new u64(a)) -= b;
 
-public operator - (cref a: __u16, cref b: u64): u64
+public operator - (cref a: __u16, cref b: u64): ref u64
 	-> (new u64(a)) -= b;
 
-public operator - (cref a: __u8, cref b: u64): u64
+public operator - (cref a: __u8, cref b: u64): ref u64
 	-> (new u64(a)) -= b;
 
 
 
-public operator * (cref a: u64, cref b): u64
+public operator * (cref a: u64, cref b): ref u64
 	-> (new a) *= b;
 
-public operator * (cref a: __u64, cref b: u64): u64
+public operator * (cref a: __u64, cref b: u64): ref u64
 	-> (new u64(a)) *= b;
 
-public operator * (cref a: __u32, cref b: u64): u64
+public operator * (cref a: __u32, cref b: u64): ref u64
 	-> (new u64(a)) *= b;
 
-public operator * (cref a: __u16, cref b: u64): u64
+public operator * (cref a: __u16, cref b: u64): ref u64
 	-> (new u64(a)) *= b;
 
-public operator * (cref a: __u8, cref b: u64): u64
+public operator * (cref a: __u8, cref b: u64): ref u64
 	-> (new u64(a)) *= b;
 
 
 
-public operator / (cref a: u64, cref b): u64
+public operator / (cref a: u64, cref b): ref u64
 	-> (new a) /= b;
 
-public operator / (cref a: __u64, cref b: u64): u64
+public operator / (cref a: __u64, cref b: u64): ref u64
 	-> (new u64(a)) /= b;
 
-public operator / (cref a: __u32, cref b: u64): u64
+public operator / (cref a: __u32, cref b: u64): ref u64
 	-> (new u64(a)) /= b;
 
-public operator / (cref a: __u16, cref b: u64): u64
+public operator / (cref a: __u16, cref b: u64): ref u64
 	-> (new u64(a)) /= b;
 
-public operator / (cref a: __u8, cref b: u64): u64
+public operator / (cref a: __u8, cref b: u64): ref u64
 	-> (new u64(a)) /= b;

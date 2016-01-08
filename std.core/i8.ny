@@ -111,131 +111,131 @@ public class i8
 
 
 
-public operator == (a: __i8, b: __i8): bool
+public operator == (a: __i8, b: __i8): ref bool
 	-> !!nany_is_equal_i8__i8(a, b);
 
-public operator == (cref a: i8, cref b: i8): bool
+public operator == (cref a: i8, cref b: i8): ref bool
 	-> a.pod == b.pod;
 
-public operator == (cref a: i8, cref b: __i8): bool
+public operator == (cref a: i8, cref b: __i8): ref bool
 	-> a.pod == b;
 
-public operator == (cref a: __i8, cref b: i8): bool
+public operator == (cref a: __i8, cref b: i8): ref bool
 	-> a == b.pod;
 
 
 
 
 
-public operator != (a: __i8, b: __i8): bool
+public operator != (a: __i8, b: __i8): ref bool
 	-> !!nany_is_not_equal_i8__i8(a, b);
 
-public operator != (cref a: i8, cref b: i8): bool
+public operator != (cref a: i8, cref b: i8): ref bool
 	-> a.pod != b.pod;
 
-public operator != (cref a: i8, cref b: __i8): bool
+public operator != (cref a: i8, cref b: __i8): ref bool
 	-> a.pod != b;
 
-public operator != (cref a: __i8, cref b: i8): bool
+public operator != (cref a: __i8, cref b: i8): ref bool
 	-> a != b.pod;
 
 
 
 
 
-public operator < (a: __i8, b: __i8): bool
+public operator < (a: __i8, b: __i8): ref bool
 	-> !!nany_is_less_i8__i8(a, b);
 
-public operator < (cref a: i8, cref b: i8): bool
+public operator < (cref a: i8, cref b: i8): ref bool
 	-> a.pod < b.pod;
 
-public operator < (cref a: i8, cref b: __i8): bool
+public operator < (cref a: i8, cref b: __i8): ref bool
 	-> a.pod < b;
 
-public operator < (cref a: __i8, cref b: i8): bool
+public operator < (cref a: __i8, cref b: i8): ref bool
 	-> a < b.pod;
 
 
 
 
 
-public operator <= (a: __i8, b: __i8): bool
+public operator <= (a: __i8, b: __i8): ref bool
 	-> !!nany_is_less_or_equal_i8__i8(a, b);
 
-public operator <= (cref a: i8, cref b: i8): bool
+public operator <= (cref a: i8, cref b: i8): ref bool
 	-> a.pod <= b.pod;
 
-public operator <= (cref a: i8, cref b: __i8): bool
+public operator <= (cref a: i8, cref b: __i8): ref bool
 	-> a.pod <= b;
 
-public operator <= (cref a: __i8, cref b: i8): bool
+public operator <= (cref a: __i8, cref b: i8): ref bool
 	-> a <= b.pod;
 
 
 
 
 
-public operator > (a: __i8, b: __i8): bool
+public operator > (a: __i8, b: __i8): ref bool
 	-> !!nany_is_greater_i8__i8(a, b);
 
-public operator > (cref a: i8, cref b: i8): bool
+public operator > (cref a: i8, cref b: i8): ref bool
 	-> a.pod > b.pod;
 
-public operator > (cref a: i8, cref b: __i8): bool
+public operator > (cref a: i8, cref b: __i8): ref bool
 	-> a.pod > b;
 
-public operator > (cref a: __i8, cref b: i8): bool
+public operator > (cref a: __i8, cref b: i8): ref bool
 	-> a > b.pod;
 
 
 
 
 
-public operator >= (a: __i8, b: __i8): bool
+public operator >= (a: __i8, b: __i8): ref bool
 	-> !!nany_is_greater_or_equal_i8__i8(a, b);
 
-public operator >= (cref a: i8, cref b: i8): bool
+public operator >= (cref a: i8, cref b: i8): ref bool
 	-> a.pod >= b.pod;
 
-public operator >= (cref a: i8, cref b: __i8): bool
+public operator >= (cref a: i8, cref b: __i8): ref bool
 	-> a.pod >= b;
 
-public operator >= (cref a: __i8, cref b: i8): bool
+public operator >= (cref a: __i8, cref b: i8): ref bool
 	-> a >= b.pod;
 
 
 
 
 
-public operator + (cref a: i8, cref b): i8
+public operator + (cref a: i8, cref b): ref i8
 	-> (new a) += b;
 
-public operator + (cref a: __i8, cref b: i8): i8
+public operator + (cref a: __i8, cref b: i8): ref i8
 	-> (new i8(a)) += b;
 
 
 
 
-public operator - (cref a: i8, cref b): i8
+public operator - (cref a: i8, cref b): ref i8
 	-> (new a) -= b;
 
-public operator - (cref a: __i8, cref b: i8): i8
+public operator - (cref a: __i8, cref b: i8): ref i8
 	-> (new i8(a)) -= b;
 
 
 
 
-public operator * (cref a: i8, cref b): i8
+public operator * (cref a: i8, cref b): ref i8
 	-> (new a) *= b;
 
-public operator * (cref a: __i8, cref b: i8): i8
+public operator * (cref a: __i8, cref b: i8): ref i8
 	-> (new i8(a)) *= b;
 
 
 
 
-public operator / (cref a: i8, cref b): i8
+public operator / (cref a: i8, cref b): ref i8
 	-> (new a) /= b;
 
-public operator / (cref a: __i8, cref b: i8): i8
+public operator / (cref a: __i8, cref b: i8): ref i8
 	-> (new i8(a)) /= b;
