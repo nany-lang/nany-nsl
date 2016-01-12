@@ -18,89 +18,91 @@ public class u8
 {
 	operator new;
 	operator new (self pod: __u8);
+	operator new (self cref pod: u8);
 
 
 	operator ++self: ref u8
 	{
-		pod = !!nany_inc_u8(pod);
+		pod = !!inc(pod);
 		return self;
 	}
 
 	operator self++: ref u8
 	{
 		var tmp = self;
-		pod = !!nany_inc_u8(pod);
+		pod = !!inc(pod);
 		return tmp;
 	}
 
 	operator --self: ref u8
 	{
-		pod = !!nany_dec_u8(pod);
+		pod = !!dec(pod);
 		return self;
 	}
 
 	operator self--: ref u8
 	{
 		var tmp = self;
-		pod = !!nany_dec_u8(pod);
+		pod = !!dec(pod);
 		return tmp;
 	}
 
 
 	operator += (cref x: u8): ref u8
 	{
-		pod = !!nany_add_u8_u8(pod, x.pod);
+		pod = !!add(pod, x.pod);
 		return self;
 	}
 
-	operator += (cref x: __u8): ref u8
+	operator += (x: __u8): ref u8
 	{
-		pod = !!nany_add_u8_u8(pod, x);
+		pod = !!add(pod, x);
 		return self;
 	}
 
 
 	operator -= (cref x: u8): ref u8
 	{
-		pod = !!nany_sub_u8_u8(pod, x.pod);
+		pod = !!sub(pod, x.pod);
 		return self;
 	}
 
-	operator -= (cref x: __u8): ref u8
+	operator -= (x: __u8): ref u8
 	{
-		pod = !!nany_sub_u8_u8(pod, x);
+		pod = !!sub(pod, x);
 		return self;
 	}
 
 
 	operator *= (cref x: u8): ref u8
 	{
-		pod = !!nany_mult_u8_u8(pod, x.pod);
+		pod = !!mult(pod, x.pod);
 		return self;
 	}
 
-	operator *= (cref x: __u8): ref u8
+	operator *= (x: __u8): ref u8
 	{
-		pod = !!nany_mult_u8_u8(pod, x);
+		pod = !!mult(pod, x);
 		return self;
 	}
 
 
 	operator /= (cref x: u8): ref u8
 	{
-		pod = !!nany_div_u8_u8(pod, x.pod);
+		pod = !!div(pod, x.pod);
 		return self;
 	}
 
-	operator /= (cref x: __u8): ref u8
+	operator /= (x: __u8): ref u8
 	{
-		pod = !!nany_div_u8_u8(pod, x);
+		pod = !!div(pod, x);
 		return self;
 	}
 
 
+private:
 	//! The real integer representation
-	var pod: __u8 = 0u8;
+	var pod: __u8 = 0__u8;
 }
 
 
@@ -111,122 +113,79 @@ public class u8
 
 
 
-public operator == (a: __u8, b: __u8): ref bool
-	-> !!nany_is_equal_u8__u8(a, b);
+[[builtinalias: gt]] public operator > (a: cref u8, b: cref u8): ref bool;
+[[builtinalias: gt]] public operator > (a: cref u8, b: __u8): ref bool;
+[[builtinalias: gt]] public operator > (a: __u8, b: cref u8): ref bool;
+[[builtinalias: gt]] public operator > (a: __u8, b: __u8): __bool;
 
-public operator == (cref a: u8, cref b: u8): ref bool
-	-> a.pod == b.pod;
+[[builtinalias: gte]] public operator >= (a: cref u8, b: cref u8): ref bool;
+[[builtinalias: gte]] public operator >= (a: cref u8, b: __u8): ref bool;
+[[builtinalias: gte]] public operator >= (a: __u8, b: cref u8): ref bool;
+[[builtinalias: gte]] public operator >= (a: __u8, b: __u8): __bool;
 
-public operator == (cref a: u8, cref b: __u8): ref bool
-	-> a.pod == b;
+[[builtinalias: lt]] public operator < (a: cref u8, b: cref u8): ref bool;
+[[builtinalias: lt]] public operator < (a: cref u8, b: __u8): ref bool;
+[[builtinalias: lt]] public operator < (a: __u8, b: cref u8): ref bool;
+[[builtinalias: lt]] public operator < (a: __u8, b: __u8): __bool;
 
-public operator == (cref a: __u8, cref b: u8): ref bool
-	-> a == b.pod;
-
-
-
-
-public operator != (a: __u8, b: __u8): ref bool
-	-> !!nany_is_not_equal_u8__u8(a, b);
-
-public operator != (cref a: u8, cref b: u8): ref bool
-	-> a.pod != b.pod;
-
-public operator != (cref a: u8, cref b: __u8): ref bool
-	-> a.pod != b;
-
-public operator != (cref a: __u8, cref b: u8): ref bool
-	-> a != b.pod;
+[[builtinalias: lte]] public operator <= (a: cref u8, b: cref u8): ref bool;
+[[builtinalias: lte]] public operator <= (a: cref u8, b: __u8): ref bool;
+[[builtinalias: lte]] public operator <= (a: __u8, b: cref u8): ref bool;
+[[builtinalias: lte]] public operator <= (a: __u8, b: __u8): __bool;
 
 
 
 
-public operator < (a: __u8, b: __u8): ref bool
-	-> !!nany_is_less_u8__u8(a, b);
 
-public operator < (cref a: u8, cref b: u8): ref bool
-	-> a.pod < b.pod;
+[[builtinalias: eq]] public operator == (a: cref u8, b: cref u8): ref bool;
+[[builtinalias: eq]] public operator == (a: cref u8, b: __u8): ref bool;
+[[builtinalias: eq]] public operator == (a: __u8, b: cref u8): ref bool;
+[[builtinalias: eq]] public operator == (a: __u8, b: __u8): __bool;
 
-public operator < (cref a: u8, cref b: __u8): ref bool
-	-> a.pod < b;
-
-public operator < (cref a: __u8, cref b: u8): ref bool
-	-> a < b.pod;
-
-
-
-
-public operator <= (a: __u8, b: __u8): ref bool
-	-> !!nany_is_less_or_equal_u8__u8(a, b);
-
-public operator <= (cref a: u8, cref b: u8): ref bool
-	-> a.pod <= b.pod;
-
-public operator <= (cref a: u8, cref b: __u8): ref bool
-	-> a.pod <= b;
-
-public operator <= (cref a: __u8, cref b: u8): ref bool
-	-> a <= b.pod;
+[[builtinalias: neq]] public operator != (a: cref u8, b: cref u8): ref bool;
+[[builtinalias: neq]] public operator != (a: cref u8, b: __u8): ref bool;
+[[builtinalias: neq]] public operator != (a: __u8, b: cref u8): ref bool;
+[[builtinalias: neq]] public operator != (a: __u8, b: __u8): __bool;
 
 
 
 
-public operator > (a: __u8, b: __u8): ref bool
-	-> !!nany_is_greater_u8__u8(a, b);
 
-public operator > (cref a: u8, cref b: u8): ref bool
-	-> a.pod > b.pod;
+[[builtinalias: add]] public operator + (a: cref u8, b: cref u8): ref u8;
+[[builtinalias: add]] public operator + (a: cref u8, b: __u8): ref u8;
+[[builtinalias: add]] public operator + (a: __u8, b: cref u8): ref u8;
+[[builtinalias: add]] public operator + (a: __u8, b: __u8): __u8;
 
-public operator > (cref a: u8, cref b: __u8): ref bool
-	-> a.pod > b;
+[[builtinalias: add]] public operator - (a: cref u8, b: cref u8): ref u8;
+[[builtinalias: add]] public operator - (a: cref u8, b: __u8): ref u8;
+[[builtinalias: add]] public operator - (a: __u8, b: cref u8): ref u8;
+[[builtinalias: add]] public operator - (a: __u8, b: __u8): __u8;
 
-public operator > (cref a: __u8, cref b: u8): ref bool
-	-> a > b.pod;
+[[builtinalias: add]] public operator / (a: cref u8, b: cref u8): ref u8;
+[[builtinalias: add]] public operator / (a: cref u8, b: __u8): ref u8;
+[[builtinalias: add]] public operator / (a: __u8, b: cref u8): ref u8;
+[[builtinalias: add]] public operator / (a: __u8, b: __u8): __u8;
 
-
-
-
-public operator >= (a: __u8, b: __u8): ref bool
-	-> !!nany_is_greater_or_equal_u8__u8(a, b);
-
-public operator >= (cref a: u8, cref b: u8): ref bool
-	-> a.pod >= b.pod;
-
-public operator >= (cref a: u8, cref b: __u8): ref bool
-	-> a.pod >= b;
-
-public operator >= (cref a: __u8, cref b: u8): ref bool
-	-> a >= b.pod;
+[[builtinalias: add]] public operator * (a: cref u8, b: cref u8): ref u8;
+[[builtinalias: add]] public operator * (a: cref u8, b: __u8): ref u8;
+[[builtinalias: add]] public operator * (a: __u8, b: cref u8): ref u8;
+[[builtinalias: add]] public operator * (a: __u8, b: __u8): __u8;
 
 
 
 
-public operator + (cref a: u8, cref b): ref u8
-	-> (new a) += b;
 
-public operator + (cref a: __u8, cref b: u8): ref u8
-	-> (new u8(a)) += b;
+[[builtinalias: and]] public operator and (a: cref u8, b: cref u8): ref u8;
+[[builtinalias: and]] public operator and (a: cref u8, b: __u8): ref u8;
+[[builtinalias: and]] public operator and (a: __u8, b: cref u8): ref u8;
+[[builtinalias: and]] public operator and (a: __u8, b: __u8): __u8;
 
+[[builtinalias: or]] public operator or (a: cref u8, b: cref u8): ref u8;
+[[builtinalias: or]] public operator or (a: cref u8, b: __u8): ref u8;
+[[builtinalias: or]] public operator or (a: __u8, b: cref u8): ref u8;
+[[builtinalias: or]] public operator or (a: __u8, b: __u8): __u8;
 
-
-public operator - (cref a: u8, cref b): ref u8
-	-> (new a) -= b;
-
-public operator - (cref a: __u8, cref b: u8): ref u8
-	-> (new u8(a)) -= b;
-
-
-
-public operator * (cref a: u8, cref b): ref u8
-	-> (new a) *= b;
-
-public operator * (cref a: __u8, cref b: u8): ref u8
-	-> (new u8(a)) *= b;
-
-
-
-public operator / (cref a: u8, cref b): ref u8
-	-> (new a) /= b;
-
-public operator / (cref a: __u8, cref b: u8): ref u8
-	-> (new u8(a)) /= b;
+[[builtinalias: xor]] public operator xor (a: cref u8, b: cref u8): ref u8;
+[[builtinalias: xor]] public operator xor (a: cref u8, b: __u8): ref u8;
+[[builtinalias: xor]] public operator xor (a: __u8, b: cref u8): ref u8;
+[[builtinalias: xor]] public operator xor (a: __u8, b: __u8): __u8;

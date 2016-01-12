@@ -18,285 +18,291 @@ public class i32
 {
 	operator new;
 	operator new (self pod: __i32);
+	operator new (self cref pod: i32);
 	operator new (self pod: __i16);
+	operator new (self cref pod: i16);
 	operator new (self pod: __i8);
+	operator new (self cref pod: i8);
 	operator new (self pod: __u16);
+	operator new (self cref pod: u16);
 	operator new (self pod: __u8);
+	operator new (self cref pod: u8);
 
 
 	operator ++self: ref i32
 	{
-		pod = !!nany_inc_i32(pod);
+		pod = !!inc(pod);
 		return self;
 	}
 
 	operator self++: ref i32
 	{
 		var tmp = self;
-		pod = !!nany_inc_i32(pod);
+		pod = !!inc(pod);
 		return tmp;
 	}
 
 	operator --self: ref i32
 	{
-		pod = !!nany_dec_i32(pod);
+		pod = !!dec(pod);
 		return self;
 	}
 
 	operator self--: ref i32
 	{
 		var tmp = self;
-		pod = !!nany_dec_i32(pod);
+		pod = !!dec(pod);
 		return tmp;
 	}
 
 
 	operator += (cref x: i32): ref i32
 	{
-		pod = !!nany_add_i32_i32(pod, x.pod);
+		pod = !!add(pod, x.pod);
 		return self;
 	}
 
-	operator += (cref x: __i32): ref i32
+	operator += (x: __i32): ref i32
 	{
-		pod = !!nany_add_i32_i32(pod, x);
+		pod = !!add(pod, x);
 		return self;
 	}
 
 	operator += (cref x: i16): ref i32
 	{
-		pod = !!nany_add_i32_i16(pod, x.pod);
+		pod = !!add(pod, x.pod);
 		return self;
 	}
 
-	operator += (cref x: __i16): ref i32
+	operator += (x: __i16): ref i32
 	{
-		pod = !!nany_add_i32_i16(pod, x);
+		pod = !!add(pod, x);
 		return self;
 	}
 
 	operator += (cref x: i8): ref i32
 	{
-		pod = !!nany_add_i32_i8(pod, x.pod);
+		pod = !!add(pod, x.pod);
 		return self;
 	}
 
-	operator += (cref x: __i8): ref i32
+	operator += (x: __i8): ref i32
 	{
-		pod = !!nany_add_i32_i8(pod, x);
+		pod = !!add(pod, x);
 		return self;
 	}
 
 	operator += (cref x: u16): ref i32
 	{
-		pod = !!nany_add_i32_u16(pod, x.pod);
+		pod = !!add(pod, x.pod);
 		return self;
 	}
 
-	operator += (cref x: __u16): ref i32
+	operator += (x: __u16): ref i32
 	{
-		pod = !!nany_add_i32_u16(pod, x);
+		pod = !!add(pod, x);
 		return self;
 	}
 
 	operator += (cref x: u8): ref i32
 	{
-		pod = !!nany_add_i32_u8(pod, x.pod);
+		pod = !!add(pod, x.pod);
 		return self;
 	}
 
-	operator += (cref x: __u8): ref i32
+	operator += (x: __u8): ref i32
 	{
-		pod = !!nany_add_i32_u8(pod, x);
+		pod = !!add(pod, x);
 		return self;
 	}
 
 
 	operator -= (cref x: i32): ref i32
 	{
-		pod = !!nany_sub_i32_i32(pod, x.pod);
+		pod = !!sub(pod, x.pod);
 		return self;
 	}
 
-	operator -= (cref x: __i32): ref i32
+	operator -= (x: __i32): ref i32
 	{
-		pod = !!nany_sub_i32_i32(pod, x);
+		pod = !!sub(pod, x);
 		return self;
 	}
 
 	operator -= (cref x: i16): ref i32
 	{
-		pod = !!nany_sub_i32_i16(pod, x.pod);
+		pod = !!sub(pod, x.pod);
 		return self;
 	}
 
-	operator -= (cref x: __i16): ref i32
+	operator -= (x: __i16): ref i32
 	{
-		pod = !!nany_sub_i32_i16(pod, x);
+		pod = !!sub(pod, x);
 		return self;
 	}
 
 	operator -= (cref x: i8): ref i32
 	{
-		pod = !!nany_sub_i32_i8(pod, x.pod);
+		pod = !!sub(pod, x.pod);
 		return self;
 	}
 
-	operator -= (cref x: __i8): ref i32
+	operator -= (x: __i8): ref i32
 	{
-		pod = !!nany_sub_i32_i8(pod, x);
+		pod = !!sub(pod, x);
 		return self;
 	}
 
 	operator -= (cref x: u16): ref i32
 	{
-		pod = !!nany_sub_i32_u16(pod, x.pod);
+		pod = !!sub(pod, x.pod);
 		return self;
 	}
 
-	operator -= (cref x: __u16): ref i32
+	operator -= (x: __u16): ref i32
 	{
-		pod = !!nany_sub_i32_u16(pod, x);
+		pod = !!sub(pod, x);
 		return self;
 	}
 
 	operator -= (cref x: u8): ref i32
 	{
-		pod = !!nany_sub_i32_u8(pod, x.pod);
+		pod = !!sub(pod, x.pod);
 		return self;
 	}
 
-	operator -= (cref x: __u8): ref i32
+	operator -= (x: __u8): ref i32
 	{
-		pod = !!nany_sub_i32_u8(pod, x);
+		pod = !!sub(pod, x);
 		return self;
 	}
 
 
 	operator *= (cref x: i32): ref i32
 	{
-		pod = !!nany_mult_i32_i32(pod, x.pod);
+		pod = !!mult(pod, x.pod);
 		return self;
 	}
 
-	operator *= (cref x: __i32): ref i32
+	operator *= (x: __i32): ref i32
 	{
-		pod = !!nany_mult_i32_i32(pod, x);
+		pod = !!mult(pod, x);
 		return self;
 	}
 
 	operator *= (cref x: i16): ref i32
 	{
-		pod = !!nany_mult_i32_i16(pod, x.pod);
+		pod = !!mult(pod, x.pod);
 		return self;
 	}
 
-	operator *= (cref x: __i16): ref i32
+	operator *= (x: __i16): ref i32
 	{
-		pod = !!nany_mult_i32_i16(pod, x);
+		pod = !!mult(pod, x);
 		return self;
 	}
 
 	operator *= (cref x: i8): ref i32
 	{
-		pod = !!nany_mult_i32_i8(pod, x.pod);
+		pod = !!mult(pod, x.pod);
 		return self;
 	}
 
-	operator *= (cref x: __i8): ref i32
+	operator *= (x: __i8): ref i32
 	{
-		pod = !!nany_mult_i32_i8(pod, x);
+		pod = !!mult(pod, x);
 		return self;
 	}
 
 	operator *= (cref x: u16): ref i32
 	{
-		pod = !!nany_mult_i32_u16(pod, x.pod);
+		pod = !!mult(pod, x.pod);
 		return self;
 	}
 
-	operator *= (cref x: __u16): ref i32
+	operator *= (x: __u16): ref i32
 	{
-		pod = !!nany_mult_i32_u16(pod, x);
+		pod = !!mult(pod, x);
 		return self;
 	}
 
 	operator *= (cref x: u8): ref i32
 	{
-		pod = !!nany_mult_i32_u8(pod, x.pod);
+		pod = !!mult(pod, x.pod);
 		return self;
 	}
 
-	operator *= (cref x: __u8): ref i32
+	operator *= (x: __u8): ref i32
 	{
-		pod = !!nany_mult_i32_u8(pod, x);
+		pod = !!mult(pod, x);
 		return self;
 	}
 
 
 	operator /= (cref x: i32): ref i32
 	{
-		pod = !!nany_div_i32_i32(pod, x.pod);
+		pod = !!div(pod, x.pod);
 		return self;
 	}
 
-	operator /= (cref x: __i32): ref i32
+	operator /= (x: __i32): ref i32
 	{
-		pod = !!nany_div_i32_i32(pod, x);
+		pod = !!div(pod, x);
 		return self;
 	}
 
 	operator /= (cref x: i16): ref i32
 	{
-		pod = !!nany_div_i32_i16(pod, x.pod);
+		pod = !!div(pod, x.pod);
 		return self;
 	}
 
-	operator /= (cref x: __i16): ref i32
+	operator /= (x: __i16): ref i32
 	{
-		pod = !!nany_div_i32_i16(pod, x);
+		pod = !!div(pod, x);
 		return self;
 	}
 
 	operator /= (cref x: i8): ref i32
 	{
-		pod = !!nany_div_i32_i8(pod, x.pod);
+		pod = !!div(pod, x.pod);
 		return self;
 	}
 
-	operator /= (cref x: __i8): ref i32
+	operator /= (x: __i8): ref i32
 	{
-		pod = !!nany_div_i32_i8(pod, x);
+		pod = !!div(pod, x);
 		return self;
 	}
 
 	operator /= (cref x: u16): ref i32
 	{
-		pod = !!nany_div_i32_u16(pod, x.pod);
+		pod = !!div(pod, x.pod);
 		return self;
 	}
 
-	operator /= (cref x: __u16): ref i32
+	operator /= (x: __u16): ref i32
 	{
-		pod = !!nany_div_i32_u16(pod, x);
+		pod = !!div(pod, x);
 		return self;
 	}
 
 	operator /= (cref x: u8): ref i32
 	{
-		pod = !!nany_div_i32_u8(pod, x.pod);
+		pod = !!div(pod, x.pod);
 		return self;
 	}
 
-	operator /= (cref x: __u8): ref i32
+	operator /= (x: __u8): ref i32
 	{
-		pod = !!nany_div_i32_u8(pod, x);
+		pod = !!div(pod, x);
 		return self;
 	}
 
 
+private:
 	//! The real integer representation
-	var pod: __i32 = 0i32;
+	var pod: __i32 = 0__i32;
 }
 
 
@@ -307,492 +313,287 @@ public class i32
 
 
 
-public operator == (a: __i32, b: __i32): ref bool
-	-> !!nany_is_equal_i32__i32(a, b);
-
-public operator == (cref a: i32, cref b: i32): ref bool
-	-> a.pod == b.pod;
-
-public operator == (cref a: i32, cref b: __i32): ref bool
-	-> a.pod == b;
-
-public operator == (cref a: __i32, cref b: i32): ref bool
-	-> a == b.pod;
-
-
-public operator == (a: __i32, b: __i16): ref bool
-	-> !!nany_is_equal_i32__i16(a, b);
-
-public operator == (cref a: i32, cref b: i16): ref bool
-	-> a.pod == b.pod;
-
-public operator == (cref a: i32, cref b: __i16): ref bool
-	-> a.pod == b;
-
-public operator == (cref a: __i32, cref b: i16): ref bool
-	-> a == b.pod;
-
-
-public operator == (a: __i32, b: __i8): ref bool
-	-> !!nany_is_equal_i32__i8(a, b);
-
-public operator == (cref a: i32, cref b: i8): ref bool
-	-> a.pod == b.pod;
-
-public operator == (cref a: i32, cref b: __i8): ref bool
-	-> a.pod == b;
-
-public operator == (cref a: __i32, cref b: i8): ref bool
-	-> a == b.pod;
-
-
-
-public operator == (a: __i32, b: __u16): ref bool
-	-> !!nany_is_equal_i32__u16(a, b);
-
-public operator == (cref a: i32, cref b: u16): ref bool
-	-> a.pod == b.pod;
-
-public operator == (cref a: i32, cref b: __u16): ref bool
-	-> a.pod == b;
-
-public operator == (cref a: __i32, cref b: u16): ref bool
-	-> a == b.pod;
-
-
-public operator == (a: __i32, b: __u8): ref bool
-	-> !!nany_is_equal_i32__u8(a, b);
-
-public operator == (cref a: i32, cref b: u8): ref bool
-	-> a.pod == b.pod;
-
-public operator == (cref a: i32, cref b: __u8): ref bool
-	-> a.pod == b;
-
-public operator == (cref a: __i32, cref b: u8): ref bool
-	-> a == b.pod;
-
-
-
-
-public operator != (a: __i32, b: __i32): ref bool
-	-> !!nany_is_not_equal_i32__i32(a, b);
-
-public operator != (cref a: i32, cref b: i32): ref bool
-	-> a.pod != b.pod;
-
-public operator != (cref a: i32, cref b: __i32): ref bool
-	-> a.pod != b;
-
-public operator != (cref a: __i32, cref b: i32): ref bool
-	-> a != b.pod;
-
-
-public operator != (a: __i32, b: __i16): ref bool
-	-> !!nany_is_not_equal_i32__i16(a, b);
-
-public operator != (cref a: i32, cref b: i16): ref bool
-	-> a.pod != b.pod;
-
-public operator != (cref a: i32, cref b: __i16): ref bool
-	-> a.pod != b;
-
-public operator != (cref a: __i32, cref b: i16): ref bool
-	-> a != b.pod;
-
-
-public operator != (a: __i32, b: __i8): ref bool
-	-> !!nany_is_not_equal_i32__i8(a, b);
-
-public operator != (cref a: i32, cref b: i8): ref bool
-	-> a.pod != b.pod;
-
-public operator != (cref a: i32, cref b: __i8): ref bool
-	-> a.pod != b;
-
-public operator != (cref a: __i32, cref b: i8): ref bool
-	-> a != b.pod;
-
-
-
-public operator != (a: __i32, b: __u16): ref bool
-	-> !!nany_is_not_equal_i32__u16(a, b);
-
-public operator != (cref a: i32, cref b: u16): ref bool
-	-> a.pod != b.pod;
-
-public operator != (cref a: i32, cref b: __u16): ref bool
-	-> a.pod != b;
-
-public operator != (cref a: __i32, cref b: u16): ref bool
-	-> a != b.pod;
-
-
-public operator != (a: __i32, b: __u8): ref bool
-	-> !!nany_is_not_equal_i32__u8(a, b);
-
-public operator != (cref a: i32, cref b: u8): ref bool
-	-> a.pod != b.pod;
-
-public operator != (cref a: i32, cref b: __u8): ref bool
-	-> a.pod != b;
-
-public operator != (cref a: __i32, cref b: u8): ref bool
-	-> a != b.pod;
-
-
-
-
-public operator < (a: __i32, b: __i32): ref bool
-	-> !!nany_is_less_i32__i32(a, b);
-
-public operator < (cref a: i32, cref b: i32): ref bool
-	-> a.pod < b.pod;
-
-public operator < (cref a: i32, cref b: __i32): ref bool
-	-> a.pod < b;
-
-public operator < (cref a: __i32, cref b: i32): ref bool
-	-> a < b.pod;
-
-
-public operator < (a: __i32, b: __i16): ref bool
-	-> !!nany_is_less_i32__i16(a, b);
-
-public operator < (cref a: i32, cref b: i16): ref bool
-	-> a.pod < b.pod;
-
-public operator < (cref a: i32, cref b: __i16): ref bool
-	-> a.pod < b;
-
-public operator < (cref a: __i32, cref b: i16): ref bool
-	-> a < b.pod;
-
-
-public operator < (a: __i32, b: __i8): ref bool
-	-> !!nany_is_less_i32__i8(a, b);
-
-public operator < (cref a: i32, cref b: i8): ref bool
-	-> a.pod < b.pod;
-
-public operator < (cref a: i32, cref b: __i8): ref bool
-	-> a.pod < b;
-
-public operator < (cref a: __i32, cref b: i8): ref bool
-	-> a < b.pod;
-
-
-
-public operator < (a: __i32, b: __u16): ref bool
-	-> !!nany_is_less_i32__u16(a, b);
-
-public operator < (cref a: i32, cref b: u16): ref bool
-	-> a.pod < b.pod;
-
-public operator < (cref a: i32, cref b: __u16): ref bool
-	-> a.pod < b;
-
-public operator < (cref a: __i32, cref b: u16): ref bool
-	-> a < b.pod;
-
-
-public operator < (a: __i32, b: __u8): ref bool
-	-> !!nany_is_less_i32__u8(a, b);
-
-public operator < (cref a: i32, cref b: u8): ref bool
-	-> a.pod < b.pod;
-
-public operator < (cref a: i32, cref b: __u8): ref bool
-	-> a.pod < b;
-
-public operator < (cref a: __i32, cref b: u8): ref bool
-	-> a < b.pod;
-
-
-
-
-public operator <= (a: __i32, b: __i32): ref bool
-	-> !!nany_is_less_or_equal_i32__i32(a, b);
-
-public operator <= (cref a: i32, cref b: i32): ref bool
-	-> a.pod <= b.pod;
-
-public operator <= (cref a: i32, cref b: __i32): ref bool
-	-> a.pod <= b;
-
-public operator <= (cref a: __i32, cref b: i32): ref bool
-	-> a <= b.pod;
-
-
-public operator <= (a: __i32, b: __i16): ref bool
-	-> !!nany_is_less_or_equal_i32__i16(a, b);
-
-public operator <= (cref a: i32, cref b: i16): ref bool
-	-> a.pod <= b.pod;
-
-public operator <= (cref a: i32, cref b: __i16): ref bool
-	-> a.pod <= b;
-
-public operator <= (cref a: __i32, cref b: i16): ref bool
-	-> a <= b.pod;
-
-
-public operator <= (a: __i32, b: __i8): ref bool
-	-> !!nany_is_less_or_equal_i32__i8(a, b);
-
-public operator <= (cref a: i32, cref b: i8): ref bool
-	-> a.pod <= b.pod;
-
-public operator <= (cref a: i32, cref b: __i8): ref bool
-	-> a.pod <= b;
-
-public operator <= (cref a: __i32, cref b: i8): ref bool
-	-> a <= b.pod;
-
-
-
-public operator <= (a: __i32, b: __u16): ref bool
-	-> !!nany_is_less_or_equal_i32__u16(a, b);
-
-public operator <= (cref a: i32, cref b: u16): ref bool
-	-> a.pod <= b.pod;
-
-public operator <= (cref a: i32, cref b: __u16): ref bool
-	-> a.pod <= b;
-
-public operator <= (cref a: __i32, cref b: u16): ref bool
-	-> a <= b.pod;
-
-
-public operator <= (a: __i32, b: __u8): ref bool
-	-> !!nany_is_less_or_equal_i32__u8(a, b);
-
-public operator <= (cref a: i32, cref b: u8): ref bool
-	-> a.pod <= b.pod;
-
-public operator <= (cref a: i32, cref b: __u8): ref bool
-	-> a.pod <= b;
-
-public operator <= (cref a: __i32, cref b: u8): ref bool
-	-> a <= b.pod;
-
-
-
-
-public operator > (a: __i32, b: __i32): ref bool
-	-> !!nany_is_greater_i32__i32(a, b);
-
-public operator > (cref a: i32, cref b: i32): ref bool
-	-> a.pod > b.pod;
-
-public operator > (cref a: i32, cref b: __i32): ref bool
-	-> a.pod > b;
-
-public operator > (cref a: __i32, cref b: i32): ref bool
-	-> a > b.pod;
-
-
-public operator > (a: __i32, b: __i16): ref bool
-	-> !!nany_is_greater_i32__i16(a, b);
-
-public operator > (cref a: i32, cref b: i16): ref bool
-	-> a.pod > b.pod;
-
-public operator > (cref a: i32, cref b: __i16): ref bool
-	-> a.pod > b;
-
-public operator > (cref a: __i32, cref b: i16): ref bool
-	-> a > b.pod;
-
-
-public operator > (a: __i32, b: __i8): ref bool
-	-> !!nany_is_greater_i32__i8(a, b);
-
-public operator > (cref a: i32, cref b: i8): ref bool
-	-> a.pod > b.pod;
-
-public operator > (cref a: i32, cref b: __i8): ref bool
-	-> a.pod > b;
-
-public operator > (cref a: __i32, cref b: i8): ref bool
-	-> a > b.pod;
-
-
-
-public operator > (a: __i32, b: __u16): ref bool
-	-> !!nany_is_greater_i32__u16(a, b);
-
-public operator > (cref a: i32, cref b: u16): ref bool
-	-> a.pod > b.pod;
-
-public operator > (cref a: i32, cref b: __u16): ref bool
-	-> a.pod > b;
-
-public operator > (cref a: __i32, cref b: u16): ref bool
-	-> a > b.pod;
-
-
-public operator > (a: __i32, b: __u8): ref bool
-	-> !!nany_is_greater_i32__u8(a, b);
-
-public operator > (cref a: i32, cref b: u8): ref bool
-	-> a.pod > b.pod;
-
-public operator > (cref a: i32, cref b: __u8): ref bool
-	-> a.pod > b;
-
-public operator > (cref a: __i32, cref b: u8): ref bool
-	-> a > b.pod;
-
-
-
-
-public operator >= (a: __i32, b: __i32): ref bool
-	-> !!nany_is_greater_or_equal_i32__i32(a, b);
-
-public operator >= (cref a: i32, cref b: i32): ref bool
-	-> a.pod >= b.pod;
-
-public operator >= (cref a: i32, cref b: __i32): ref bool
-	-> a.pod >= b;
-
-public operator >= (cref a: __i32, cref b: i32): ref bool
-	-> a >= b.pod;
-
-
-public operator >= (a: __i32, b: __i16): ref bool
-	-> !!nany_is_greater_or_equal_i32__i16(a, b);
-
-public operator >= (cref a: i32, cref b: i16): ref bool
-	-> a.pod >= b.pod;
-
-public operator >= (cref a: i32, cref b: __i16): ref bool
-	-> a.pod >= b;
-
-public operator >= (cref a: __i32, cref b: i16): ref bool
-	-> a >= b.pod;
-
-
-public operator >= (a: __i32, b: __i8): ref bool
-	-> !!nany_is_greater_or_equal_i32__i8(a, b);
-
-public operator >= (cref a: i32, cref b: i8): ref bool
-	-> a.pod >= b.pod;
-
-public operator >= (cref a: i32, cref b: __i8): ref bool
-	-> a.pod >= b;
-
-public operator >= (cref a: __i32, cref b: i8): ref bool
-	-> a >= b.pod;
-
-
-
-public operator >= (a: __i32, b: __u16): ref bool
-	-> !!nany_is_greater_or_equal_i32__u16(a, b);
-
-public operator >= (cref a: i32, cref b: u16): ref bool
-	-> a.pod >= b.pod;
-
-public operator >= (cref a: i32, cref b: __u16): ref bool
-	-> a.pod >= b;
-
-public operator >= (cref a: __i32, cref b: u16): ref bool
-	-> a >= b.pod;
-
-
-public operator >= (a: __i32, b: __u8): ref bool
-	-> !!nany_is_greater_or_equal_i32__u8(a, b);
-
-public operator >= (cref a: i32, cref b: u8): ref bool
-	-> a.pod >= b.pod;
-
-public operator >= (cref a: i32, cref b: __u8): ref bool
-	-> a.pod >= b;
-
-public operator >= (cref a: __i32, cref b: u8): ref bool
-	-> a >= b.pod;
-
-
-
-
-public operator + (cref a: i32, cref b): ref i32
-	-> (new a) += b;
-
-public operator + (cref a: __i32, cref b: i32): ref i32
-	-> (new i32(a)) += b;
-
-public operator + (cref a: __i16, cref b: i32): ref i32
-	-> (new i32(a)) += b;
-
-public operator + (cref a: __i8, cref b: i32): ref i32
-	-> (new i32(a)) += b;
-
-
-public operator + (cref a: __u16, cref b: i32): ref i32
-	-> (new i32(a)) += b;
-
-public operator + (cref a: __u8, cref b: i32): ref i32
-	-> (new i32(a)) += b;
-
-
-
-public operator - (cref a: i32, cref b): ref i32
-	-> (new a) -= b;
-
-public operator - (cref a: __i32, cref b: i32): ref i32
-	-> (new i32(a)) -= b;
-
-public operator - (cref a: __i16, cref b: i32): ref i32
-	-> (new i32(a)) -= b;
-
-public operator - (cref a: __i8, cref b: i32): ref i32
-	-> (new i32(a)) -= b;
-
-
-public operator - (cref a: __u16, cref b: i32): ref i32
-	-> (new i32(a)) -= b;
-
-public operator - (cref a: __u8, cref b: i32): ref i32
-	-> (new i32(a)) -= b;
-
-
-
-public operator * (cref a: i32, cref b): ref i32
-	-> (new a) *= b;
-
-public operator * (cref a: __i32, cref b: i32): ref i32
-	-> (new i32(a)) *= b;
-
-public operator * (cref a: __i16, cref b: i32): ref i32
-	-> (new i32(a)) *= b;
-
-public operator * (cref a: __i8, cref b: i32): ref i32
-	-> (new i32(a)) *= b;
-
-
-public operator * (cref a: __u16, cref b: i32): ref i32
-	-> (new i32(a)) *= b;
-
-public operator * (cref a: __u8, cref b: i32): ref i32
-	-> (new i32(a)) *= b;
-
-
-
-public operator / (cref a: i32, cref b): ref i32
-	-> (new a) /= b;
-
-public operator / (cref a: __i32, cref b: i32): ref i32
-	-> (new i32(a)) /= b;
-
-public operator / (cref a: __i16, cref b: i32): ref i32
-	-> (new i32(a)) /= b;
-
-public operator / (cref a: __i8, cref b: i32): ref i32
-	-> (new i32(a)) /= b;
-
-
-public operator / (cref a: __u16, cref b: i32): ref i32
-	-> (new i32(a)) /= b;
-
-public operator / (cref a: __u8, cref b: i32): ref i32
-	-> (new i32(a)) /= b;
+[[builtinalias: gt]] public operator > (a: cref i32, b: cref i32): ref bool;
+[[builtinalias: gt]] public operator > (a: cref i32, b: __i32): ref bool;
+[[builtinalias: gt]] public operator > (a: __i32, b: cref i32): ref bool;
+[[builtinalias: gt]] public operator > (a: __i32, b: __i32): __bool;
+[[builtinalias: gt]] public operator > (a: cref i32, b: cref i16): ref bool;
+[[builtinalias: gt]] public operator > (a: cref i32, b: __i16): ref bool;
+[[builtinalias: gt]] public operator > (a: __i32, b: cref i16): ref bool;
+[[builtinalias: gt]] public operator > (a: __i32, b: __i16): __bool;
+[[builtinalias: gt]] public operator > (a: cref i32, b: cref i8): ref bool;
+[[builtinalias: gt]] public operator > (a: cref i32, b: __i8): ref bool;
+[[builtinalias: gt]] public operator > (a: __i32, b: cref i8): ref bool;
+[[builtinalias: gt]] public operator > (a: __i32, b: __i8): __bool;
+[[builtinalias: gt]] public operator > (a: cref i32, b: cref u16): ref bool;
+[[builtinalias: gt]] public operator > (a: cref i32, b: __u16): ref bool;
+[[builtinalias: gt]] public operator > (a: __i32, b: cref u16): ref bool;
+[[builtinalias: gt]] public operator > (a: __i32, b: __u16): __bool;
+[[builtinalias: gt]] public operator > (a: cref i32, b: cref u8): ref bool;
+[[builtinalias: gt]] public operator > (a: cref i32, b: __u8): ref bool;
+[[builtinalias: gt]] public operator > (a: __i32, b: cref u8): ref bool;
+[[builtinalias: gt]] public operator > (a: __i32, b: __u8): __bool;
+
+[[builtinalias: gte]] public operator >= (a: cref i32, b: cref i32): ref bool;
+[[builtinalias: gte]] public operator >= (a: cref i32, b: __i32): ref bool;
+[[builtinalias: gte]] public operator >= (a: __i32, b: cref i32): ref bool;
+[[builtinalias: gte]] public operator >= (a: __i32, b: __i32): __bool;
+[[builtinalias: gte]] public operator >= (a: cref i32, b: cref i16): ref bool;
+[[builtinalias: gte]] public operator >= (a: cref i32, b: __i16): ref bool;
+[[builtinalias: gte]] public operator >= (a: __i32, b: cref i16): ref bool;
+[[builtinalias: gte]] public operator >= (a: __i32, b: __i16): __bool;
+[[builtinalias: gte]] public operator >= (a: cref i32, b: cref i8): ref bool;
+[[builtinalias: gte]] public operator >= (a: cref i32, b: __i8): ref bool;
+[[builtinalias: gte]] public operator >= (a: __i32, b: cref i8): ref bool;
+[[builtinalias: gte]] public operator >= (a: __i32, b: __i8): __bool;
+[[builtinalias: gte]] public operator >= (a: cref i32, b: cref u16): ref bool;
+[[builtinalias: gte]] public operator >= (a: cref i32, b: __u16): ref bool;
+[[builtinalias: gte]] public operator >= (a: __i32, b: cref u16): ref bool;
+[[builtinalias: gte]] public operator >= (a: __i32, b: __u16): __bool;
+[[builtinalias: gte]] public operator >= (a: cref i32, b: cref u8): ref bool;
+[[builtinalias: gte]] public operator >= (a: cref i32, b: __u8): ref bool;
+[[builtinalias: gte]] public operator >= (a: __i32, b: cref u8): ref bool;
+[[builtinalias: gte]] public operator >= (a: __i32, b: __u8): __bool;
+
+[[builtinalias: lt]] public operator < (a: cref i32, b: cref i32): ref bool;
+[[builtinalias: lt]] public operator < (a: cref i32, b: __i32): ref bool;
+[[builtinalias: lt]] public operator < (a: __i32, b: cref i32): ref bool;
+[[builtinalias: lt]] public operator < (a: __i32, b: __i32): __bool;
+[[builtinalias: lt]] public operator < (a: cref i32, b: cref i16): ref bool;
+[[builtinalias: lt]] public operator < (a: cref i32, b: __i16): ref bool;
+[[builtinalias: lt]] public operator < (a: __i32, b: cref i16): ref bool;
+[[builtinalias: lt]] public operator < (a: __i32, b: __i16): __bool;
+[[builtinalias: lt]] public operator < (a: cref i32, b: cref i8): ref bool;
+[[builtinalias: lt]] public operator < (a: cref i32, b: __i8): ref bool;
+[[builtinalias: lt]] public operator < (a: __i32, b: cref i8): ref bool;
+[[builtinalias: lt]] public operator < (a: __i32, b: __i8): __bool;
+[[builtinalias: lt]] public operator < (a: cref i32, b: cref u16): ref bool;
+[[builtinalias: lt]] public operator < (a: cref i32, b: __u16): ref bool;
+[[builtinalias: lt]] public operator < (a: __i32, b: cref u16): ref bool;
+[[builtinalias: lt]] public operator < (a: __i32, b: __u16): __bool;
+[[builtinalias: lt]] public operator < (a: cref i32, b: cref u8): ref bool;
+[[builtinalias: lt]] public operator < (a: cref i32, b: __u8): ref bool;
+[[builtinalias: lt]] public operator < (a: __i32, b: cref u8): ref bool;
+[[builtinalias: lt]] public operator < (a: __i32, b: __u8): __bool;
+
+[[builtinalias: lte]] public operator <= (a: cref i32, b: cref i32): ref bool;
+[[builtinalias: lte]] public operator <= (a: cref i32, b: __i32): ref bool;
+[[builtinalias: lte]] public operator <= (a: __i32, b: cref i32): ref bool;
+[[builtinalias: lte]] public operator <= (a: __i32, b: __i32): __bool;
+[[builtinalias: lte]] public operator <= (a: cref i32, b: cref i16): ref bool;
+[[builtinalias: lte]] public operator <= (a: cref i32, b: __i16): ref bool;
+[[builtinalias: lte]] public operator <= (a: __i32, b: cref i16): ref bool;
+[[builtinalias: lte]] public operator <= (a: __i32, b: __i16): __bool;
+[[builtinalias: lte]] public operator <= (a: cref i32, b: cref i8): ref bool;
+[[builtinalias: lte]] public operator <= (a: cref i32, b: __i8): ref bool;
+[[builtinalias: lte]] public operator <= (a: __i32, b: cref i8): ref bool;
+[[builtinalias: lte]] public operator <= (a: __i32, b: __i8): __bool;
+[[builtinalias: lte]] public operator <= (a: cref i32, b: cref u16): ref bool;
+[[builtinalias: lte]] public operator <= (a: cref i32, b: __u16): ref bool;
+[[builtinalias: lte]] public operator <= (a: __i32, b: cref u16): ref bool;
+[[builtinalias: lte]] public operator <= (a: __i32, b: __u16): __bool;
+[[builtinalias: lte]] public operator <= (a: cref i32, b: cref u8): ref bool;
+[[builtinalias: lte]] public operator <= (a: cref i32, b: __u8): ref bool;
+[[builtinalias: lte]] public operator <= (a: __i32, b: cref u8): ref bool;
+[[builtinalias: lte]] public operator <= (a: __i32, b: __u8): __bool;
+
+
+
+
+
+[[builtinalias: eq]] public operator == (a: cref i32, b: cref i32): ref bool;
+[[builtinalias: eq]] public operator == (a: cref i32, b: __i32): ref bool;
+[[builtinalias: eq]] public operator == (a: __i32, b: cref i32): ref bool;
+[[builtinalias: eq]] public operator == (a: __i32, b: __i32): __bool;
+[[builtinalias: eq]] public operator == (a: cref i32, b: cref i16): ref bool;
+[[builtinalias: eq]] public operator == (a: cref i32, b: __i16): ref bool;
+[[builtinalias: eq]] public operator == (a: __i32, b: cref i16): ref bool;
+[[builtinalias: eq]] public operator == (a: __i32, b: __i16): __bool;
+[[builtinalias: eq]] public operator == (a: cref i32, b: cref i8): ref bool;
+[[builtinalias: eq]] public operator == (a: cref i32, b: __i8): ref bool;
+[[builtinalias: eq]] public operator == (a: __i32, b: cref i8): ref bool;
+[[builtinalias: eq]] public operator == (a: __i32, b: __i8): __bool;
+[[builtinalias: eq]] public operator == (a: cref i32, b: cref u16): ref bool;
+[[builtinalias: eq]] public operator == (a: cref i32, b: __u16): ref bool;
+[[builtinalias: eq]] public operator == (a: __i32, b: cref u16): ref bool;
+[[builtinalias: eq]] public operator == (a: __i32, b: __u16): __bool;
+[[builtinalias: eq]] public operator == (a: cref i32, b: cref u8): ref bool;
+[[builtinalias: eq]] public operator == (a: cref i32, b: __u8): ref bool;
+[[builtinalias: eq]] public operator == (a: __i32, b: cref u8): ref bool;
+[[builtinalias: eq]] public operator == (a: __i32, b: __u8): __bool;
+
+[[builtinalias: neq]] public operator != (a: cref i32, b: cref i32): ref bool;
+[[builtinalias: neq]] public operator != (a: cref i32, b: __i32): ref bool;
+[[builtinalias: neq]] public operator != (a: __i32, b: cref i32): ref bool;
+[[builtinalias: neq]] public operator != (a: __i32, b: __i32): __bool;
+[[builtinalias: neq]] public operator != (a: cref i32, b: cref i16): ref bool;
+[[builtinalias: neq]] public operator != (a: cref i32, b: __i16): ref bool;
+[[builtinalias: neq]] public operator != (a: __i32, b: cref i16): ref bool;
+[[builtinalias: neq]] public operator != (a: __i32, b: __i16): __bool;
+[[builtinalias: neq]] public operator != (a: cref i32, b: cref i8): ref bool;
+[[builtinalias: neq]] public operator != (a: cref i32, b: __i8): ref bool;
+[[builtinalias: neq]] public operator != (a: __i32, b: cref i8): ref bool;
+[[builtinalias: neq]] public operator != (a: __i32, b: __i8): __bool;
+[[builtinalias: neq]] public operator != (a: cref i32, b: cref u16): ref bool;
+[[builtinalias: neq]] public operator != (a: cref i32, b: __u16): ref bool;
+[[builtinalias: neq]] public operator != (a: __i32, b: cref u16): ref bool;
+[[builtinalias: neq]] public operator != (a: __i32, b: __u16): __bool;
+[[builtinalias: neq]] public operator != (a: cref i32, b: cref u8): ref bool;
+[[builtinalias: neq]] public operator != (a: cref i32, b: __u8): ref bool;
+[[builtinalias: neq]] public operator != (a: __i32, b: cref u8): ref bool;
+[[builtinalias: neq]] public operator != (a: __i32, b: __u8): __bool;
+
+
+
+
+
+[[builtinalias: add]] public operator + (a: cref i32, b: cref i32): ref i32;
+[[builtinalias: add]] public operator + (a: cref i32, b: __i32): ref i32;
+[[builtinalias: add]] public operator + (a: __i32, b: cref i32): ref i32;
+[[builtinalias: add]] public operator + (a: __i32, b: __i32): __i32;
+[[builtinalias: add]] public operator + (a: cref i32, b: cref i16): ref i32;
+[[builtinalias: add]] public operator + (a: cref i32, b: __i16): ref i32;
+[[builtinalias: add]] public operator + (a: __i32, b: cref i16): ref i32;
+[[builtinalias: add]] public operator + (a: __i32, b: __i16): __i32;
+[[builtinalias: add]] public operator + (a: cref i32, b: cref i8): ref i32;
+[[builtinalias: add]] public operator + (a: cref i32, b: __i8): ref i32;
+[[builtinalias: add]] public operator + (a: __i32, b: cref i8): ref i32;
+[[builtinalias: add]] public operator + (a: __i32, b: __i8): __i32;
+[[builtinalias: add]] public operator + (a: cref i32, b: cref u16): ref i32;
+[[builtinalias: add]] public operator + (a: cref i32, b: __u16): ref i32;
+[[builtinalias: add]] public operator + (a: __i32, b: cref u16): ref i32;
+[[builtinalias: add]] public operator + (a: __i32, b: __u16): __i32;
+[[builtinalias: add]] public operator + (a: cref i32, b: cref u8): ref i32;
+[[builtinalias: add]] public operator + (a: cref i32, b: __u8): ref i32;
+[[builtinalias: add]] public operator + (a: __i32, b: cref u8): ref i32;
+[[builtinalias: add]] public operator + (a: __i32, b: __u8): __i32;
+
+[[builtinalias: add]] public operator - (a: cref i32, b: cref i32): ref i32;
+[[builtinalias: add]] public operator - (a: cref i32, b: __i32): ref i32;
+[[builtinalias: add]] public operator - (a: __i32, b: cref i32): ref i32;
+[[builtinalias: add]] public operator - (a: __i32, b: __i32): __i32;
+[[builtinalias: add]] public operator - (a: cref i32, b: cref i16): ref i32;
+[[builtinalias: add]] public operator - (a: cref i32, b: __i16): ref i32;
+[[builtinalias: add]] public operator - (a: __i32, b: cref i16): ref i32;
+[[builtinalias: add]] public operator - (a: __i32, b: __i16): __i32;
+[[builtinalias: add]] public operator - (a: cref i32, b: cref i8): ref i32;
+[[builtinalias: add]] public operator - (a: cref i32, b: __i8): ref i32;
+[[builtinalias: add]] public operator - (a: __i32, b: cref i8): ref i32;
+[[builtinalias: add]] public operator - (a: __i32, b: __i8): __i32;
+[[builtinalias: add]] public operator - (a: cref i32, b: cref u16): ref i32;
+[[builtinalias: add]] public operator - (a: cref i32, b: __u16): ref i32;
+[[builtinalias: add]] public operator - (a: __i32, b: cref u16): ref i32;
+[[builtinalias: add]] public operator - (a: __i32, b: __u16): __i32;
+[[builtinalias: add]] public operator - (a: cref i32, b: cref u8): ref i32;
+[[builtinalias: add]] public operator - (a: cref i32, b: __u8): ref i32;
+[[builtinalias: add]] public operator - (a: __i32, b: cref u8): ref i32;
+[[builtinalias: add]] public operator - (a: __i32, b: __u8): __i32;
+
+[[builtinalias: add]] public operator / (a: cref i32, b: cref i32): ref i32;
+[[builtinalias: add]] public operator / (a: cref i32, b: __i32): ref i32;
+[[builtinalias: add]] public operator / (a: __i32, b: cref i32): ref i32;
+[[builtinalias: add]] public operator / (a: __i32, b: __i32): __i32;
+[[builtinalias: add]] public operator / (a: cref i32, b: cref i16): ref i32;
+[[builtinalias: add]] public operator / (a: cref i32, b: __i16): ref i32;
+[[builtinalias: add]] public operator / (a: __i32, b: cref i16): ref i32;
+[[builtinalias: add]] public operator / (a: __i32, b: __i16): __i32;
+[[builtinalias: add]] public operator / (a: cref i32, b: cref i8): ref i32;
+[[builtinalias: add]] public operator / (a: cref i32, b: __i8): ref i32;
+[[builtinalias: add]] public operator / (a: __i32, b: cref i8): ref i32;
+[[builtinalias: add]] public operator / (a: __i32, b: __i8): __i32;
+[[builtinalias: add]] public operator / (a: cref i32, b: cref u16): ref i32;
+[[builtinalias: add]] public operator / (a: cref i32, b: __u16): ref i32;
+[[builtinalias: add]] public operator / (a: __i32, b: cref u16): ref i32;
+[[builtinalias: add]] public operator / (a: __i32, b: __u16): __i32;
+[[builtinalias: add]] public operator / (a: cref i32, b: cref u8): ref i32;
+[[builtinalias: add]] public operator / (a: cref i32, b: __u8): ref i32;
+[[builtinalias: add]] public operator / (a: __i32, b: cref u8): ref i32;
+[[builtinalias: add]] public operator / (a: __i32, b: __u8): __i32;
+
+[[builtinalias: add]] public operator * (a: cref i32, b: cref i32): ref i32;
+[[builtinalias: add]] public operator * (a: cref i32, b: __i32): ref i32;
+[[builtinalias: add]] public operator * (a: __i32, b: cref i32): ref i32;
+[[builtinalias: add]] public operator * (a: __i32, b: __i32): __i32;
+[[builtinalias: add]] public operator * (a: cref i32, b: cref i16): ref i32;
+[[builtinalias: add]] public operator * (a: cref i32, b: __i16): ref i32;
+[[builtinalias: add]] public operator * (a: __i32, b: cref i16): ref i32;
+[[builtinalias: add]] public operator * (a: __i32, b: __i16): __i32;
+[[builtinalias: add]] public operator * (a: cref i32, b: cref i8): ref i32;
+[[builtinalias: add]] public operator * (a: cref i32, b: __i8): ref i32;
+[[builtinalias: add]] public operator * (a: __i32, b: cref i8): ref i32;
+[[builtinalias: add]] public operator * (a: __i32, b: __i8): __i32;
+[[builtinalias: add]] public operator * (a: cref i32, b: cref u16): ref i32;
+[[builtinalias: add]] public operator * (a: cref i32, b: __u16): ref i32;
+[[builtinalias: add]] public operator * (a: __i32, b: cref u16): ref i32;
+[[builtinalias: add]] public operator * (a: __i32, b: __u16): __i32;
+[[builtinalias: add]] public operator * (a: cref i32, b: cref u8): ref i32;
+[[builtinalias: add]] public operator * (a: cref i32, b: __u8): ref i32;
+[[builtinalias: add]] public operator * (a: __i32, b: cref u8): ref i32;
+[[builtinalias: add]] public operator * (a: __i32, b: __u8): __i32;
+
+
+
+
+
+[[builtinalias: and]] public operator and (a: cref i32, b: cref i32): ref i32;
+[[builtinalias: and]] public operator and (a: cref i32, b: __i32): ref i32;
+[[builtinalias: and]] public operator and (a: __i32, b: cref i32): ref i32;
+[[builtinalias: and]] public operator and (a: __i32, b: __i32): __i32;
+[[builtinalias: and]] public operator and (a: cref i32, b: cref i16): ref i32;
+[[builtinalias: and]] public operator and (a: cref i32, b: __i16): ref i32;
+[[builtinalias: and]] public operator and (a: __i32, b: cref i16): ref i32;
+[[builtinalias: and]] public operator and (a: __i32, b: __i16): __i32;
+[[builtinalias: and]] public operator and (a: cref i32, b: cref i8): ref i32;
+[[builtinalias: and]] public operator and (a: cref i32, b: __i8): ref i32;
+[[builtinalias: and]] public operator and (a: __i32, b: cref i8): ref i32;
+[[builtinalias: and]] public operator and (a: __i32, b: __i8): __i32;
+[[builtinalias: and]] public operator and (a: cref i32, b: cref u16): ref i32;
+[[builtinalias: and]] public operator and (a: cref i32, b: __u16): ref i32;
+[[builtinalias: and]] public operator and (a: __i32, b: cref u16): ref i32;
+[[builtinalias: and]] public operator and (a: __i32, b: __u16): __i32;
+[[builtinalias: and]] public operator and (a: cref i32, b: cref u8): ref i32;
+[[builtinalias: and]] public operator and (a: cref i32, b: __u8): ref i32;
+[[builtinalias: and]] public operator and (a: __i32, b: cref u8): ref i32;
+[[builtinalias: and]] public operator and (a: __i32, b: __u8): __i32;
+
+[[builtinalias: or]] public operator or (a: cref i32, b: cref i32): ref i32;
+[[builtinalias: or]] public operator or (a: cref i32, b: __i32): ref i32;
+[[builtinalias: or]] public operator or (a: __i32, b: cref i32): ref i32;
+[[builtinalias: or]] public operator or (a: __i32, b: __i32): __i32;
+[[builtinalias: or]] public operator or (a: cref i32, b: cref i16): ref i32;
+[[builtinalias: or]] public operator or (a: cref i32, b: __i16): ref i32;
+[[builtinalias: or]] public operator or (a: __i32, b: cref i16): ref i32;
+[[builtinalias: or]] public operator or (a: __i32, b: __i16): __i32;
+[[builtinalias: or]] public operator or (a: cref i32, b: cref i8): ref i32;
+[[builtinalias: or]] public operator or (a: cref i32, b: __i8): ref i32;
+[[builtinalias: or]] public operator or (a: __i32, b: cref i8): ref i32;
+[[builtinalias: or]] public operator or (a: __i32, b: __i8): __i32;
+[[builtinalias: or]] public operator or (a: cref i32, b: cref u16): ref i32;
+[[builtinalias: or]] public operator or (a: cref i32, b: __u16): ref i32;
+[[builtinalias: or]] public operator or (a: __i32, b: cref u16): ref i32;
+[[builtinalias: or]] public operator or (a: __i32, b: __u16): __i32;
+[[builtinalias: or]] public operator or (a: cref i32, b: cref u8): ref i32;
+[[builtinalias: or]] public operator or (a: cref i32, b: __u8): ref i32;
+[[builtinalias: or]] public operator or (a: __i32, b: cref u8): ref i32;
+[[builtinalias: or]] public operator or (a: __i32, b: __u8): __i32;
+
+[[builtinalias: xor]] public operator xor (a: cref i32, b: cref i32): ref i32;
+[[builtinalias: xor]] public operator xor (a: cref i32, b: __i32): ref i32;
+[[builtinalias: xor]] public operator xor (a: __i32, b: cref i32): ref i32;
+[[builtinalias: xor]] public operator xor (a: __i32, b: __i32): __i32;
+[[builtinalias: xor]] public operator xor (a: cref i32, b: cref i16): ref i32;
+[[builtinalias: xor]] public operator xor (a: cref i32, b: __i16): ref i32;
+[[builtinalias: xor]] public operator xor (a: __i32, b: cref i16): ref i32;
+[[builtinalias: xor]] public operator xor (a: __i32, b: __i16): __i32;
+[[builtinalias: xor]] public operator xor (a: cref i32, b: cref i8): ref i32;
+[[builtinalias: xor]] public operator xor (a: cref i32, b: __i8): ref i32;
+[[builtinalias: xor]] public operator xor (a: __i32, b: cref i8): ref i32;
+[[builtinalias: xor]] public operator xor (a: __i32, b: __i8): __i32;
+[[builtinalias: xor]] public operator xor (a: cref i32, b: cref u16): ref i32;
+[[builtinalias: xor]] public operator xor (a: cref i32, b: __u16): ref i32;
+[[builtinalias: xor]] public operator xor (a: __i32, b: cref u16): ref i32;
+[[builtinalias: xor]] public operator xor (a: __i32, b: __u16): __i32;
+[[builtinalias: xor]] public operator xor (a: cref i32, b: cref u8): ref i32;
+[[builtinalias: xor]] public operator xor (a: cref i32, b: __u8): ref i32;
+[[builtinalias: xor]] public operator xor (a: __i32, b: cref u8): ref i32;
+[[builtinalias: xor]] public operator xor (a: __i32, b: __u8): __i32;
