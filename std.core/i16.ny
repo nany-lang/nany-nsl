@@ -128,74 +128,74 @@ public class i16
 
 	operator *= (cref x: i16): ref i16
 	{
-		pod = !!mult(pod, x.pod);
+		pod = !!imul(pod, x.pod);
 		return self;
 	}
 
 	operator *= (x: __i16): ref i16
 	{
-		pod = !!mult(pod, x);
+		pod = !!imul(pod, x);
 		return self;
 	}
 
 	operator *= (cref x: i8): ref i16
 	{
-		pod = !!mult(pod, x.pod);
+		pod = !!imul(pod, x.pod);
 		return self;
 	}
 
 	operator *= (x: __i8): ref i16
 	{
-		pod = !!mult(pod, x);
+		pod = !!imul(pod, x);
 		return self;
 	}
 
 	operator *= (cref x: u8): ref i16
 	{
-		pod = !!mult(pod, x.pod);
+		pod = !!imul(pod, x.pod);
 		return self;
 	}
 
 	operator *= (x: __u8): ref i16
 	{
-		pod = !!mult(pod, x);
+		pod = !!imul(pod, x);
 		return self;
 	}
 
 
 	operator /= (cref x: i16): ref i16
 	{
-		pod = !!div(pod, x.pod);
+		pod = !!idiv(pod, x.pod);
 		return self;
 	}
 
 	operator /= (x: __i16): ref i16
 	{
-		pod = !!div(pod, x);
+		pod = !!idiv(pod, x);
 		return self;
 	}
 
 	operator /= (cref x: i8): ref i16
 	{
-		pod = !!div(pod, x.pod);
+		pod = !!idiv(pod, x.pod);
 		return self;
 	}
 
 	operator /= (x: __i8): ref i16
 	{
-		pod = !!div(pod, x);
+		pod = !!idiv(pod, x);
 		return self;
 	}
 
 	operator /= (cref x: u8): ref i16
 	{
-		pod = !!div(pod, x.pod);
+		pod = !!idiv(pod, x.pod);
 		return self;
 	}
 
 	operator /= (x: __u8): ref i16
 	{
-		pod = !!div(pod, x);
+		pod = !!idiv(pod, x);
 		return self;
 	}
 
@@ -312,44 +312,44 @@ private:
 [[builtinalias: add]] public operator + (a: __i16, b: cref u8): ref i16;
 [[builtinalias: add]] public operator + (a: __i16, b: __u8): __i16;
 
-[[builtinalias: add]] public operator - (a: cref i16, b: cref i16): ref i16;
-[[builtinalias: add]] public operator - (a: cref i16, b: __i16): ref i16;
-[[builtinalias: add]] public operator - (a: __i16, b: cref i16): ref i16;
-[[builtinalias: add]] public operator - (a: __i16, b: __i16): __i16;
-[[builtinalias: add]] public operator - (a: cref i16, b: cref i8): ref i16;
-[[builtinalias: add]] public operator - (a: cref i16, b: __i8): ref i16;
-[[builtinalias: add]] public operator - (a: __i16, b: cref i8): ref i16;
-[[builtinalias: add]] public operator - (a: __i16, b: __i8): __i16;
-[[builtinalias: add]] public operator - (a: cref i16, b: cref u8): ref i16;
-[[builtinalias: add]] public operator - (a: cref i16, b: __u8): ref i16;
-[[builtinalias: add]] public operator - (a: __i16, b: cref u8): ref i16;
-[[builtinalias: add]] public operator - (a: __i16, b: __u8): __i16;
+[[builtinalias: sub]] public operator - (a: cref i16, b: cref i16): ref i16;
+[[builtinalias: sub]] public operator - (a: cref i16, b: __i16): ref i16;
+[[builtinalias: sub]] public operator - (a: __i16, b: cref i16): ref i16;
+[[builtinalias: sub]] public operator - (a: __i16, b: __i16): __i16;
+[[builtinalias: sub]] public operator - (a: cref i16, b: cref i8): ref i16;
+[[builtinalias: sub]] public operator - (a: cref i16, b: __i8): ref i16;
+[[builtinalias: sub]] public operator - (a: __i16, b: cref i8): ref i16;
+[[builtinalias: sub]] public operator - (a: __i16, b: __i8): __i16;
+[[builtinalias: sub]] public operator - (a: cref i16, b: cref u8): ref i16;
+[[builtinalias: sub]] public operator - (a: cref i16, b: __u8): ref i16;
+[[builtinalias: sub]] public operator - (a: __i16, b: cref u8): ref i16;
+[[builtinalias: sub]] public operator - (a: __i16, b: __u8): __i16;
 
-[[builtinalias: add]] public operator / (a: cref i16, b: cref i16): ref i16;
-[[builtinalias: add]] public operator / (a: cref i16, b: __i16): ref i16;
-[[builtinalias: add]] public operator / (a: __i16, b: cref i16): ref i16;
-[[builtinalias: add]] public operator / (a: __i16, b: __i16): __i16;
-[[builtinalias: add]] public operator / (a: cref i16, b: cref i8): ref i16;
-[[builtinalias: add]] public operator / (a: cref i16, b: __i8): ref i16;
-[[builtinalias: add]] public operator / (a: __i16, b: cref i8): ref i16;
-[[builtinalias: add]] public operator / (a: __i16, b: __i8): __i16;
-[[builtinalias: add]] public operator / (a: cref i16, b: cref u8): ref i16;
-[[builtinalias: add]] public operator / (a: cref i16, b: __u8): ref i16;
-[[builtinalias: add]] public operator / (a: __i16, b: cref u8): ref i16;
-[[builtinalias: add]] public operator / (a: __i16, b: __u8): __i16;
+[[builtinalias: idiv]] public operator / (a: cref i16, b: cref i16): ref i16;
+[[builtinalias: idiv]] public operator / (a: cref i16, b: __i16): ref i16;
+[[builtinalias: idiv]] public operator / (a: __i16, b: cref i16): ref i16;
+[[builtinalias: idiv]] public operator / (a: __i16, b: __i16): __i16;
+[[builtinalias: idiv]] public operator / (a: cref i16, b: cref i8): ref i16;
+[[builtinalias: idiv]] public operator / (a: cref i16, b: __i8): ref i16;
+[[builtinalias: idiv]] public operator / (a: __i16, b: cref i8): ref i16;
+[[builtinalias: idiv]] public operator / (a: __i16, b: __i8): __i16;
+[[builtinalias: idiv]] public operator / (a: cref i16, b: cref u8): ref i16;
+[[builtinalias: idiv]] public operator / (a: cref i16, b: __u8): ref i16;
+[[builtinalias: idiv]] public operator / (a: __i16, b: cref u8): ref i16;
+[[builtinalias: idiv]] public operator / (a: __i16, b: __u8): __i16;
 
-[[builtinalias: add]] public operator * (a: cref i16, b: cref i16): ref i16;
-[[builtinalias: add]] public operator * (a: cref i16, b: __i16): ref i16;
-[[builtinalias: add]] public operator * (a: __i16, b: cref i16): ref i16;
-[[builtinalias: add]] public operator * (a: __i16, b: __i16): __i16;
-[[builtinalias: add]] public operator * (a: cref i16, b: cref i8): ref i16;
-[[builtinalias: add]] public operator * (a: cref i16, b: __i8): ref i16;
-[[builtinalias: add]] public operator * (a: __i16, b: cref i8): ref i16;
-[[builtinalias: add]] public operator * (a: __i16, b: __i8): __i16;
-[[builtinalias: add]] public operator * (a: cref i16, b: cref u8): ref i16;
-[[builtinalias: add]] public operator * (a: cref i16, b: __u8): ref i16;
-[[builtinalias: add]] public operator * (a: __i16, b: cref u8): ref i16;
-[[builtinalias: add]] public operator * (a: __i16, b: __u8): __i16;
+[[builtinalias: imul]] public operator * (a: cref i16, b: cref i16): ref i16;
+[[builtinalias: imul]] public operator * (a: cref i16, b: __i16): ref i16;
+[[builtinalias: imul]] public operator * (a: __i16, b: cref i16): ref i16;
+[[builtinalias: imul]] public operator * (a: __i16, b: __i16): __i16;
+[[builtinalias: imul]] public operator * (a: cref i16, b: cref i8): ref i16;
+[[builtinalias: imul]] public operator * (a: cref i16, b: __i8): ref i16;
+[[builtinalias: imul]] public operator * (a: __i16, b: cref i8): ref i16;
+[[builtinalias: imul]] public operator * (a: __i16, b: __i8): __i16;
+[[builtinalias: imul]] public operator * (a: cref i16, b: cref u8): ref i16;
+[[builtinalias: imul]] public operator * (a: cref i16, b: __u8): ref i16;
+[[builtinalias: imul]] public operator * (a: __i16, b: cref u8): ref i16;
+[[builtinalias: imul]] public operator * (a: __i16, b: __u8): __i16;
 
 
 

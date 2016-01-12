@@ -76,13 +76,13 @@ public class u8
 
 	operator *= (cref x: u8): ref u8
 	{
-		pod = !!mult(pod, x.pod);
+		pod = !!mul(pod, x.pod);
 		return self;
 	}
 
 	operator *= (x: __u8): ref u8
 	{
-		pod = !!mult(pod, x);
+		pod = !!mul(pod, x);
 		return self;
 	}
 
@@ -156,20 +156,20 @@ private:
 [[builtinalias: add]] public operator + (a: __u8, b: cref u8): ref u8;
 [[builtinalias: add]] public operator + (a: __u8, b: __u8): __u8;
 
-[[builtinalias: add]] public operator - (a: cref u8, b: cref u8): ref u8;
-[[builtinalias: add]] public operator - (a: cref u8, b: __u8): ref u8;
-[[builtinalias: add]] public operator - (a: __u8, b: cref u8): ref u8;
-[[builtinalias: add]] public operator - (a: __u8, b: __u8): __u8;
+[[builtinalias: sub]] public operator - (a: cref u8, b: cref u8): ref u8;
+[[builtinalias: sub]] public operator - (a: cref u8, b: __u8): ref u8;
+[[builtinalias: sub]] public operator - (a: __u8, b: cref u8): ref u8;
+[[builtinalias: sub]] public operator - (a: __u8, b: __u8): __u8;
 
-[[builtinalias: add]] public operator / (a: cref u8, b: cref u8): ref u8;
-[[builtinalias: add]] public operator / (a: cref u8, b: __u8): ref u8;
-[[builtinalias: add]] public operator / (a: __u8, b: cref u8): ref u8;
-[[builtinalias: add]] public operator / (a: __u8, b: __u8): __u8;
+[[builtinalias: div]] public operator / (a: cref u8, b: cref u8): ref u8;
+[[builtinalias: div]] public operator / (a: cref u8, b: __u8): ref u8;
+[[builtinalias: div]] public operator / (a: __u8, b: cref u8): ref u8;
+[[builtinalias: div]] public operator / (a: __u8, b: __u8): __u8;
 
-[[builtinalias: add]] public operator * (a: cref u8, b: cref u8): ref u8;
-[[builtinalias: add]] public operator * (a: cref u8, b: __u8): ref u8;
-[[builtinalias: add]] public operator * (a: __u8, b: cref u8): ref u8;
-[[builtinalias: add]] public operator * (a: __u8, b: __u8): __u8;
+[[builtinalias: mul]] public operator * (a: cref u8, b: cref u8): ref u8;
+[[builtinalias: mul]] public operator * (a: cref u8, b: __u8): ref u8;
+[[builtinalias: mul]] public operator * (a: __u8, b: cref u8): ref u8;
+[[builtinalias: mul]] public operator * (a: __u8, b: __u8): __u8;
 
 
 

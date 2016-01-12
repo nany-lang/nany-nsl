@@ -128,37 +128,37 @@ public class u32
 
 	operator *= (cref x: u32): ref u32
 	{
-		pod = !!mult(pod, x.pod);
+		pod = !!mul(pod, x.pod);
 		return self;
 	}
 
 	operator *= (x: __u32): ref u32
 	{
-		pod = !!mult(pod, x);
+		pod = !!mul(pod, x);
 		return self;
 	}
 
 	operator *= (cref x: u16): ref u32
 	{
-		pod = !!mult(pod, x.pod);
+		pod = !!mul(pod, x.pod);
 		return self;
 	}
 
 	operator *= (x: __u16): ref u32
 	{
-		pod = !!mult(pod, x);
+		pod = !!mul(pod, x);
 		return self;
 	}
 
 	operator *= (cref x: u8): ref u32
 	{
-		pod = !!mult(pod, x.pod);
+		pod = !!mul(pod, x.pod);
 		return self;
 	}
 
 	operator *= (x: __u8): ref u32
 	{
-		pod = !!mult(pod, x);
+		pod = !!mul(pod, x);
 		return self;
 	}
 
@@ -312,44 +312,44 @@ private:
 [[builtinalias: add]] public operator + (a: __u32, b: cref u8): ref u32;
 [[builtinalias: add]] public operator + (a: __u32, b: __u8): __u32;
 
-[[builtinalias: add]] public operator - (a: cref u32, b: cref u32): ref u32;
-[[builtinalias: add]] public operator - (a: cref u32, b: __u32): ref u32;
-[[builtinalias: add]] public operator - (a: __u32, b: cref u32): ref u32;
-[[builtinalias: add]] public operator - (a: __u32, b: __u32): __u32;
-[[builtinalias: add]] public operator - (a: cref u32, b: cref u16): ref u32;
-[[builtinalias: add]] public operator - (a: cref u32, b: __u16): ref u32;
-[[builtinalias: add]] public operator - (a: __u32, b: cref u16): ref u32;
-[[builtinalias: add]] public operator - (a: __u32, b: __u16): __u32;
-[[builtinalias: add]] public operator - (a: cref u32, b: cref u8): ref u32;
-[[builtinalias: add]] public operator - (a: cref u32, b: __u8): ref u32;
-[[builtinalias: add]] public operator - (a: __u32, b: cref u8): ref u32;
-[[builtinalias: add]] public operator - (a: __u32, b: __u8): __u32;
+[[builtinalias: sub]] public operator - (a: cref u32, b: cref u32): ref u32;
+[[builtinalias: sub]] public operator - (a: cref u32, b: __u32): ref u32;
+[[builtinalias: sub]] public operator - (a: __u32, b: cref u32): ref u32;
+[[builtinalias: sub]] public operator - (a: __u32, b: __u32): __u32;
+[[builtinalias: sub]] public operator - (a: cref u32, b: cref u16): ref u32;
+[[builtinalias: sub]] public operator - (a: cref u32, b: __u16): ref u32;
+[[builtinalias: sub]] public operator - (a: __u32, b: cref u16): ref u32;
+[[builtinalias: sub]] public operator - (a: __u32, b: __u16): __u32;
+[[builtinalias: sub]] public operator - (a: cref u32, b: cref u8): ref u32;
+[[builtinalias: sub]] public operator - (a: cref u32, b: __u8): ref u32;
+[[builtinalias: sub]] public operator - (a: __u32, b: cref u8): ref u32;
+[[builtinalias: sub]] public operator - (a: __u32, b: __u8): __u32;
 
-[[builtinalias: add]] public operator / (a: cref u32, b: cref u32): ref u32;
-[[builtinalias: add]] public operator / (a: cref u32, b: __u32): ref u32;
-[[builtinalias: add]] public operator / (a: __u32, b: cref u32): ref u32;
-[[builtinalias: add]] public operator / (a: __u32, b: __u32): __u32;
-[[builtinalias: add]] public operator / (a: cref u32, b: cref u16): ref u32;
-[[builtinalias: add]] public operator / (a: cref u32, b: __u16): ref u32;
-[[builtinalias: add]] public operator / (a: __u32, b: cref u16): ref u32;
-[[builtinalias: add]] public operator / (a: __u32, b: __u16): __u32;
-[[builtinalias: add]] public operator / (a: cref u32, b: cref u8): ref u32;
-[[builtinalias: add]] public operator / (a: cref u32, b: __u8): ref u32;
-[[builtinalias: add]] public operator / (a: __u32, b: cref u8): ref u32;
-[[builtinalias: add]] public operator / (a: __u32, b: __u8): __u32;
+[[builtinalias: div]] public operator / (a: cref u32, b: cref u32): ref u32;
+[[builtinalias: div]] public operator / (a: cref u32, b: __u32): ref u32;
+[[builtinalias: div]] public operator / (a: __u32, b: cref u32): ref u32;
+[[builtinalias: div]] public operator / (a: __u32, b: __u32): __u32;
+[[builtinalias: div]] public operator / (a: cref u32, b: cref u16): ref u32;
+[[builtinalias: div]] public operator / (a: cref u32, b: __u16): ref u32;
+[[builtinalias: div]] public operator / (a: __u32, b: cref u16): ref u32;
+[[builtinalias: div]] public operator / (a: __u32, b: __u16): __u32;
+[[builtinalias: div]] public operator / (a: cref u32, b: cref u8): ref u32;
+[[builtinalias: div]] public operator / (a: cref u32, b: __u8): ref u32;
+[[builtinalias: div]] public operator / (a: __u32, b: cref u8): ref u32;
+[[builtinalias: div]] public operator / (a: __u32, b: __u8): __u32;
 
-[[builtinalias: add]] public operator * (a: cref u32, b: cref u32): ref u32;
-[[builtinalias: add]] public operator * (a: cref u32, b: __u32): ref u32;
-[[builtinalias: add]] public operator * (a: __u32, b: cref u32): ref u32;
-[[builtinalias: add]] public operator * (a: __u32, b: __u32): __u32;
-[[builtinalias: add]] public operator * (a: cref u32, b: cref u16): ref u32;
-[[builtinalias: add]] public operator * (a: cref u32, b: __u16): ref u32;
-[[builtinalias: add]] public operator * (a: __u32, b: cref u16): ref u32;
-[[builtinalias: add]] public operator * (a: __u32, b: __u16): __u32;
-[[builtinalias: add]] public operator * (a: cref u32, b: cref u8): ref u32;
-[[builtinalias: add]] public operator * (a: cref u32, b: __u8): ref u32;
-[[builtinalias: add]] public operator * (a: __u32, b: cref u8): ref u32;
-[[builtinalias: add]] public operator * (a: __u32, b: __u8): __u32;
+[[builtinalias: mul]] public operator * (a: cref u32, b: cref u32): ref u32;
+[[builtinalias: mul]] public operator * (a: cref u32, b: __u32): ref u32;
+[[builtinalias: mul]] public operator * (a: __u32, b: cref u32): ref u32;
+[[builtinalias: mul]] public operator * (a: __u32, b: __u32): __u32;
+[[builtinalias: mul]] public operator * (a: cref u32, b: cref u16): ref u32;
+[[builtinalias: mul]] public operator * (a: cref u32, b: __u16): ref u32;
+[[builtinalias: mul]] public operator * (a: __u32, b: cref u16): ref u32;
+[[builtinalias: mul]] public operator * (a: __u32, b: __u16): __u32;
+[[builtinalias: mul]] public operator * (a: cref u32, b: cref u8): ref u32;
+[[builtinalias: mul]] public operator * (a: cref u32, b: __u8): ref u32;
+[[builtinalias: mul]] public operator * (a: __u32, b: cref u8): ref u32;
+[[builtinalias: mul]] public operator * (a: __u32, b: __u8): __u32;
 
 
 
