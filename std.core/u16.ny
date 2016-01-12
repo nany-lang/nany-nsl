@@ -291,3 +291,10 @@ private:
 [[builtinalias: xor]] public operator xor (a: cref u16, b: __u8): ref u16;
 [[builtinalias: xor]] public operator xor (a: __u16, b: cref u8): ref u16;
 [[builtinalias: xor]] public operator xor (a: __u16, b: __u8): __u16;
+
+
+
+
+
+// -*- mode: nany;-*-
+// vim: set filetype=nany:

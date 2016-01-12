@@ -189,3 +189,10 @@ private:
 [[builtinalias: xor]] public operator xor (a: cref i8, b: __i8): ref i8;
 [[builtinalias: xor]] public operator xor (a: __i8, b: cref i8): ref i8;
 [[builtinalias: xor]] public operator xor (a: __i8, b: __i8): __i8;
+
+
+
+
+
+// -*- mode: nany;-*-
+// vim: set filetype=nany:

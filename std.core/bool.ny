@@ -48,3 +48,9 @@ public operator or (a: __bool, cref b: bool): ref bool;
 
 [[shortcircuit: __true, builtinalias: or]]
 public operator or (cref a: bool, b: __bool): ref bool;
+
+
+
+
+// -*- mode: nany;-*-
+// vim: set filetype=nany:

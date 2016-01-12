@@ -801,3 +801,10 @@ private:
 [[builtinalias: xor]] public operator xor (a: cref i64, b: __u8): ref i64;
 [[builtinalias: xor]] public operator xor (a: __i64, b: cref u8): ref i64;
 [[builtinalias: xor]] public operator xor (a: __i64, b: __u8): __i64;
+
+
+
+
+
+// -*- mode: nany;-*-
+// vim: set filetype=nany:
