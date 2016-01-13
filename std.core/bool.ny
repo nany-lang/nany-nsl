@@ -23,6 +23,9 @@ class bool
 
 
 
+
+
+
 [[shortcircuit: __false, builtinalias: and]]
 public operator and (a: __bool, b: __bool): __bool;
 
@@ -49,6 +52,38 @@ public operator or (a: __bool, cref b: bool): ref bool;
 [[shortcircuit: __true, builtinalias: or]]
 public operator or (cref a: bool, b: __bool): ref bool;
 
+
+[[builtinalias: gt]] public operator > (a: cref bool, b: cref bool): ref bool;
+[[builtinalias: gt, suggest: false]] public operator > (a: cref bool, b: __bool): ref bool;
+[[builtinalias: gt, suggest: false]] public operator > (a: __bool, b: cref bool): ref bool;
+[[builtinalias: gt, suggest: false]] public operator > (a: __bool, b: __bool): __bool;
+
+[[builtinalias: gte]] public operator >= (a: cref bool, b: cref bool): ref bool;
+[[builtinalias: gte, suggest: false]] public operator >= (a: cref bool, b: __bool): ref bool;
+[[builtinalias: gte, suggest: false]] public operator >= (a: __bool, b: cref bool): ref bool;
+[[builtinalias: gte, suggest: false]] public operator >= (a: __bool, b: __bool): __bool;
+
+[[builtinalias: lt]] public operator < (a: cref bool, b: cref bool): ref bool;
+[[builtinalias: lt, suggest: false]] public operator < (a: cref bool, b: __bool): ref bool;
+[[builtinalias: lt, suggest: false]] public operator < (a: __bool, b: cref bool): ref bool;
+[[builtinalias: lt, suggest: false]] public operator < (a: __bool, b: __bool): __bool;
+
+[[builtinalias: lte]] public operator <= (a: cref bool, b: cref bool): ref bool;
+[[builtinalias: lte, suggest: false]] public operator <= (a: cref bool, b: __bool): ref bool;
+[[builtinalias: lte, suggest: false]] public operator <= (a: __bool, b: cref bool): ref bool;
+[[builtinalias: lte, suggest: false]] public operator <= (a: __bool, b: __bool): __bool;
+
+
+
+[[builtinalias: eq]] public operator == (a: cref bool, b: cref bool): ref bool;
+[[builtinalias: eq, suggest: false]] public operator == (a: cref bool, b: __bool): ref bool;
+[[builtinalias: eq, suggest: false]] public operator == (a: __bool, b: cref bool): ref bool;
+[[builtinalias: eq, suggest: false]] public operator == (a: __bool, b: __bool): __bool;
+
+[[builtinalias: neq]] public operator != (a: cref bool, b: cref bool): ref bool;
+[[builtinalias: neq, suggest: false]] public operator != (a: cref bool, b: __bool): ref bool;
+[[builtinalias: neq, suggest: false]] public operator != (a: __bool, b: cref bool): ref bool;
+[[builtinalias: neq, suggest: false]] public operator != (a: __bool, b: __bool): __bool;
 
 
 
