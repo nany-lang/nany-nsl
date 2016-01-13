@@ -113,35 +113,35 @@ private:
 
 
 
-[[builtinalias: fgt]] public operator > (a: cref f32, b: cref f32): __bool;
+[[builtinalias: fgt]] public operator > (a: cref f32, b: cref f32): ref bool;
 [[builtinalias: fgt, suggest: false]] public operator > (a: cref f32, b: __f32): ref bool;
 [[builtinalias: fgt, suggest: false]] public operator > (a: __f32, b: cref f32): ref bool;
-[[builtinalias: fgt, suggest: false]] public operator > (a: __f32, b: __f32): ref bool;
+[[builtinalias: fgt, suggest: false]] public operator > (a: __f32, b: __f32): __bool;
 
-[[builtinalias: fgte]] public operator >= (a: cref f32, b: cref f32): __bool;
+[[builtinalias: fgte]] public operator >= (a: cref f32, b: cref f32): ref bool;
 [[builtinalias: fgte, suggest: false]] public operator >= (a: cref f32, b: __f32): ref bool;
 [[builtinalias: fgte, suggest: false]] public operator >= (a: __f32, b: cref f32): ref bool;
-[[builtinalias: fgte, suggest: false]] public operator >= (a: __f32, b: __f32): ref bool;
+[[builtinalias: fgte, suggest: false]] public operator >= (a: __f32, b: __f32): __bool;
 
-[[builtinalias: flt]] public operator < (a: cref f32, b: cref f32): __bool;
+[[builtinalias: flt]] public operator < (a: cref f32, b: cref f32): ref bool;
 [[builtinalias: flt, suggest: false]] public operator < (a: cref f32, b: __f32): ref bool;
 [[builtinalias: flt, suggest: false]] public operator < (a: __f32, b: cref f32): ref bool;
-[[builtinalias: flt, suggest: false]] public operator < (a: __f32, b: __f32): ref bool;
+[[builtinalias: flt, suggest: false]] public operator < (a: __f32, b: __f32): __bool;
 
-[[builtinalias: flte]] public operator <= (a: cref f32, b: cref f32): __bool;
+[[builtinalias: flte]] public operator <= (a: cref f32, b: cref f32): ref bool;
 [[builtinalias: flte, suggest: false]] public operator <= (a: cref f32, b: __f32): ref bool;
 [[builtinalias: flte, suggest: false]] public operator <= (a: __f32, b: cref f32): ref bool;
-[[builtinalias: flte, suggest: false]] public operator <= (a: __f32, b: __f32): ref bool;
+[[builtinalias: flte, suggest: false]] public operator <= (a: __f32, b: __f32): __bool;
 
-[[builtinalias: eq]] public operator == (a: cref f32, b: cref f32): __bool;
+[[builtinalias: eq]] public operator == (a: cref f32, b: cref f32): ref bool;
 [[builtinalias: eq, suggest: false]] public operator == (a: cref f32, b: __f32): ref bool;
 [[builtinalias: eq, suggest: false]] public operator == (a: __f32, b: cref f32): ref bool;
-[[builtinalias: eq, suggest: false]] public operator == (a: __f32, b: __f32): ref bool;
+[[builtinalias: eq, suggest: false]] public operator == (a: __f32, b: __f32): __bool;
 
-[[builtinalias: neq]] public operator != (a: cref f32, b: cref f32): __bool;
+[[builtinalias: neq]] public operator != (a: cref f32, b: cref f32): ref bool;
 [[builtinalias: neq, suggest: false]] public operator != (a: cref f32, b: __f32): ref bool;
 [[builtinalias: neq, suggest: false]] public operator != (a: __f32, b: cref f32): ref bool;
-[[builtinalias: neq, suggest: false]] public operator != (a: __f32, b: __f32): ref bool;
+[[builtinalias: neq, suggest: false]] public operator != (a: __f32, b: __f32): __bool;
 
 
 
