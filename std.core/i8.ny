@@ -120,39 +120,39 @@ private:
 
 
 
-[[builtinalias: gt]] public operator > (a: cref i8, b: cref i8): ref bool;
-[[builtinalias: gt, suggest: false]] public operator > (a: cref i8, b: __i8): ref bool;
-[[builtinalias: gt, suggest: false]] public operator > (a: __i8, b: cref i8): ref bool;
-[[builtinalias: gt, suggest: false]] public operator > (a: __i8, b: __i8): __bool;
+[[builtinalias: igt]] public operator > (a: cref i8, b: cref i8): ref bool;
+[[builtinalias: igt, suggest: false]] public operator > (a: cref i8, b: __i8): ref bool;
+[[builtinalias: igt, suggest: false]] public operator > (a: __i8, b: cref i8): ref bool;
+[[builtinalias: igt, suggest: false]] public operator > (a: __i8, b: __i8): __bool;
 
-[[builtinalias: gte]] public operator >= (a: cref i8, b: cref i8): ref bool;
-[[builtinalias: gte, suggest: false]] public operator >= (a: cref i8, b: __i8): ref bool;
-[[builtinalias: gte, suggest: false]] public operator >= (a: __i8, b: cref i8): ref bool;
-[[builtinalias: gte, suggest: false]] public operator >= (a: __i8, b: __i8): __bool;
+[[builtinalias: igte]] public operator >= (a: cref i8, b: cref i8): ref bool;
+[[builtinalias: igte, suggest: false]] public operator >= (a: cref i8, b: __i8): ref bool;
+[[builtinalias: igte, suggest: false]] public operator >= (a: __i8, b: cref i8): ref bool;
+[[builtinalias: igte, suggest: false]] public operator >= (a: __i8, b: __i8): __bool;
 
-[[builtinalias: lt]] public operator < (a: cref i8, b: cref i8): ref bool;
-[[builtinalias: lt, suggest: false]] public operator < (a: cref i8, b: __i8): ref bool;
-[[builtinalias: lt, suggest: false]] public operator < (a: __i8, b: cref i8): ref bool;
-[[builtinalias: lt, suggest: false]] public operator < (a: __i8, b: __i8): __bool;
+[[builtinalias: ilt]] public operator < (a: cref i8, b: cref i8): ref bool;
+[[builtinalias: ilt, suggest: false]] public operator < (a: cref i8, b: __i8): ref bool;
+[[builtinalias: ilt, suggest: false]] public operator < (a: __i8, b: cref i8): ref bool;
+[[builtinalias: ilt, suggest: false]] public operator < (a: __i8, b: __i8): __bool;
 
-[[builtinalias: lte]] public operator <= (a: cref i8, b: cref i8): ref bool;
-[[builtinalias: lte, suggest: false]] public operator <= (a: cref i8, b: __i8): ref bool;
-[[builtinalias: lte, suggest: false]] public operator <= (a: __i8, b: cref i8): ref bool;
-[[builtinalias: lte, suggest: false]] public operator <= (a: __i8, b: __i8): __bool;
-
-
+[[builtinalias: ilte]] public operator <= (a: cref i8, b: cref i8): ref bool;
+[[builtinalias: ilte, suggest: false]] public operator <= (a: cref i8, b: __i8): ref bool;
+[[builtinalias: ilte, suggest: false]] public operator <= (a: __i8, b: cref i8): ref bool;
+[[builtinalias: ilte, suggest: false]] public operator <= (a: __i8, b: __i8): __bool;
 
 
 
-[[builtinalias: eq]] public operator == (a: cref i8, b: cref i8): ref bool;
-[[builtinalias: eq, suggest: false]] public operator == (a: cref i8, b: __i8): ref bool;
-[[builtinalias: eq, suggest: false]] public operator == (a: __i8, b: cref i8): ref bool;
-[[builtinalias: eq, suggest: false]] public operator == (a: __i8, b: __i8): __bool;
 
-[[builtinalias: neq]] public operator != (a: cref i8, b: cref i8): ref bool;
-[[builtinalias: neq, suggest: false]] public operator != (a: cref i8, b: __i8): ref bool;
-[[builtinalias: neq, suggest: false]] public operator != (a: __i8, b: cref i8): ref bool;
-[[builtinalias: neq, suggest: false]] public operator != (a: __i8, b: __i8): __bool;
+
+[[builtinalias: ieq]] public operator == (a: cref i8, b: cref i8): ref bool;
+[[builtinalias: ieq, suggest: false]] public operator == (a: cref i8, b: __i8): ref bool;
+[[builtinalias: ieq, suggest: false]] public operator == (a: __i8, b: cref i8): ref bool;
+[[builtinalias: ieq, suggest: false]] public operator == (a: __i8, b: __i8): __bool;
+
+[[builtinalias: ineq]] public operator != (a: cref i8, b: cref i8): ref bool;
+[[builtinalias: ineq, suggest: false]] public operator != (a: cref i8, b: __i8): ref bool;
+[[builtinalias: ineq, suggest: false]] public operator != (a: __i8, b: cref i8): ref bool;
+[[builtinalias: ineq, suggest: false]] public operator != (a: __i8, b: __i8): __bool;
 
 
 
