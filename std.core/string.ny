@@ -20,6 +20,9 @@ class string
 		!!yuni.string.append.cstring(pod, cstring, size.pod);
 	}
 
+	operator new (self pod: __pointer); // should not be used
+
+
 	operator dispose
 	{
 		!!yuni.string.delete(pod);
@@ -160,3 +163,8 @@ private:
 public operator + (cref s: string, cref t: string): ref string
 	-> (new string(s)) += t;
 
+
+public func print(cref text: string)
+{
+	!!yuni.string.cout(text.pod);
+}
