@@ -29,8 +29,8 @@ public func set(cref name: string, cref value: string)
 ** \param name The environment variable name
 ** \param value The new value
 */
-public func set(cref name: string, cref value)
-	-> !!yuni.env.set(name.pod, ((new string()) += value).pod);
+//public func set(cref name: string, cref value)
+//	-> !!yuni.env.set(name.pod, ((new string()) += value).pod);
 
 
 /*!
