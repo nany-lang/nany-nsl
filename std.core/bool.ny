@@ -86,6 +86,10 @@ public operator or (cref a: bool, b: __bool): ref bool;
 [[builtinalias: neq, suggest: false]] public operator != (a: __bool, b: __bool): __bool;
 
 
+[[builtinalias: not]] public operator not (a: __bool): __bool;
+[[builtinalias: not]] public operator not (a: cref bool): ref bool;
+
+
 
 // -*- mode: nany;-*-
 // vim: set filetype=nany:
