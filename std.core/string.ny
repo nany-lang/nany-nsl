@@ -30,7 +30,7 @@ class string
 
 	operator clone(cref rhs: string)
 	{
-		!!yuni.string.assign(pod, rhs.pod);
+		!!yuni.string.append.string(pod, rhs.pod);
 	}
 
 
