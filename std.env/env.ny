@@ -4,9 +4,9 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 //
-// \file    bool.ny
-// \brief   Implementation of the class bool
-// \ingroup std.core
+// \file    env.ny
+// \brief   Environment variables
+// \ingroup std.env
 
 namespace std.env;
 
