@@ -22,15 +22,23 @@ namespace std.env;
 public func set(cref name: string, cref value: string)
 	-> !!yuni.env.set(name.pod, value.pod);
 
-
 /*!
 ** \brief Set an environment variable for any value convertible into a string
 **
 ** \param name The environment variable name
 ** \param value The new value
 */
-//public func set(cref name: string, cref value)
-//	-> !!yuni.env.set(name.pod, ((new string()) += value).pod);
+public func set(cref name: string, cref value)
+	-> !!yuni.env.set(name.pod, ((new string()) += value).pod);
+
+/*!
+** \brief Set an environment variable flag
+**
+** \param name The environment variable name
+** \param value The new value
+*/
+public func set(cref name: string, cref flag: bool)
+	-> !!yuni.env.set(name.pod, (if flag then "1" else "0").pod);
 
 
 /*!
