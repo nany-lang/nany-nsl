@@ -30,15 +30,14 @@ class string
 
 	operator clone(cref rhs: string)
 	{
-//		!!yuni.string.append.string(pod, rhs.pod);
-		pod = !!yuni.string.new();
+		!!yuni.string.append.string(pod, rhs.pod);
 	}
 
 
+	//! Empty the string
 	func clear
-	{
-		!!yuni.string.clear(pod);
-	}
+		-> !!yuni.string.clear(pod);
+
 
 	//! Get the size of the string
 	func size: ref
