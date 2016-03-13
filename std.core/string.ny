@@ -30,7 +30,8 @@ class string
 
 	operator clone(cref rhs: string)
 	{
-		!!yuni.string.append.string(pod, rhs.pod);
+//		!!yuni.string.append.string(pod, rhs.pod);
+		pod = !!yuni.string.new();
 	}
 
 
@@ -146,12 +147,23 @@ class string
 		!!yuni.string.append.u64(pod, n);
 	}
 
+	[[suggest: false]] func append(cref n: __bool)
+	{
+		append(if n then "true" else "false");
+	}
+
+	func append(cref n: bool)
+	{
+		append(if n then "true" else "false");
+	}
+
 
 	operator += (cref n): ref
 	{
 		append(n);
 		return self;
 	}
+
 
 private:
 	var pod: __pointer = !!yuni.string.new();
