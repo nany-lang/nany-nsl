@@ -3,35 +3,31 @@
 
 class string
 {
+	//! \name Constructors
+	//@{
 	operator new;
 
 	operator new (cref value)
-	{
-		append(value);
-	}
+		-> append(value);
 
 	operator new (cstring: __pointer, size: __u64)
-	{
-		!!yuni.string.append.cstring(pod, cstring, size);
-	}
+		-> !!yuni.string.append.cstring(pod, cstring, size);
 
 	operator new (cstring: __pointer, cref size: u64)
-	{
-		!!yuni.string.append.cstring(pod, cstring, size.pod);
-	}
+		-> !!yuni.string.append.cstring(pod, cstring, size.pod);
 
 	operator new (self pod: __pointer); // should not be used
 
 
 	operator dispose
-	{
-		!!yuni.string.delete(pod);
-	}
+		-> !!yuni.string.delete(pod);
 
 	operator clone(cref rhs: string)
 	{
+		pod = !!yuni.string.new();
 		!!yuni.string.append.string(pod, rhs.pod);
 	}
+	//@}
 
 
 	//! Empty the string
@@ -44,6 +40,7 @@ class string
 		-> new u64(!!yuni.string.size(pod));
 
 
+	//! Assign a new value to the string
 	func assign(cref text)
 	{
 		!!yuni.string.clear(pod);
@@ -51,110 +48,71 @@ class string
 	}
 
 
+	//! Extend the string by appending another string
 	func append(cref text: string)
-	{
-		!!yuni.string.append.string(pod, text.pod);
-	}
+		-> !!yuni.string.append.string(pod, text.pod);
 
+	//! Extend the string by appending a C-string
 	[[suggest: false]] func append(cstring: __pointer, size: __u64)
-	{
-		!!yuni.string.append.cstring(pod, cstring, size);
-	}
+		-> !!yuni.string.append.cstring(pod, cstring, size);
 
+	//! Extend the string by appending a C-string
 	[[suggest: false]] func append(cstring: __pointer, cref size: u64)
-	{
-		!!yuni.string.append.cstring(pod, cstring, size.pod);
-	}
+		-> !!yuni.string.append.cstring(pod, cstring, size.pod);
 
 	func append(cref n: i8)
-	{
-		!!yuni.string.append.i8(pod, n.pod);
-	}
+		-> !!yuni.string.append.i8(pod, n.pod);
 
 	func append(cref n: i16)
-	{
-		!!yuni.string.append.i16(pod, n.pod);
-	}
+		-> !!yuni.string.append.i16(pod, n.pod);
 
 	func append(cref n: i32)
-	{
-		!!yuni.string.append.i32(pod, n.pod);
-	}
+		-> !!yuni.string.append.i32(pod, n.pod);
 
 	func append(cref n: i64)
-	{
-		!!yuni.string.append.i64(pod, n.pod);
-	}
+		-> !!yuni.string.append.i64(pod, n.pod);
 
 	func append(cref n: u8)
-	{
-		!!yuni.string.append.u8(pod, n.pod);
-	}
+		-> !!yuni.string.append.u8(pod, n.pod);
 
 	func append(cref n: u16)
-	{
-		!!yuni.string.append.u16(pod, n.pod);
-	}
+		-> !!yuni.string.append.u16(pod, n.pod);
 
 	func append(cref n: u32)
-	{
-		!!yuni.string.append.u32(pod, n.pod);
-	}
+		-> !!yuni.string.append.u32(pod, n.pod);
 
 	func append(cref n: u64)
-	{
-		!!yuni.string.append.u64(pod, n.pod);
-	}
+		-> !!yuni.string.append.u64(pod, n.pod);
 
 	[[suggest: false]] func append(cref n: __i8)
-	{
-		!!yuni.string.append.i8(pod, n);
-	}
+		-> !!yuni.string.append.i8(pod, n);
 
 	[[suggest: false]] func append(cref n: __i16)
-	{
-		!!yuni.string.append.i16(pod, n);
-	}
+		-> !!yuni.string.append.i16(pod, n);
 
 	[[suggest: false]] func append(cref n: __i32)
-	{
-		!!yuni.string.append.i32(pod, n);
-	}
+		-> !!yuni.string.append.i32(pod, n);
 
 	[[suggest: false]] func append(cref n: __i64)
-	{
-		!!yuni.string.append.i64(pod, n);
-	}
+		-> !!yuni.string.append.i64(pod, n);
 
 	[[suggest: false]] func append(cref n: __u8)
-	{
-		!!yuni.string.append.u8(pod, n);
-	}
+		-> !!yuni.string.append.u8(pod, n);
 
 	[[suggest: false]] func append(cref n: __u16)
-	{
-		!!yuni.string.append.u16(pod, n);
-	}
+		-> !!yuni.string.append.u16(pod, n);
 
 	[[suggest: false]] func append(cref n: __u32)
-	{
-		!!yuni.string.append.u32(pod, n);
-	}
+		-> !!yuni.string.append.u32(pod, n);
 
 	[[suggest: false]] func append(cref n: __u64)
-	{
-		!!yuni.string.append.u64(pod, n);
-	}
+		-> !!yuni.string.append.u64(pod, n);
 
 	[[suggest: false]] func append(cref n: __bool)
-	{
-		append(if n then "true" else "false");
-	}
+		-> append(if n then "true" else "false");
 
 	func append(cref n: bool)
-	{
-		append(if n then "true" else "false");
-	}
+		-> append(if n then "true" else "false");
 
 
 	operator += (cref n): ref
