@@ -134,6 +134,7 @@ public operator + (cref s: string, cref t: string): ref string
 
 
 public func print(cref text: string)
-{
-	!!yuni.string.cout(text.pod);
-}
+	-> !!yuni.string.cout(text.pod);
+
+public func print(cref value)
+	-> !!yuni.string.cout((new string(value)).pod);
