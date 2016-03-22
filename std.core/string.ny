@@ -84,6 +84,9 @@ class string
 	func append(cref n: u64)
 		-> !!yuni.string.append.u64(pod, n.pod);
 
+	[[suggest: false]] func append(n: void)
+		-> append("<void>");
+
 	[[suggest: false]] func append(cref n: __i8)
 		-> !!yuni.string.append.i8(pod, n);
 
