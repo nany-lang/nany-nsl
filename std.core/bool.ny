@@ -26,30 +26,30 @@ class bool
 
 
 
-[[shortcircuit: __false, builtinalias: and]]
+[[shortcircuit: __false, builtinalias: and, suggest: false]]
 public operator and (a: __bool, b: __bool): __bool;
 
 [[shortcircuit: __false, builtinalias: and]]
 public operator and (cref a: bool, cref b: bool): ref bool;
 
-[[shortcircuit: __false, builtinalias: and]]
+[[shortcircuit: __false, builtinalias: and, suggest: false]]
 public operator and (a: __bool, cref b: bool): ref bool;
 
-[[shortcircuit: __false, builtinalias: and]]
+[[shortcircuit: __false, builtinalias: and, suggest: false]]
 public operator and (cref a: bool, b: __bool): ref bool;
 
 
 
-[[shortcircuit: __true, builtinalias: or]]
+[[shortcircuit: __true, builtinalias: or, suggest: false]]
 public operator or (a: __bool, b: __bool): __bool;
 
 [[shortcircuit: __true, builtinalias: or]]
 public operator or (cref a: bool, cref b: bool): ref bool;
 
-[[shortcircuit: __true, builtinalias: or]]
+[[shortcircuit: __true, builtinalias: or, suggest: false]]
 public operator or (a: __bool, cref b: bool): ref bool;
 
-[[shortcircuit: __true, builtinalias: or]]
+[[shortcircuit: __true, builtinalias: or, suggest: false]]
 public operator or (cref a: bool, b: __bool): ref bool;
 
 
@@ -86,8 +86,9 @@ public operator or (cref a: bool, b: __bool): ref bool;
 [[builtinalias: neq, suggest: false]] public operator != (a: __bool, b: __bool): __bool;
 
 
-[[builtinalias: not]] public operator not (a: __bool): __bool;
+[[builtinalias: not, suggest: false]] public operator not (a: __bool): __bool;
 [[builtinalias: not]] public operator not (a: cref bool): ref bool;
+
 
 
 
