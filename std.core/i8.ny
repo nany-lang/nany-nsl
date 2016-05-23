@@ -144,15 +144,15 @@ private:
 
 
 
-[[builtinalias: ieq]] public operator == (a: cref i8, b: cref i8): ref bool;
-[[builtinalias: ieq, suggest: false]] public operator == (a: cref i8, b: __i8): ref bool;
-[[builtinalias: ieq, suggest: false]] public operator == (a: __i8, b: cref i8): ref bool;
-[[builtinalias: ieq, suggest: false]] public operator == (a: __i8, b: __i8): __bool;
+[[builtinalias: eq]] public operator == (a: cref i8, b: cref i8): ref bool;
+[[builtinalias: eq, suggest: false]] public operator == (a: cref i8, b: __i8): ref bool;
+[[builtinalias: eq, suggest: false]] public operator == (a: __i8, b: cref i8): ref bool;
+[[builtinalias: eq, suggest: false]] public operator == (a: __i8, b: __i8): __bool;
 
-[[builtinalias: ineq]] public operator != (a: cref i8, b: cref i8): ref bool;
-[[builtinalias: ineq, suggest: false]] public operator != (a: cref i8, b: __i8): ref bool;
-[[builtinalias: ineq, suggest: false]] public operator != (a: __i8, b: cref i8): ref bool;
-[[builtinalias: ineq, suggest: false]] public operator != (a: __i8, b: __i8): __bool;
+[[builtinalias: neq]] public operator != (a: cref i8, b: cref i8): ref bool;
+[[builtinalias: neq, suggest: false]] public operator != (a: cref i8, b: __i8): ref bool;
+[[builtinalias: neq, suggest: false]] public operator != (a: __i8, b: cref i8): ref bool;
+[[builtinalias: neq, suggest: false]] public operator != (a: __i8, b: __i8): __bool;
 
 
 
