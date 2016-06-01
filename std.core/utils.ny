@@ -11,10 +11,10 @@
 
 
 //! Abort the program if assertion is false
-[[builtinalias: assert]] public func assert(expr: cref bool);
+#[builtinalias: assert] public func assert(expr: cref bool);
 
 //! Abort the program if assertion is false
-[[builtinalias: assert, suggest: false]] public func assert(expr: __bool);
+#[builtinalias: assert, suggest: false] public func assert(expr: __bool);
 
 
 

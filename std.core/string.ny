@@ -53,11 +53,11 @@ class string
 		-> !!yuni.string.append.string(pod, text.pod);
 
 	//! Extend the string by appending a C-string
-	[[suggest: false]] func append(cstring: __pointer, size: __u64)
+	#[suggest: false] func append(cstring: __pointer, size: __u64)
 		-> !!yuni.string.append.cstring(pod, cstring, size);
 
 	//! Extend the string by appending a C-string
-	[[suggest: false]] func append(cstring: __pointer, cref size: u64)
+	#[suggest: false] func append(cstring: __pointer, cref size: u64)
 		-> !!yuni.string.append.cstring(pod, cstring, size.pod);
 
 	func append(cref n: i8)
@@ -84,34 +84,34 @@ class string
 	func append(cref n: u64)
 		-> !!yuni.string.append.u64(pod, n.pod);
 
-	[[suggest: false]] func append(n: void)
+	#[suggest: false] func append(n: void)
 		-> append("<void>");
 
-	[[suggest: false]] func append(cref n: __i8)
+	#[suggest: false] func append(cref n: __i8)
 		-> !!yuni.string.append.i8(pod, n);
 
-	[[suggest: false]] func append(cref n: __i16)
+	#[suggest: false] func append(cref n: __i16)
 		-> !!yuni.string.append.i16(pod, n);
 
-	[[suggest: false]] func append(cref n: __i32)
+	#[suggest: false] func append(cref n: __i32)
 		-> !!yuni.string.append.i32(pod, n);
 
-	[[suggest: false]] func append(cref n: __i64)
+	#[suggest: false] func append(cref n: __i64)
 		-> !!yuni.string.append.i64(pod, n);
 
-	[[suggest: false]] func append(cref n: __u8)
+	#[suggest: false] func append(cref n: __u8)
 		-> !!yuni.string.append.u8(pod, n);
 
-	[[suggest: false]] func append(cref n: __u16)
+	#[suggest: false] func append(cref n: __u16)
 		-> !!yuni.string.append.u16(pod, n);
 
-	[[suggest: false]] func append(cref n: __u32)
+	#[suggest: false] func append(cref n: __u32)
 		-> !!yuni.string.append.u32(pod, n);
 
-	[[suggest: false]] func append(cref n: __u64)
+	#[suggest: false] func append(cref n: __u64)
 		-> !!yuni.string.append.u64(pod, n);
 
-	[[suggest: false]] func append(cref n: __bool)
+	#[suggest: false] func append(cref n: __bool)
 		-> append(if n then "true" else "false");
 
 	func append(cref n: bool)
