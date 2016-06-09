@@ -1,6 +1,17 @@
+// Nany - https://nany.io
+//
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+//
+/// \brief   String implementation
+/// \ingroup std.core
 
 
 
+/*!
+** \brief UTF-8 encoded sequences of characters
+*/
 class string
 {
 	//! \name Constructors
@@ -53,11 +64,11 @@ class string
 		-> !!yuni.string.append.string(pod, text.pod);
 
 	//! Extend the string by appending a C-string
-	#[suggest: false] func append(cstring: __pointer, size: __u64)
+	#[nosuggest] func append(cstring: __pointer, size: __u64)
 		-> !!yuni.string.append.cstring(pod, cstring, size);
 
 	//! Extend the string by appending a C-string
-	#[suggest: false] func append(cstring: __pointer, cref size: u64)
+	#[nosuggest] func append(cstring: __pointer, cref size: u64)
 		-> !!yuni.string.append.cstring(pod, cstring, size.pod);
 
 	func append(cref n: i8)
@@ -84,34 +95,34 @@ class string
 	func append(cref n: u64)
 		-> !!yuni.string.append.u64(pod, n.pod);
 
-	#[suggest: false] func append(n: void)
+	#[nosuggest] func append(n: void)
 		-> append("<void>");
 
-	#[suggest: false] func append(cref n: __i8)
+	#[nosuggest] func append(cref n: __i8)
 		-> !!yuni.string.append.i8(pod, n);
 
-	#[suggest: false] func append(cref n: __i16)
+	#[nosuggest] func append(cref n: __i16)
 		-> !!yuni.string.append.i16(pod, n);
 
-	#[suggest: false] func append(cref n: __i32)
+	#[nosuggest] func append(cref n: __i32)
 		-> !!yuni.string.append.i32(pod, n);
 
-	#[suggest: false] func append(cref n: __i64)
+	#[nosuggest] func append(cref n: __i64)
 		-> !!yuni.string.append.i64(pod, n);
 
-	#[suggest: false] func append(cref n: __u8)
+	#[nosuggest] func append(cref n: __u8)
 		-> !!yuni.string.append.u8(pod, n);
 
-	#[suggest: false] func append(cref n: __u16)
+	#[nosuggest] func append(cref n: __u16)
 		-> !!yuni.string.append.u16(pod, n);
 
-	#[suggest: false] func append(cref n: __u32)
+	#[nosuggest] func append(cref n: __u32)
 		-> !!yuni.string.append.u32(pod, n);
 
-	#[suggest: false] func append(cref n: __u64)
+	#[nosuggest] func append(cref n: __u64)
 		-> !!yuni.string.append.u64(pod, n);
 
-	#[suggest: false] func append(cref n: __bool)
+	#[nosuggest] func append(cref n: __bool)
 		-> append(if n then "true" else "false");
 
 	func append(cref n: bool)
@@ -125,19 +136,16 @@ class string
 	}
 
 
-private:
+internal:
+	//! Internal Yuni::String
 	var pod: __pointer = !!yuni.string.new();
-}
+
+} // class string
 
 
 
 
-public operator + (cref s: string, cref t: string): ref string
-	-> (new string(s)) += t;
 
 
-public func print(cref text: string)
-	-> !!yuni.string.cout(text.pod);
-
-public func print(cref value)
-	-> !!yuni.string.cout((new string(value)).pod);
+// -*- mode: nany;-*-
+// vim: set filetype=nany:

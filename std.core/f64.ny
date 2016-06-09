@@ -19,8 +19,8 @@ public class f64
 	operator new;
 	operator new(self cref pod: f32);
 	operator new(self cref pod: f64);
-	#[suggest: false] operator new(self pod: __f32);
-	#[suggest: false] operator new(self pod: __f64);
+	#[nosuggest] operator new(self pod: __f32);
+	#[nosuggest] operator new(self pod: __f64);
 
 
 	operator ++self: ref f64
@@ -56,7 +56,7 @@ public class f64
 		return self;
 	}
 
-	#[suggest: false] operator += (x: __f64): ref f64
+	#[nosuggest] operator += (x: __f64): ref f64
 	{
 		pod = !!fadd(pod, x);
 		return self;
@@ -69,7 +69,7 @@ public class f64
 		return self;
 	}
 
-	#[suggest: false] operator -= (x: __f64): ref f64
+	#[nosuggest] operator -= (x: __f64): ref f64
 	{
 		pod = !!fsub(pod, x);
 		return self;
@@ -82,7 +82,7 @@ public class f64
 		return self;
 	}
 
-	#[suggest: false] operator *= (x: __f64): ref f64
+	#[nosuggest] operator *= (x: __f64): ref f64
 	{
 		pod = !!fmul(pod, x);
 		return self;
@@ -95,7 +95,7 @@ public class f64
 		return self;
 	}
 
-	#[suggest: false] operator /= (x: __f64): ref f64
+	#[nosuggest] operator /= (x: __f64): ref f64
 	{
 		pod = !!fdiv(pod, x);
 		return self;
@@ -116,60 +116,60 @@ private:
 
 
 #[builtinalias: fgt] public operator > (a: cref f64, b: cref f64): ref bool;
-#[builtinalias: fgt, suggest: false] public operator > (a: cref f64, b: __f64): ref bool;
-#[builtinalias: fgt, suggest: false] public operator > (a: __f64, b: cref f64): ref bool;
-#[builtinalias: fgt, suggest: false] public operator > (a: __f64, b: __f64): __bool;
+#[builtinalias: fgt, nosuggest] public operator > (a: cref f64, b: __f64): ref bool;
+#[builtinalias: fgt, nosuggest] public operator > (a: __f64, b: cref f64): ref bool;
+#[builtinalias: fgt, nosuggest] public operator > (a: __f64, b: __f64): __bool;
 
 #[builtinalias: fgte] public operator >= (a: cref f64, b: cref f64): ref bool;
-#[builtinalias: fgte, suggest: false] public operator >= (a: cref f64, b: __f64): ref bool;
-#[builtinalias: fgte, suggest: false] public operator >= (a: __f64, b: cref f64): ref bool;
-#[builtinalias: fgte, suggest: false] public operator >= (a: __f64, b: __f64): __bool;
+#[builtinalias: fgte, nosuggest] public operator >= (a: cref f64, b: __f64): ref bool;
+#[builtinalias: fgte, nosuggest] public operator >= (a: __f64, b: cref f64): ref bool;
+#[builtinalias: fgte, nosuggest] public operator >= (a: __f64, b: __f64): __bool;
 
 #[builtinalias: flt] public operator < (a: cref f64, b: cref f64): ref bool;
-#[builtinalias: flt, suggest: false] public operator < (a: cref f64, b: __f64): ref bool;
-#[builtinalias: flt, suggest: false] public operator < (a: __f64, b: cref f64): ref bool;
-#[builtinalias: flt, suggest: false] public operator < (a: __f64, b: __f64): __bool;
+#[builtinalias: flt, nosuggest] public operator < (a: cref f64, b: __f64): ref bool;
+#[builtinalias: flt, nosuggest] public operator < (a: __f64, b: cref f64): ref bool;
+#[builtinalias: flt, nosuggest] public operator < (a: __f64, b: __f64): __bool;
 
 #[builtinalias: flte] public operator <= (a: cref f64, b: cref f64): ref bool;
-#[builtinalias: flte, suggest: false] public operator <= (a: cref f64, b: __f64): ref bool;
-#[builtinalias: flte, suggest: false] public operator <= (a: __f64, b: cref f64): ref bool;
-#[builtinalias: flte, suggest: false] public operator <= (a: __f64, b: __f64): __bool;
+#[builtinalias: flte, nosuggest] public operator <= (a: cref f64, b: __f64): ref bool;
+#[builtinalias: flte, nosuggest] public operator <= (a: __f64, b: cref f64): ref bool;
+#[builtinalias: flte, nosuggest] public operator <= (a: __f64, b: __f64): __bool;
 
 #[builtinalias: eq] public operator == (a: cref f64, b: cref f64): ref bool;
-#[builtinalias: eq, suggest: false] public operator == (a: cref f64, b: __f64): ref bool;
-#[builtinalias: eq, suggest: false] public operator == (a: __f64, b: cref f64): ref bool;
-#[builtinalias: eq, suggest: false] public operator == (a: __f64, b: __f64): __bool;
+#[builtinalias: eq, nosuggest] public operator == (a: cref f64, b: __f64): ref bool;
+#[builtinalias: eq, nosuggest] public operator == (a: __f64, b: cref f64): ref bool;
+#[builtinalias: eq, nosuggest] public operator == (a: __f64, b: __f64): __bool;
 
 #[builtinalias: neq] public operator != (a: cref f64, b: cref f64): ref bool;
-#[builtinalias: neq, suggest: false] public operator != (a: cref f64, b: __f64): ref bool;
-#[builtinalias: neq, suggest: false] public operator != (a: __f64, b: cref f64): ref bool;
-#[builtinalias: neq, suggest: false] public operator != (a: __f64, b: __f64): __bool;
+#[builtinalias: neq, nosuggest] public operator != (a: cref f64, b: __f64): ref bool;
+#[builtinalias: neq, nosuggest] public operator != (a: __f64, b: cref f64): ref bool;
+#[builtinalias: neq, nosuggest] public operator != (a: __f64, b: __f64): __bool;
 
 
 
 
 #[builtinalias: fadd] public operator + (a: cref f64, b: cref f64): ref f64;
-#[builtinalias: fadd, suggest: false] public operator + (a: cref f64, b: __f64): ref f64;
-#[builtinalias: fadd, suggest: false] public operator + (a: __f64, b: cref f64): ref f64;
-#[builtinalias: fadd, suggest: false] public operator + (a: __f64, b: __f64): __f64;
+#[builtinalias: fadd, nosuggest] public operator + (a: cref f64, b: __f64): ref f64;
+#[builtinalias: fadd, nosuggest] public operator + (a: __f64, b: cref f64): ref f64;
+#[builtinalias: fadd, nosuggest] public operator + (a: __f64, b: __f64): __f64;
 
 
 #[builtinalias: fsub] public operator - (a: cref f64, b: cref f64): ref f64;
-#[builtinalias: fsub, suggest: false] public operator - (a: cref f64, b: __f64): ref f64;
-#[builtinalias: fsub, suggest: false] public operator - (a: __f64, b: cref f64): ref f64;
-#[builtinalias: fsub, suggest: false] public operator - (a: __f64, b: __f64): __f64;
+#[builtinalias: fsub, nosuggest] public operator - (a: cref f64, b: __f64): ref f64;
+#[builtinalias: fsub, nosuggest] public operator - (a: __f64, b: cref f64): ref f64;
+#[builtinalias: fsub, nosuggest] public operator - (a: __f64, b: __f64): __f64;
 
 
 #[builtinalias: fdiv] public operator / (a: cref f64, b: cref f64): ref f64;
-#[builtinalias: fdiv, suggest: false] public operator / (a: cref f64, b: __f64): ref f64;
-#[builtinalias: fdiv, suggest: false] public operator / (a: __f64, b: cref f64): ref f64;
-#[builtinalias: fdiv, suggest: false] public operator / (a: __f64, b: __f64): __f64;
+#[builtinalias: fdiv, nosuggest] public operator / (a: cref f64, b: __f64): ref f64;
+#[builtinalias: fdiv, nosuggest] public operator / (a: __f64, b: cref f64): ref f64;
+#[builtinalias: fdiv, nosuggest] public operator / (a: __f64, b: __f64): __f64;
 
 
 #[builtinalias: fmul] public operator * (a: cref f64, b: cref f64): ref f64;
-#[builtinalias: fmul, suggest: false] public operator * (a: cref f64, b: __f64): ref f64;
-#[builtinalias: fmul, suggest: false] public operator * (a: __f64, b: cref f64): ref f64;
-#[builtinalias: fmul, suggest: false] public operator * (a: __f64, b: __f64): __f64;
+#[builtinalias: fmul, nosuggest] public operator * (a: cref f64, b: __f64): ref f64;
+#[builtinalias: fmul, nosuggest] public operator * (a: __f64, b: cref f64): ref f64;
+#[builtinalias: fmul, nosuggest] public operator * (a: __f64, b: __f64): __f64;
 
 
 

@@ -4,8 +4,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 //
-/// \file    utils.ny
-/// \brief   Misc
+/// \brief   Extra utilities
 /// \ingroup std.core
 
 
@@ -14,7 +13,38 @@
 #[builtinalias: assert] public func assert(expr: cref bool);
 
 //! Abort the program if assertion is false
-#[builtinalias: assert, suggest: false] public func assert(expr: __bool);
+#[builtinalias: assert, nosuggest] public func assert(expr: __bool);
+
+
+
+
+/*!
+** \brief Print a string to stdout
+*/
+public func print(cref text: string)
+	-> !!yuni.string.cout(text.pod);
+
+/*!
+** \brief Print to stdout any value convertible to a string
+*/
+public func print(cref value)
+	-> !!yuni.string.cout((new string(value)).pod);
+
+
+
+
+public operator + (cref lhs, cref rhs): any
+	-> (new typeof(lhs) (lhs)) += rhs;
+
+public operator - (cref lhs, cref rhs): any
+	-> (new typeof(lhs) (lhs)) -= rhs;
+
+public operator * (cref lhs, cref rhs): any
+	-> (new typeof(lhs) (lhs)) *= rhs;
+
+public operator / (cref lhs, cref rhs): any
+	-> (new typeof(lhs) (lhs)) /= rhs;
+
 
 
 

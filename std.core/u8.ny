@@ -20,7 +20,7 @@ public class u8
 
 	operator new (self cref pod: u8);
 
-	#[suggest: false] operator new (self pod: __u8);
+	#[nosuggest] operator new (self pod: __u8);
 
 
 
@@ -57,7 +57,7 @@ public class u8
 		return self;
 	}
 
-	#[suggest: false] operator += (x: __u8): ref u8
+	#[nosuggest] operator += (x: __u8): ref u8
 	{
 		pod = !!add(pod, x);
 		return self;
@@ -71,7 +71,7 @@ public class u8
 		return self;
 	}
 
-	#[suggest: false] operator -= (x: __u8): ref u8
+	#[nosuggest] operator -= (x: __u8): ref u8
 	{
 		pod = !!sub(pod, x);
 		return self;
@@ -85,7 +85,7 @@ public class u8
 		return self;
 	}
 
-	#[suggest: false] operator *= (x: __u8): ref u8
+	#[nosuggest] operator *= (x: __u8): ref u8
 	{
 		pod = !!mul(pod, x);
 		return self;
@@ -99,7 +99,7 @@ public class u8
 		return self;
 	}
 
-	#[suggest: false] operator /= (x: __u8): ref u8
+	#[nosuggest] operator /= (x: __u8): ref u8
 	{
 		pod = !!div(pod, x);
 		return self;
@@ -121,65 +121,65 @@ private:
 
 
 #[builtinalias: gt] public operator > (a: cref u8, b: cref u8): ref bool;
-#[builtinalias: gt, suggest: false] public operator > (a: cref u8, b: __u8): ref bool;
-#[builtinalias: gt, suggest: false] public operator > (a: __u8, b: cref u8): ref bool;
-#[builtinalias: gt, suggest: false] public operator > (a: __u8, b: __u8): __bool;
+#[builtinalias: gt, nosuggest] public operator > (a: cref u8, b: __u8): ref bool;
+#[builtinalias: gt, nosuggest] public operator > (a: __u8, b: cref u8): ref bool;
+#[builtinalias: gt, nosuggest] public operator > (a: __u8, b: __u8): __bool;
 
 #[builtinalias: gte] public operator >= (a: cref u8, b: cref u8): ref bool;
-#[builtinalias: gte, suggest: false] public operator >= (a: cref u8, b: __u8): ref bool;
-#[builtinalias: gte, suggest: false] public operator >= (a: __u8, b: cref u8): ref bool;
-#[builtinalias: gte, suggest: false] public operator >= (a: __u8, b: __u8): __bool;
+#[builtinalias: gte, nosuggest] public operator >= (a: cref u8, b: __u8): ref bool;
+#[builtinalias: gte, nosuggest] public operator >= (a: __u8, b: cref u8): ref bool;
+#[builtinalias: gte, nosuggest] public operator >= (a: __u8, b: __u8): __bool;
 
 #[builtinalias: lt] public operator < (a: cref u8, b: cref u8): ref bool;
-#[builtinalias: lt, suggest: false] public operator < (a: cref u8, b: __u8): ref bool;
-#[builtinalias: lt, suggest: false] public operator < (a: __u8, b: cref u8): ref bool;
-#[builtinalias: lt, suggest: false] public operator < (a: __u8, b: __u8): __bool;
+#[builtinalias: lt, nosuggest] public operator < (a: cref u8, b: __u8): ref bool;
+#[builtinalias: lt, nosuggest] public operator < (a: __u8, b: cref u8): ref bool;
+#[builtinalias: lt, nosuggest] public operator < (a: __u8, b: __u8): __bool;
 
 #[builtinalias: lte] public operator <= (a: cref u8, b: cref u8): ref bool;
-#[builtinalias: lte, suggest: false] public operator <= (a: cref u8, b: __u8): ref bool;
-#[builtinalias: lte, suggest: false] public operator <= (a: __u8, b: cref u8): ref bool;
-#[builtinalias: lte, suggest: false] public operator <= (a: __u8, b: __u8): __bool;
+#[builtinalias: lte, nosuggest] public operator <= (a: cref u8, b: __u8): ref bool;
+#[builtinalias: lte, nosuggest] public operator <= (a: __u8, b: cref u8): ref bool;
+#[builtinalias: lte, nosuggest] public operator <= (a: __u8, b: __u8): __bool;
 
 
 
 
 
 #[builtinalias: eq] public operator == (a: cref u8, b: cref u8): ref bool;
-#[builtinalias: eq, suggest: false] public operator == (a: cref u8, b: __u8): ref bool;
-#[builtinalias: eq, suggest: false] public operator == (a: __u8, b: cref u8): ref bool;
-#[builtinalias: eq, suggest: false] public operator == (a: __u8, b: __u8): __bool;
+#[builtinalias: eq, nosuggest] public operator == (a: cref u8, b: __u8): ref bool;
+#[builtinalias: eq, nosuggest] public operator == (a: __u8, b: cref u8): ref bool;
+#[builtinalias: eq, nosuggest] public operator == (a: __u8, b: __u8): __bool;
 
 #[builtinalias: neq] public operator != (a: cref u8, b: cref u8): ref bool;
-#[builtinalias: neq, suggest: false] public operator != (a: cref u8, b: __u8): ref bool;
-#[builtinalias: neq, suggest: false] public operator != (a: __u8, b: cref u8): ref bool;
-#[builtinalias: neq, suggest: false] public operator != (a: __u8, b: __u8): __bool;
+#[builtinalias: neq, nosuggest] public operator != (a: cref u8, b: __u8): ref bool;
+#[builtinalias: neq, nosuggest] public operator != (a: __u8, b: cref u8): ref bool;
+#[builtinalias: neq, nosuggest] public operator != (a: __u8, b: __u8): __bool;
 
 
 
 
 
 #[builtinalias: add] public operator + (a: cref u8, b: cref u8): ref u8;
-#[builtinalias: add, suggest: false] public operator + (a: cref u8, b: __u8): ref u8;
-#[builtinalias: add, suggest: false] public operator + (a: __u8, b: cref u8): ref u8;
-#[builtinalias: add, suggest: false] public operator + (a: __u8, b: __u8): __u8;
+#[builtinalias: add, nosuggest] public operator + (a: cref u8, b: __u8): ref u8;
+#[builtinalias: add, nosuggest] public operator + (a: __u8, b: cref u8): ref u8;
+#[builtinalias: add, nosuggest] public operator + (a: __u8, b: __u8): __u8;
 
 
 #[builtinalias: sub] public operator - (a: cref u8, b: cref u8): ref u8;
-#[builtinalias: sub, suggest: false] public operator - (a: cref u8, b: __u8): ref u8;
-#[builtinalias: sub, suggest: false] public operator - (a: __u8, b: cref u8): ref u8;
-#[builtinalias: sub, suggest: false] public operator - (a: __u8, b: __u8): __u8;
+#[builtinalias: sub, nosuggest] public operator - (a: cref u8, b: __u8): ref u8;
+#[builtinalias: sub, nosuggest] public operator - (a: __u8, b: cref u8): ref u8;
+#[builtinalias: sub, nosuggest] public operator - (a: __u8, b: __u8): __u8;
 
 
 #[builtinalias: div] public operator / (a: cref u8, b: cref u8): ref u8;
-#[builtinalias: div, suggest: false] public operator / (a: cref u8, b: __u8): ref u8;
-#[builtinalias: div, suggest: false] public operator / (a: __u8, b: cref u8): ref u8;
-#[builtinalias: div, suggest: false] public operator / (a: __u8, b: __u8): __u8;
+#[builtinalias: div, nosuggest] public operator / (a: cref u8, b: __u8): ref u8;
+#[builtinalias: div, nosuggest] public operator / (a: __u8, b: cref u8): ref u8;
+#[builtinalias: div, nosuggest] public operator / (a: __u8, b: __u8): __u8;
 
 
 #[builtinalias: mul] public operator * (a: cref u8, b: cref u8): ref u8;
-#[builtinalias: mul, suggest: false] public operator * (a: cref u8, b: __u8): ref u8;
-#[builtinalias: mul, suggest: false] public operator * (a: __u8, b: cref u8): ref u8;
-#[builtinalias: mul, suggest: false] public operator * (a: __u8, b: __u8): __u8;
+#[builtinalias: mul, nosuggest] public operator * (a: cref u8, b: __u8): ref u8;
+#[builtinalias: mul, nosuggest] public operator * (a: __u8, b: cref u8): ref u8;
+#[builtinalias: mul, nosuggest] public operator * (a: __u8, b: __u8): __u8;
 
 
 
@@ -187,21 +187,21 @@ private:
 
 
 #[builtinalias: and] public operator and (a: cref u8, b: cref u8): ref u8;
-#[builtinalias: and, suggest: false] public operator and (a: cref u8, b: __u8): ref u8;
-#[builtinalias: and, suggest: false] public operator and (a: __u8, b: cref u8): ref u8;
-#[builtinalias: and, suggest: false] public operator and (a: __u8, b: __u8): __u8;
+#[builtinalias: and, nosuggest] public operator and (a: cref u8, b: __u8): ref u8;
+#[builtinalias: and, nosuggest] public operator and (a: __u8, b: cref u8): ref u8;
+#[builtinalias: and, nosuggest] public operator and (a: __u8, b: __u8): __u8;
 
 
 #[builtinalias: or] public operator or (a: cref u8, b: cref u8): ref u8;
-#[builtinalias: or, suggest: false] public operator or (a: cref u8, b: __u8): ref u8;
-#[builtinalias: or, suggest: false] public operator or (a: __u8, b: cref u8): ref u8;
-#[builtinalias: or, suggest: false] public operator or (a: __u8, b: __u8): __u8;
+#[builtinalias: or, nosuggest] public operator or (a: cref u8, b: __u8): ref u8;
+#[builtinalias: or, nosuggest] public operator or (a: __u8, b: cref u8): ref u8;
+#[builtinalias: or, nosuggest] public operator or (a: __u8, b: __u8): __u8;
 
 
 #[builtinalias: xor] public operator xor (a: cref u8, b: cref u8): ref u8;
-#[builtinalias: xor, suggest: false] public operator xor (a: cref u8, b: __u8): ref u8;
-#[builtinalias: xor, suggest: false] public operator xor (a: __u8, b: cref u8): ref u8;
-#[builtinalias: xor, suggest: false] public operator xor (a: __u8, b: __u8): __u8;
+#[builtinalias: xor, nosuggest] public operator xor (a: cref u8, b: __u8): ref u8;
+#[builtinalias: xor, nosuggest] public operator xor (a: __u8, b: cref u8): ref u8;
+#[builtinalias: xor, nosuggest] public operator xor (a: __u8, b: __u8): __u8;
 
 
 
