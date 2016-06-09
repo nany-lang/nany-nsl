@@ -9,11 +9,17 @@
 
 
 
-//! Abort the program if assertion is false
-#[builtinalias: assert] public func assert(expr: cref bool);
+/*!
+** \brief Abort the program if assertion is false
+*/
+#[__nanyc_builtinalias: assert]
+public func assert(expr: cref bool);
 
-//! Abort the program if assertion is false
-#[builtinalias: assert, nosuggest] public func assert(expr: __bool);
+/*!
+** \brief Abort the program if assertion is false
+*/
+#[__nanyc_builtinalias: assert, nosuggest]
+public func assert(expr: __bool);
 
 
 

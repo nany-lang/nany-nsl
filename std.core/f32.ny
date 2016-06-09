@@ -113,61 +113,61 @@ private:
 
 
 
-#[builtinalias: fgt] public operator > (a: cref f32, b: cref f32): ref bool;
-#[builtinalias: fgt, nosuggest] public operator > (a: cref f32, b: __f32): ref bool;
-#[builtinalias: fgt, nosuggest] public operator > (a: __f32, b: cref f32): ref bool;
-#[builtinalias: fgt, nosuggest] public operator > (a: __f32, b: __f32): __bool;
+#[__nanyc_builtinalias: fgt] public operator > (a: cref f32, b: cref f32): ref bool;
+#[__nanyc_builtinalias: fgt, nosuggest] public operator > (a: cref f32, b: __f32): ref bool;
+#[__nanyc_builtinalias: fgt, nosuggest] public operator > (a: __f32, b: cref f32): ref bool;
+#[__nanyc_builtinalias: fgt, nosuggest] public operator > (a: __f32, b: __f32): __bool;
 
-#[builtinalias: fgte] public operator >= (a: cref f32, b: cref f32): ref bool;
-#[builtinalias: fgte, nosuggest] public operator >= (a: cref f32, b: __f32): ref bool;
-#[builtinalias: fgte, nosuggest] public operator >= (a: __f32, b: cref f32): ref bool;
-#[builtinalias: fgte, nosuggest] public operator >= (a: __f32, b: __f32): __bool;
+#[__nanyc_builtinalias: fgte] public operator >= (a: cref f32, b: cref f32): ref bool;
+#[__nanyc_builtinalias: fgte, nosuggest] public operator >= (a: cref f32, b: __f32): ref bool;
+#[__nanyc_builtinalias: fgte, nosuggest] public operator >= (a: __f32, b: cref f32): ref bool;
+#[__nanyc_builtinalias: fgte, nosuggest] public operator >= (a: __f32, b: __f32): __bool;
 
-#[builtinalias: flt] public operator < (a: cref f32, b: cref f32): ref bool;
-#[builtinalias: flt, nosuggest] public operator < (a: cref f32, b: __f32): ref bool;
-#[builtinalias: flt, nosuggest] public operator < (a: __f32, b: cref f32): ref bool;
-#[builtinalias: flt, nosuggest] public operator < (a: __f32, b: __f32): __bool;
+#[__nanyc_builtinalias: flt] public operator < (a: cref f32, b: cref f32): ref bool;
+#[__nanyc_builtinalias: flt, nosuggest] public operator < (a: cref f32, b: __f32): ref bool;
+#[__nanyc_builtinalias: flt, nosuggest] public operator < (a: __f32, b: cref f32): ref bool;
+#[__nanyc_builtinalias: flt, nosuggest] public operator < (a: __f32, b: __f32): __bool;
 
-#[builtinalias: flte] public operator <= (a: cref f32, b: cref f32): ref bool;
-#[builtinalias: flte, nosuggest] public operator <= (a: cref f32, b: __f32): ref bool;
-#[builtinalias: flte, nosuggest] public operator <= (a: __f32, b: cref f32): ref bool;
-#[builtinalias: flte, nosuggest] public operator <= (a: __f32, b: __f32): __bool;
+#[__nanyc_builtinalias: flte] public operator <= (a: cref f32, b: cref f32): ref bool;
+#[__nanyc_builtinalias: flte, nosuggest] public operator <= (a: cref f32, b: __f32): ref bool;
+#[__nanyc_builtinalias: flte, nosuggest] public operator <= (a: __f32, b: cref f32): ref bool;
+#[__nanyc_builtinalias: flte, nosuggest] public operator <= (a: __f32, b: __f32): __bool;
 
-#[builtinalias: eq] public operator == (a: cref f32, b: cref f32): ref bool;
-#[builtinalias: eq, nosuggest] public operator == (a: cref f32, b: __f32): ref bool;
-#[builtinalias: eq, nosuggest] public operator == (a: __f32, b: cref f32): ref bool;
-#[builtinalias: eq, nosuggest] public operator == (a: __f32, b: __f32): __bool;
+#[__nanyc_builtinalias: eq] public operator == (a: cref f32, b: cref f32): ref bool;
+#[__nanyc_builtinalias: eq, nosuggest] public operator == (a: cref f32, b: __f32): ref bool;
+#[__nanyc_builtinalias: eq, nosuggest] public operator == (a: __f32, b: cref f32): ref bool;
+#[__nanyc_builtinalias: eq, nosuggest] public operator == (a: __f32, b: __f32): __bool;
 
-#[builtinalias: neq] public operator != (a: cref f32, b: cref f32): ref bool;
-#[builtinalias: neq, nosuggest] public operator != (a: cref f32, b: __f32): ref bool;
-#[builtinalias: neq, nosuggest] public operator != (a: __f32, b: cref f32): ref bool;
-#[builtinalias: neq, nosuggest] public operator != (a: __f32, b: __f32): __bool;
-
-
+#[__nanyc_builtinalias: neq] public operator != (a: cref f32, b: cref f32): ref bool;
+#[__nanyc_builtinalias: neq, nosuggest] public operator != (a: cref f32, b: __f32): ref bool;
+#[__nanyc_builtinalias: neq, nosuggest] public operator != (a: __f32, b: cref f32): ref bool;
+#[__nanyc_builtinalias: neq, nosuggest] public operator != (a: __f32, b: __f32): __bool;
 
 
-#[builtinalias: fadd] public operator + (a: cref f32, b: cref f32): ref f32;
-#[builtinalias: fadd, nosuggest] public operator + (a: cref f32, b: __f32): ref f32;
-#[builtinalias: fadd, nosuggest] public operator + (a: __f32, b: cref f32): ref f32;
-#[builtinalias: fadd, nosuggest] public operator + (a: __f32, b: __f32): __f32;
 
 
-#[builtinalias: fsub] public operator - (a: cref f32, b: cref f32): ref f32;
-#[builtinalias: fsub, nosuggest] public operator - (a: cref f32, b: __f32): ref f32;
-#[builtinalias: fsub, nosuggest] public operator - (a: __f32, b: cref f32): ref f32;
-#[builtinalias: fsub, nosuggest] public operator - (a: __f32, b: __f32): __f32;
+#[__nanyc_builtinalias: fadd] public operator + (a: cref f32, b: cref f32): ref f32;
+#[__nanyc_builtinalias: fadd, nosuggest] public operator + (a: cref f32, b: __f32): ref f32;
+#[__nanyc_builtinalias: fadd, nosuggest] public operator + (a: __f32, b: cref f32): ref f32;
+#[__nanyc_builtinalias: fadd, nosuggest] public operator + (a: __f32, b: __f32): __f32;
 
 
-#[builtinalias: fdiv] public operator / (a: cref f32, b: cref f32): ref f32;
-#[builtinalias: fdiv, nosuggest] public operator / (a: cref f32, b: __f32): ref f32;
-#[builtinalias: fdiv, nosuggest] public operator / (a: __f32, b: cref f32): ref f32;
-#[builtinalias: fdiv, nosuggest] public operator / (a: __f32, b: __f32): __f32;
+#[__nanyc_builtinalias: fsub] public operator - (a: cref f32, b: cref f32): ref f32;
+#[__nanyc_builtinalias: fsub, nosuggest] public operator - (a: cref f32, b: __f32): ref f32;
+#[__nanyc_builtinalias: fsub, nosuggest] public operator - (a: __f32, b: cref f32): ref f32;
+#[__nanyc_builtinalias: fsub, nosuggest] public operator - (a: __f32, b: __f32): __f32;
 
 
-#[builtinalias: fmul] public operator * (a: cref f32, b: cref f32): ref f32;
-#[builtinalias: fmul, nosuggest] public operator * (a: cref f32, b: __f32): ref f32;
-#[builtinalias: fmul, nosuggest] public operator * (a: __f32, b: cref f32): ref f32;
-#[builtinalias: fmul, nosuggest] public operator * (a: __f32, b: __f32): __f32;
+#[__nanyc_builtinalias: fdiv] public operator / (a: cref f32, b: cref f32): ref f32;
+#[__nanyc_builtinalias: fdiv, nosuggest] public operator / (a: cref f32, b: __f32): ref f32;
+#[__nanyc_builtinalias: fdiv, nosuggest] public operator / (a: __f32, b: cref f32): ref f32;
+#[__nanyc_builtinalias: fdiv, nosuggest] public operator / (a: __f32, b: __f32): __f32;
+
+
+#[__nanyc_builtinalias: fmul] public operator * (a: cref f32, b: cref f32): ref f32;
+#[__nanyc_builtinalias: fmul, nosuggest] public operator * (a: cref f32, b: __f32): ref f32;
+#[__nanyc_builtinalias: fmul, nosuggest] public operator * (a: __f32, b: cref f32): ref f32;
+#[__nanyc_builtinalias: fmul, nosuggest] public operator * (a: __f32, b: __f32): __f32;
 
 
 

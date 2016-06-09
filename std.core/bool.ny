@@ -25,68 +25,68 @@ class bool
 
 
 
-#[shortcircuit: __false, builtinalias: and, nosuggest]
+#[shortcircuit: __false, __nanyc_builtinalias: and, nosuggest]
 public operator and (a: __bool, b: __bool): __bool;
 
-#[shortcircuit: __false, builtinalias: and]
+#[shortcircuit: __false, __nanyc_builtinalias: and]
 public operator and (cref a: bool, cref b: bool): ref bool;
 
-#[shortcircuit: __false, builtinalias: and, nosuggest]
+#[shortcircuit: __false, __nanyc_builtinalias: and, nosuggest]
 public operator and (a: __bool, cref b: bool): ref bool;
 
-#[shortcircuit: __false, builtinalias: and, nosuggest]
+#[shortcircuit: __false, __nanyc_builtinalias: and, nosuggest]
 public operator and (cref a: bool, b: __bool): ref bool;
 
 
 
-#[shortcircuit: __true, builtinalias: or, nosuggest]
+#[shortcircuit: __true, __nanyc_builtinalias: or, nosuggest]
 public operator or (a: __bool, b: __bool): __bool;
 
-#[shortcircuit: __true, builtinalias: or]
+#[shortcircuit: __true, __nanyc_builtinalias: or]
 public operator or (cref a: bool, cref b: bool): ref bool;
 
-#[shortcircuit: __true, builtinalias: or, nosuggest]
+#[shortcircuit: __true, __nanyc_builtinalias: or, nosuggest]
 public operator or (a: __bool, cref b: bool): ref bool;
 
-#[shortcircuit: __true, builtinalias: or, nosuggest]
+#[shortcircuit: __true, __nanyc_builtinalias: or, nosuggest]
 public operator or (cref a: bool, b: __bool): ref bool;
 
 
-#[builtinalias: gt] public operator > (a: cref bool, b: cref bool): ref bool;
-#[builtinalias: gt, nosuggest] public operator > (a: cref bool, b: __bool): ref bool;
-#[builtinalias: gt, nosuggest] public operator > (a: __bool, b: cref bool): ref bool;
-#[builtinalias: gt, nosuggest] public operator > (a: __bool, b: __bool): __bool;
+#[__nanyc_builtinalias: gt] public operator > (a: cref bool, b: cref bool): ref bool;
+#[__nanyc_builtinalias: gt, nosuggest] public operator > (a: cref bool, b: __bool): ref bool;
+#[__nanyc_builtinalias: gt, nosuggest] public operator > (a: __bool, b: cref bool): ref bool;
+#[__nanyc_builtinalias: gt, nosuggest] public operator > (a: __bool, b: __bool): __bool;
 
-#[builtinalias: gte] public operator >= (a: cref bool, b: cref bool): ref bool;
-#[builtinalias: gte, nosuggest] public operator >= (a: cref bool, b: __bool): ref bool;
-#[builtinalias: gte, nosuggest] public operator >= (a: __bool, b: cref bool): ref bool;
-#[builtinalias: gte, nosuggest] public operator >= (a: __bool, b: __bool): __bool;
+#[__nanyc_builtinalias: gte] public operator >= (a: cref bool, b: cref bool): ref bool;
+#[__nanyc_builtinalias: gte, nosuggest] public operator >= (a: cref bool, b: __bool): ref bool;
+#[__nanyc_builtinalias: gte, nosuggest] public operator >= (a: __bool, b: cref bool): ref bool;
+#[__nanyc_builtinalias: gte, nosuggest] public operator >= (a: __bool, b: __bool): __bool;
 
-#[builtinalias: lt] public operator < (a: cref bool, b: cref bool): ref bool;
-#[builtinalias: lt, nosuggest] public operator < (a: cref bool, b: __bool): ref bool;
-#[builtinalias: lt, nosuggest] public operator < (a: __bool, b: cref bool): ref bool;
-#[builtinalias: lt, nosuggest] public operator < (a: __bool, b: __bool): __bool;
+#[__nanyc_builtinalias: lt] public operator < (a: cref bool, b: cref bool): ref bool;
+#[__nanyc_builtinalias: lt, nosuggest] public operator < (a: cref bool, b: __bool): ref bool;
+#[__nanyc_builtinalias: lt, nosuggest] public operator < (a: __bool, b: cref bool): ref bool;
+#[__nanyc_builtinalias: lt, nosuggest] public operator < (a: __bool, b: __bool): __bool;
 
-#[builtinalias: lte] public operator <= (a: cref bool, b: cref bool): ref bool;
-#[builtinalias: lte, nosuggest] public operator <= (a: cref bool, b: __bool): ref bool;
-#[builtinalias: lte, nosuggest] public operator <= (a: __bool, b: cref bool): ref bool;
-#[builtinalias: lte, nosuggest] public operator <= (a: __bool, b: __bool): __bool;
-
-
-
-#[builtinalias: eq] public operator == (a: cref bool, b: cref bool): ref bool;
-#[builtinalias: eq, nosuggest] public operator == (a: cref bool, b: __bool): ref bool;
-#[builtinalias: eq, nosuggest] public operator == (a: __bool, b: cref bool): ref bool;
-#[builtinalias: eq, nosuggest] public operator == (a: __bool, b: __bool): __bool;
-
-#[builtinalias: neq] public operator != (a: cref bool, b: cref bool): ref bool;
-#[builtinalias: neq, nosuggest] public operator != (a: cref bool, b: __bool): ref bool;
-#[builtinalias: neq, nosuggest] public operator != (a: __bool, b: cref bool): ref bool;
-#[builtinalias: neq, nosuggest] public operator != (a: __bool, b: __bool): __bool;
+#[__nanyc_builtinalias: lte] public operator <= (a: cref bool, b: cref bool): ref bool;
+#[__nanyc_builtinalias: lte, nosuggest] public operator <= (a: cref bool, b: __bool): ref bool;
+#[__nanyc_builtinalias: lte, nosuggest] public operator <= (a: __bool, b: cref bool): ref bool;
+#[__nanyc_builtinalias: lte, nosuggest] public operator <= (a: __bool, b: __bool): __bool;
 
 
-#[builtinalias: not, nosuggest] public operator not (a: __bool): __bool;
-#[builtinalias: not] public operator not (a: cref bool): ref bool;
+
+#[__nanyc_builtinalias: eq] public operator == (a: cref bool, b: cref bool): ref bool;
+#[__nanyc_builtinalias: eq, nosuggest] public operator == (a: cref bool, b: __bool): ref bool;
+#[__nanyc_builtinalias: eq, nosuggest] public operator == (a: __bool, b: cref bool): ref bool;
+#[__nanyc_builtinalias: eq, nosuggest] public operator == (a: __bool, b: __bool): __bool;
+
+#[__nanyc_builtinalias: neq] public operator != (a: cref bool, b: cref bool): ref bool;
+#[__nanyc_builtinalias: neq, nosuggest] public operator != (a: cref bool, b: __bool): ref bool;
+#[__nanyc_builtinalias: neq, nosuggest] public operator != (a: __bool, b: cref bool): ref bool;
+#[__nanyc_builtinalias: neq, nosuggest] public operator != (a: __bool, b: __bool): __bool;
+
+
+#[__nanyc_builtinalias: not, nosuggest] public operator not (a: __bool): __bool;
+#[__nanyc_builtinalias: not] public operator not (a: cref bool): ref bool;
 
 
 
