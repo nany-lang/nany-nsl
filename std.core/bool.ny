@@ -25,30 +25,30 @@ class bool
 
 
 
-#[shortcircuit: __false, __nanyc_builtinalias: and, nosuggest]
+#[__nanyc_shortcircuit: __false, __nanyc_builtinalias: and, nosuggest]
 public operator and (a: __bool, b: __bool): __bool;
 
-#[shortcircuit: __false, __nanyc_builtinalias: and]
+#[__nanyc_shortcircuit: __false, __nanyc_builtinalias: and]
 public operator and (cref a: bool, cref b: bool): ref bool;
 
-#[shortcircuit: __false, __nanyc_builtinalias: and, nosuggest]
+#[__nanyc_shortcircuit: __false, __nanyc_builtinalias: and, nosuggest]
 public operator and (a: __bool, cref b: bool): ref bool;
 
-#[shortcircuit: __false, __nanyc_builtinalias: and, nosuggest]
+#[__nanyc_shortcircuit: __false, __nanyc_builtinalias: and, nosuggest]
 public operator and (cref a: bool, b: __bool): ref bool;
 
 
 
-#[shortcircuit: __true, __nanyc_builtinalias: or, nosuggest]
+#[__nanyc_shortcircuit: __true, __nanyc_builtinalias: or, nosuggest]
 public operator or (a: __bool, b: __bool): __bool;
 
-#[shortcircuit: __true, __nanyc_builtinalias: or]
+#[__nanyc_shortcircuit: __true, __nanyc_builtinalias: or]
 public operator or (cref a: bool, cref b: bool): ref bool;
 
-#[shortcircuit: __true, __nanyc_builtinalias: or, nosuggest]
+#[__nanyc_shortcircuit: __true, __nanyc_builtinalias: or, nosuggest]
 public operator or (a: __bool, cref b: bool): ref bool;
 
-#[shortcircuit: __true, __nanyc_builtinalias: or, nosuggest]
+#[__nanyc_shortcircuit: __true, __nanyc_builtinalias: or, nosuggest]
 public operator or (cref a: bool, b: __bool): ref bool;
 
 
