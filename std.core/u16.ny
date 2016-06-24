@@ -170,6 +170,14 @@ private:
 
 
 
+#[__nanyc_builtinalias: gt] public operator > (a: cref u16, b: cref u64): ref bool;
+#[__nanyc_builtinalias: gt, nosuggest] public operator > (a: cref u16, b: __u64): ref bool;
+#[__nanyc_builtinalias: gt, nosuggest] public operator > (a: __u16, b: cref u64): ref bool;
+#[__nanyc_builtinalias: gt, nosuggest] public operator > (a: __u16, b: __u64): __bool;
+#[__nanyc_builtinalias: gt] public operator > (a: cref u16, b: cref u32): ref bool;
+#[__nanyc_builtinalias: gt, nosuggest] public operator > (a: cref u16, b: __u32): ref bool;
+#[__nanyc_builtinalias: gt, nosuggest] public operator > (a: __u16, b: cref u32): ref bool;
+#[__nanyc_builtinalias: gt, nosuggest] public operator > (a: __u16, b: __u32): __bool;
 #[__nanyc_builtinalias: gt] public operator > (a: cref u16, b: cref u16): ref bool;
 #[__nanyc_builtinalias: gt, nosuggest] public operator > (a: cref u16, b: __u16): ref bool;
 #[__nanyc_builtinalias: gt, nosuggest] public operator > (a: __u16, b: cref u16): ref bool;
@@ -179,6 +187,14 @@ private:
 #[__nanyc_builtinalias: gt, nosuggest] public operator > (a: __u16, b: cref u8): ref bool;
 #[__nanyc_builtinalias: gt, nosuggest] public operator > (a: __u16, b: __u8): __bool;
 
+#[__nanyc_builtinalias: gte] public operator >= (a: cref u16, b: cref u64): ref bool;
+#[__nanyc_builtinalias: gte, nosuggest] public operator >= (a: cref u16, b: __u64): ref bool;
+#[__nanyc_builtinalias: gte, nosuggest] public operator >= (a: __u16, b: cref u64): ref bool;
+#[__nanyc_builtinalias: gte, nosuggest] public operator >= (a: __u16, b: __u64): __bool;
+#[__nanyc_builtinalias: gte] public operator >= (a: cref u16, b: cref u32): ref bool;
+#[__nanyc_builtinalias: gte, nosuggest] public operator >= (a: cref u16, b: __u32): ref bool;
+#[__nanyc_builtinalias: gte, nosuggest] public operator >= (a: __u16, b: cref u32): ref bool;
+#[__nanyc_builtinalias: gte, nosuggest] public operator >= (a: __u16, b: __u32): __bool;
 #[__nanyc_builtinalias: gte] public operator >= (a: cref u16, b: cref u16): ref bool;
 #[__nanyc_builtinalias: gte, nosuggest] public operator >= (a: cref u16, b: __u16): ref bool;
 #[__nanyc_builtinalias: gte, nosuggest] public operator >= (a: __u16, b: cref u16): ref bool;
@@ -188,6 +204,14 @@ private:
 #[__nanyc_builtinalias: gte, nosuggest] public operator >= (a: __u16, b: cref u8): ref bool;
 #[__nanyc_builtinalias: gte, nosuggest] public operator >= (a: __u16, b: __u8): __bool;
 
+#[__nanyc_builtinalias: lt] public operator < (a: cref u16, b: cref u64): ref bool;
+#[__nanyc_builtinalias: lt, nosuggest] public operator < (a: cref u16, b: __u64): ref bool;
+#[__nanyc_builtinalias: lt, nosuggest] public operator < (a: __u16, b: cref u64): ref bool;
+#[__nanyc_builtinalias: lt, nosuggest] public operator < (a: __u16, b: __u64): __bool;
+#[__nanyc_builtinalias: lt] public operator < (a: cref u16, b: cref u32): ref bool;
+#[__nanyc_builtinalias: lt, nosuggest] public operator < (a: cref u16, b: __u32): ref bool;
+#[__nanyc_builtinalias: lt, nosuggest] public operator < (a: __u16, b: cref u32): ref bool;
+#[__nanyc_builtinalias: lt, nosuggest] public operator < (a: __u16, b: __u32): __bool;
 #[__nanyc_builtinalias: lt] public operator < (a: cref u16, b: cref u16): ref bool;
 #[__nanyc_builtinalias: lt, nosuggest] public operator < (a: cref u16, b: __u16): ref bool;
 #[__nanyc_builtinalias: lt, nosuggest] public operator < (a: __u16, b: cref u16): ref bool;
@@ -197,6 +221,14 @@ private:
 #[__nanyc_builtinalias: lt, nosuggest] public operator < (a: __u16, b: cref u8): ref bool;
 #[__nanyc_builtinalias: lt, nosuggest] public operator < (a: __u16, b: __u8): __bool;
 
+#[__nanyc_builtinalias: lte] public operator <= (a: cref u16, b: cref u64): ref bool;
+#[__nanyc_builtinalias: lte, nosuggest] public operator <= (a: cref u16, b: __u64): ref bool;
+#[__nanyc_builtinalias: lte, nosuggest] public operator <= (a: __u16, b: cref u64): ref bool;
+#[__nanyc_builtinalias: lte, nosuggest] public operator <= (a: __u16, b: __u64): __bool;
+#[__nanyc_builtinalias: lte] public operator <= (a: cref u16, b: cref u32): ref bool;
+#[__nanyc_builtinalias: lte, nosuggest] public operator <= (a: cref u16, b: __u32): ref bool;
+#[__nanyc_builtinalias: lte, nosuggest] public operator <= (a: __u16, b: cref u32): ref bool;
+#[__nanyc_builtinalias: lte, nosuggest] public operator <= (a: __u16, b: __u32): __bool;
 #[__nanyc_builtinalias: lte] public operator <= (a: cref u16, b: cref u16): ref bool;
 #[__nanyc_builtinalias: lte, nosuggest] public operator <= (a: cref u16, b: __u16): ref bool;
 #[__nanyc_builtinalias: lte, nosuggest] public operator <= (a: __u16, b: cref u16): ref bool;
@@ -210,6 +242,14 @@ private:
 
 
 
+#[__nanyc_builtinalias: eq] public operator == (a: cref u16, b: cref u64): ref bool;
+#[__nanyc_builtinalias: eq, nosuggest] public operator == (a: cref u16, b: __u64): ref bool;
+#[__nanyc_builtinalias: eq, nosuggest] public operator == (a: __u16, b: cref u64): ref bool;
+#[__nanyc_builtinalias: eq, nosuggest] public operator == (a: __u16, b: __u64): __bool;
+#[__nanyc_builtinalias: eq] public operator == (a: cref u16, b: cref u32): ref bool;
+#[__nanyc_builtinalias: eq, nosuggest] public operator == (a: cref u16, b: __u32): ref bool;
+#[__nanyc_builtinalias: eq, nosuggest] public operator == (a: __u16, b: cref u32): ref bool;
+#[__nanyc_builtinalias: eq, nosuggest] public operator == (a: __u16, b: __u32): __bool;
 #[__nanyc_builtinalias: eq] public operator == (a: cref u16, b: cref u16): ref bool;
 #[__nanyc_builtinalias: eq, nosuggest] public operator == (a: cref u16, b: __u16): ref bool;
 #[__nanyc_builtinalias: eq, nosuggest] public operator == (a: __u16, b: cref u16): ref bool;
@@ -219,6 +259,14 @@ private:
 #[__nanyc_builtinalias: eq, nosuggest] public operator == (a: __u16, b: cref u8): ref bool;
 #[__nanyc_builtinalias: eq, nosuggest] public operator == (a: __u16, b: __u8): __bool;
 
+#[__nanyc_builtinalias: neq] public operator != (a: cref u16, b: cref u64): ref bool;
+#[__nanyc_builtinalias: neq, nosuggest] public operator != (a: cref u16, b: __u64): ref bool;
+#[__nanyc_builtinalias: neq, nosuggest] public operator != (a: __u16, b: cref u64): ref bool;
+#[__nanyc_builtinalias: neq, nosuggest] public operator != (a: __u16, b: __u64): __bool;
+#[__nanyc_builtinalias: neq] public operator != (a: cref u16, b: cref u32): ref bool;
+#[__nanyc_builtinalias: neq, nosuggest] public operator != (a: cref u16, b: __u32): ref bool;
+#[__nanyc_builtinalias: neq, nosuggest] public operator != (a: __u16, b: cref u32): ref bool;
+#[__nanyc_builtinalias: neq, nosuggest] public operator != (a: __u16, b: __u32): __bool;
 #[__nanyc_builtinalias: neq] public operator != (a: cref u16, b: cref u16): ref bool;
 #[__nanyc_builtinalias: neq, nosuggest] public operator != (a: cref u16, b: __u16): ref bool;
 #[__nanyc_builtinalias: neq, nosuggest] public operator != (a: __u16, b: cref u16): ref bool;
@@ -232,85 +280,155 @@ private:
 
 
 
-#[__nanyc_builtinalias: add] public operator + (a: cref u16, b: cref u16): ref u16;
-#[__nanyc_builtinalias: add, nosuggest] public operator + (a: cref u16, b: __u16): ref u16;
-#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u16, b: cref u16): ref u16;
-#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u16, b: __u16): __u16;
+#[__nanyc_builtinalias: add] public operator + (a: cref u16, b: cref u64): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: cref u16, b: __u64): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u16, b: cref u64): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u16, b: __u64): any;
 
-#[__nanyc_builtinalias: add] public operator + (a: cref u16, b: cref u8): ref u16;
-#[__nanyc_builtinalias: add, nosuggest] public operator + (a: cref u16, b: __u8): ref u16;
-#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u16, b: cref u8): ref u16;
-#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u16, b: __u8): __u16;
+#[__nanyc_builtinalias: add] public operator + (a: cref u16, b: cref u32): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: cref u16, b: __u32): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u16, b: cref u32): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u16, b: __u32): any;
 
+#[__nanyc_builtinalias: add] public operator + (a: cref u16, b: cref u16): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: cref u16, b: __u16): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u16, b: cref u16): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u16, b: __u16): any;
 
-#[__nanyc_builtinalias: sub] public operator - (a: cref u16, b: cref u16): ref u16;
-#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: cref u16, b: __u16): ref u16;
-#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u16, b: cref u16): ref u16;
-#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u16, b: __u16): __u16;
-
-#[__nanyc_builtinalias: sub] public operator - (a: cref u16, b: cref u8): ref u16;
-#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: cref u16, b: __u8): ref u16;
-#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u16, b: cref u8): ref u16;
-#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u16, b: __u8): __u16;
-
-
-#[__nanyc_builtinalias: div] public operator / (a: cref u16, b: cref u16): ref u16;
-#[__nanyc_builtinalias: div, nosuggest] public operator / (a: cref u16, b: __u16): ref u16;
-#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u16, b: cref u16): ref u16;
-#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u16, b: __u16): __u16;
-
-#[__nanyc_builtinalias: div] public operator / (a: cref u16, b: cref u8): ref u16;
-#[__nanyc_builtinalias: div, nosuggest] public operator / (a: cref u16, b: __u8): ref u16;
-#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u16, b: cref u8): ref u16;
-#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u16, b: __u8): __u16;
+#[__nanyc_builtinalias: add] public operator + (a: cref u16, b: cref u8): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: cref u16, b: __u8): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u16, b: cref u8): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u16, b: __u8): any;
 
 
-#[__nanyc_builtinalias: mul] public operator * (a: cref u16, b: cref u16): ref u16;
-#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: cref u16, b: __u16): ref u16;
-#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u16, b: cref u16): ref u16;
-#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u16, b: __u16): __u16;
+#[__nanyc_builtinalias: sub] public operator - (a: cref u16, b: cref u64): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: cref u16, b: __u64): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u16, b: cref u64): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u16, b: __u64): any;
 
-#[__nanyc_builtinalias: mul] public operator * (a: cref u16, b: cref u8): ref u16;
-#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: cref u16, b: __u8): ref u16;
-#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u16, b: cref u8): ref u16;
-#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u16, b: __u8): __u16;
+#[__nanyc_builtinalias: sub] public operator - (a: cref u16, b: cref u32): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: cref u16, b: __u32): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u16, b: cref u32): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u16, b: __u32): any;
 
+#[__nanyc_builtinalias: sub] public operator - (a: cref u16, b: cref u16): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: cref u16, b: __u16): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u16, b: cref u16): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u16, b: __u16): any;
 
-
-
-
-
-#[__nanyc_builtinalias: and] public operator and (a: cref u16, b: cref u16): ref u16;
-#[__nanyc_builtinalias: and, nosuggest] public operator and (a: cref u16, b: __u16): ref u16;
-#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u16, b: cref u16): ref u16;
-#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u16, b: __u16): __u16;
-
-#[__nanyc_builtinalias: and] public operator and (a: cref u16, b: cref u8): ref u16;
-#[__nanyc_builtinalias: and, nosuggest] public operator and (a: cref u16, b: __u8): ref u16;
-#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u16, b: cref u8): ref u16;
-#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u16, b: __u8): __u16;
+#[__nanyc_builtinalias: sub] public operator - (a: cref u16, b: cref u8): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: cref u16, b: __u8): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u16, b: cref u8): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u16, b: __u8): any;
 
 
-#[__nanyc_builtinalias: or] public operator or (a: cref u16, b: cref u16): ref u16;
-#[__nanyc_builtinalias: or, nosuggest] public operator or (a: cref u16, b: __u16): ref u16;
-#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u16, b: cref u16): ref u16;
-#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u16, b: __u16): __u16;
+#[__nanyc_builtinalias: div] public operator / (a: cref u16, b: cref u64): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: cref u16, b: __u64): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u16, b: cref u64): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u16, b: __u64): any;
 
-#[__nanyc_builtinalias: or] public operator or (a: cref u16, b: cref u8): ref u16;
-#[__nanyc_builtinalias: or, nosuggest] public operator or (a: cref u16, b: __u8): ref u16;
-#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u16, b: cref u8): ref u16;
-#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u16, b: __u8): __u16;
+#[__nanyc_builtinalias: div] public operator / (a: cref u16, b: cref u32): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: cref u16, b: __u32): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u16, b: cref u32): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u16, b: __u32): any;
+
+#[__nanyc_builtinalias: div] public operator / (a: cref u16, b: cref u16): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: cref u16, b: __u16): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u16, b: cref u16): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u16, b: __u16): any;
+
+#[__nanyc_builtinalias: div] public operator / (a: cref u16, b: cref u8): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: cref u16, b: __u8): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u16, b: cref u8): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u16, b: __u8): any;
 
 
-#[__nanyc_builtinalias: xor] public operator xor (a: cref u16, b: cref u16): ref u16;
-#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: cref u16, b: __u16): ref u16;
-#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u16, b: cref u16): ref u16;
-#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u16, b: __u16): __u16;
+#[__nanyc_builtinalias: mul] public operator * (a: cref u16, b: cref u64): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: cref u16, b: __u64): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u16, b: cref u64): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u16, b: __u64): any;
 
-#[__nanyc_builtinalias: xor] public operator xor (a: cref u16, b: cref u8): ref u16;
-#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: cref u16, b: __u8): ref u16;
-#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u16, b: cref u8): ref u16;
-#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u16, b: __u8): __u16;
+#[__nanyc_builtinalias: mul] public operator * (a: cref u16, b: cref u32): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: cref u16, b: __u32): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u16, b: cref u32): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u16, b: __u32): any;
+
+#[__nanyc_builtinalias: mul] public operator * (a: cref u16, b: cref u16): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: cref u16, b: __u16): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u16, b: cref u16): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u16, b: __u16): any;
+
+#[__nanyc_builtinalias: mul] public operator * (a: cref u16, b: cref u8): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: cref u16, b: __u8): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u16, b: cref u8): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u16, b: __u8): any;
+
+
+
+
+
+
+#[__nanyc_builtinalias: and] public operator and (a: cref u16, b: cref u64): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: cref u16, b: __u64): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u16, b: cref u64): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u16, b: __u64): any;
+
+#[__nanyc_builtinalias: and] public operator and (a: cref u16, b: cref u32): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: cref u16, b: __u32): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u16, b: cref u32): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u16, b: __u32): any;
+
+#[__nanyc_builtinalias: and] public operator and (a: cref u16, b: cref u16): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: cref u16, b: __u16): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u16, b: cref u16): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u16, b: __u16): any;
+
+#[__nanyc_builtinalias: and] public operator and (a: cref u16, b: cref u8): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: cref u16, b: __u8): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u16, b: cref u8): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u16, b: __u8): any;
+
+
+#[__nanyc_builtinalias: or] public operator or (a: cref u16, b: cref u64): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: cref u16, b: __u64): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u16, b: cref u64): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u16, b: __u64): any;
+
+#[__nanyc_builtinalias: or] public operator or (a: cref u16, b: cref u32): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: cref u16, b: __u32): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u16, b: cref u32): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u16, b: __u32): any;
+
+#[__nanyc_builtinalias: or] public operator or (a: cref u16, b: cref u16): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: cref u16, b: __u16): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u16, b: cref u16): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u16, b: __u16): any;
+
+#[__nanyc_builtinalias: or] public operator or (a: cref u16, b: cref u8): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: cref u16, b: __u8): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u16, b: cref u8): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u16, b: __u8): any;
+
+
+#[__nanyc_builtinalias: xor] public operator xor (a: cref u16, b: cref u64): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: cref u16, b: __u64): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u16, b: cref u64): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u16, b: __u64): any;
+
+#[__nanyc_builtinalias: xor] public operator xor (a: cref u16, b: cref u32): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: cref u16, b: __u32): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u16, b: cref u32): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u16, b: __u32): any;
+
+#[__nanyc_builtinalias: xor] public operator xor (a: cref u16, b: cref u16): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: cref u16, b: __u16): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u16, b: cref u16): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u16, b: __u16): any;
+
+#[__nanyc_builtinalias: xor] public operator xor (a: cref u16, b: cref u8): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: cref u16, b: __u8): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u16, b: cref u8): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u16, b: __u8): any;
 
 
 

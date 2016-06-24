@@ -380,155 +380,155 @@ private:
 
 
 
-#[__nanyc_builtinalias: add] public operator + (a: cref u64, b: cref u64): ref u64;
-#[__nanyc_builtinalias: add, nosuggest] public operator + (a: cref u64, b: __u64): ref u64;
-#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u64, b: cref u64): ref u64;
-#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u64, b: __u64): __u64;
+#[__nanyc_builtinalias: add] public operator + (a: cref u64, b: cref u64): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: cref u64, b: __u64): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u64, b: cref u64): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u64, b: __u64): any;
 
-#[__nanyc_builtinalias: add] public operator + (a: cref u64, b: cref u32): ref u64;
-#[__nanyc_builtinalias: add, nosuggest] public operator + (a: cref u64, b: __u32): ref u64;
-#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u64, b: cref u32): ref u64;
-#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u64, b: __u32): __u64;
+#[__nanyc_builtinalias: add] public operator + (a: cref u64, b: cref u32): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: cref u64, b: __u32): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u64, b: cref u32): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u64, b: __u32): any;
 
-#[__nanyc_builtinalias: add] public operator + (a: cref u64, b: cref u16): ref u64;
-#[__nanyc_builtinalias: add, nosuggest] public operator + (a: cref u64, b: __u16): ref u64;
-#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u64, b: cref u16): ref u64;
-#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u64, b: __u16): __u64;
+#[__nanyc_builtinalias: add] public operator + (a: cref u64, b: cref u16): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: cref u64, b: __u16): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u64, b: cref u16): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u64, b: __u16): any;
 
-#[__nanyc_builtinalias: add] public operator + (a: cref u64, b: cref u8): ref u64;
-#[__nanyc_builtinalias: add, nosuggest] public operator + (a: cref u64, b: __u8): ref u64;
-#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u64, b: cref u8): ref u64;
-#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u64, b: __u8): __u64;
-
-
-#[__nanyc_builtinalias: sub] public operator - (a: cref u64, b: cref u64): ref u64;
-#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: cref u64, b: __u64): ref u64;
-#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u64, b: cref u64): ref u64;
-#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u64, b: __u64): __u64;
-
-#[__nanyc_builtinalias: sub] public operator - (a: cref u64, b: cref u32): ref u64;
-#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: cref u64, b: __u32): ref u64;
-#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u64, b: cref u32): ref u64;
-#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u64, b: __u32): __u64;
-
-#[__nanyc_builtinalias: sub] public operator - (a: cref u64, b: cref u16): ref u64;
-#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: cref u64, b: __u16): ref u64;
-#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u64, b: cref u16): ref u64;
-#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u64, b: __u16): __u64;
-
-#[__nanyc_builtinalias: sub] public operator - (a: cref u64, b: cref u8): ref u64;
-#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: cref u64, b: __u8): ref u64;
-#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u64, b: cref u8): ref u64;
-#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u64, b: __u8): __u64;
+#[__nanyc_builtinalias: add] public operator + (a: cref u64, b: cref u8): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: cref u64, b: __u8): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u64, b: cref u8): any;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u64, b: __u8): any;
 
 
-#[__nanyc_builtinalias: div] public operator / (a: cref u64, b: cref u64): ref u64;
-#[__nanyc_builtinalias: div, nosuggest] public operator / (a: cref u64, b: __u64): ref u64;
-#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u64, b: cref u64): ref u64;
-#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u64, b: __u64): __u64;
+#[__nanyc_builtinalias: sub] public operator - (a: cref u64, b: cref u64): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: cref u64, b: __u64): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u64, b: cref u64): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u64, b: __u64): any;
 
-#[__nanyc_builtinalias: div] public operator / (a: cref u64, b: cref u32): ref u64;
-#[__nanyc_builtinalias: div, nosuggest] public operator / (a: cref u64, b: __u32): ref u64;
-#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u64, b: cref u32): ref u64;
-#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u64, b: __u32): __u64;
+#[__nanyc_builtinalias: sub] public operator - (a: cref u64, b: cref u32): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: cref u64, b: __u32): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u64, b: cref u32): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u64, b: __u32): any;
 
-#[__nanyc_builtinalias: div] public operator / (a: cref u64, b: cref u16): ref u64;
-#[__nanyc_builtinalias: div, nosuggest] public operator / (a: cref u64, b: __u16): ref u64;
-#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u64, b: cref u16): ref u64;
-#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u64, b: __u16): __u64;
+#[__nanyc_builtinalias: sub] public operator - (a: cref u64, b: cref u16): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: cref u64, b: __u16): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u64, b: cref u16): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u64, b: __u16): any;
 
-#[__nanyc_builtinalias: div] public operator / (a: cref u64, b: cref u8): ref u64;
-#[__nanyc_builtinalias: div, nosuggest] public operator / (a: cref u64, b: __u8): ref u64;
-#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u64, b: cref u8): ref u64;
-#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u64, b: __u8): __u64;
-
-
-#[__nanyc_builtinalias: mul] public operator * (a: cref u64, b: cref u64): ref u64;
-#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: cref u64, b: __u64): ref u64;
-#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u64, b: cref u64): ref u64;
-#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u64, b: __u64): __u64;
-
-#[__nanyc_builtinalias: mul] public operator * (a: cref u64, b: cref u32): ref u64;
-#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: cref u64, b: __u32): ref u64;
-#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u64, b: cref u32): ref u64;
-#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u64, b: __u32): __u64;
-
-#[__nanyc_builtinalias: mul] public operator * (a: cref u64, b: cref u16): ref u64;
-#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: cref u64, b: __u16): ref u64;
-#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u64, b: cref u16): ref u64;
-#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u64, b: __u16): __u64;
-
-#[__nanyc_builtinalias: mul] public operator * (a: cref u64, b: cref u8): ref u64;
-#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: cref u64, b: __u8): ref u64;
-#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u64, b: cref u8): ref u64;
-#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u64, b: __u8): __u64;
+#[__nanyc_builtinalias: sub] public operator - (a: cref u64, b: cref u8): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: cref u64, b: __u8): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u64, b: cref u8): any;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __u64, b: __u8): any;
 
 
+#[__nanyc_builtinalias: div] public operator / (a: cref u64, b: cref u64): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: cref u64, b: __u64): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u64, b: cref u64): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u64, b: __u64): any;
+
+#[__nanyc_builtinalias: div] public operator / (a: cref u64, b: cref u32): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: cref u64, b: __u32): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u64, b: cref u32): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u64, b: __u32): any;
+
+#[__nanyc_builtinalias: div] public operator / (a: cref u64, b: cref u16): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: cref u64, b: __u16): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u64, b: cref u16): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u64, b: __u16): any;
+
+#[__nanyc_builtinalias: div] public operator / (a: cref u64, b: cref u8): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: cref u64, b: __u8): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u64, b: cref u8): any;
+#[__nanyc_builtinalias: div, nosuggest] public operator / (a: __u64, b: __u8): any;
+
+
+#[__nanyc_builtinalias: mul] public operator * (a: cref u64, b: cref u64): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: cref u64, b: __u64): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u64, b: cref u64): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u64, b: __u64): any;
+
+#[__nanyc_builtinalias: mul] public operator * (a: cref u64, b: cref u32): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: cref u64, b: __u32): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u64, b: cref u32): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u64, b: __u32): any;
+
+#[__nanyc_builtinalias: mul] public operator * (a: cref u64, b: cref u16): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: cref u64, b: __u16): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u64, b: cref u16): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u64, b: __u16): any;
+
+#[__nanyc_builtinalias: mul] public operator * (a: cref u64, b: cref u8): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: cref u64, b: __u8): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u64, b: cref u8): any;
+#[__nanyc_builtinalias: mul, nosuggest] public operator * (a: __u64, b: __u8): any;
 
 
 
 
-#[__nanyc_builtinalias: and] public operator and (a: cref u64, b: cref u64): ref u64;
-#[__nanyc_builtinalias: and, nosuggest] public operator and (a: cref u64, b: __u64): ref u64;
-#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u64, b: cref u64): ref u64;
-#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u64, b: __u64): __u64;
-
-#[__nanyc_builtinalias: and] public operator and (a: cref u64, b: cref u32): ref u64;
-#[__nanyc_builtinalias: and, nosuggest] public operator and (a: cref u64, b: __u32): ref u64;
-#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u64, b: cref u32): ref u64;
-#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u64, b: __u32): __u64;
-
-#[__nanyc_builtinalias: and] public operator and (a: cref u64, b: cref u16): ref u64;
-#[__nanyc_builtinalias: and, nosuggest] public operator and (a: cref u64, b: __u16): ref u64;
-#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u64, b: cref u16): ref u64;
-#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u64, b: __u16): __u64;
-
-#[__nanyc_builtinalias: and] public operator and (a: cref u64, b: cref u8): ref u64;
-#[__nanyc_builtinalias: and, nosuggest] public operator and (a: cref u64, b: __u8): ref u64;
-#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u64, b: cref u8): ref u64;
-#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u64, b: __u8): __u64;
 
 
-#[__nanyc_builtinalias: or] public operator or (a: cref u64, b: cref u64): ref u64;
-#[__nanyc_builtinalias: or, nosuggest] public operator or (a: cref u64, b: __u64): ref u64;
-#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u64, b: cref u64): ref u64;
-#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u64, b: __u64): __u64;
+#[__nanyc_builtinalias: and] public operator and (a: cref u64, b: cref u64): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: cref u64, b: __u64): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u64, b: cref u64): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u64, b: __u64): any;
 
-#[__nanyc_builtinalias: or] public operator or (a: cref u64, b: cref u32): ref u64;
-#[__nanyc_builtinalias: or, nosuggest] public operator or (a: cref u64, b: __u32): ref u64;
-#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u64, b: cref u32): ref u64;
-#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u64, b: __u32): __u64;
+#[__nanyc_builtinalias: and] public operator and (a: cref u64, b: cref u32): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: cref u64, b: __u32): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u64, b: cref u32): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u64, b: __u32): any;
 
-#[__nanyc_builtinalias: or] public operator or (a: cref u64, b: cref u16): ref u64;
-#[__nanyc_builtinalias: or, nosuggest] public operator or (a: cref u64, b: __u16): ref u64;
-#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u64, b: cref u16): ref u64;
-#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u64, b: __u16): __u64;
+#[__nanyc_builtinalias: and] public operator and (a: cref u64, b: cref u16): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: cref u64, b: __u16): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u64, b: cref u16): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u64, b: __u16): any;
 
-#[__nanyc_builtinalias: or] public operator or (a: cref u64, b: cref u8): ref u64;
-#[__nanyc_builtinalias: or, nosuggest] public operator or (a: cref u64, b: __u8): ref u64;
-#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u64, b: cref u8): ref u64;
-#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u64, b: __u8): __u64;
+#[__nanyc_builtinalias: and] public operator and (a: cref u64, b: cref u8): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: cref u64, b: __u8): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u64, b: cref u8): any;
+#[__nanyc_builtinalias: and, nosuggest] public operator and (a: __u64, b: __u8): any;
 
 
-#[__nanyc_builtinalias: xor] public operator xor (a: cref u64, b: cref u64): ref u64;
-#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: cref u64, b: __u64): ref u64;
-#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u64, b: cref u64): ref u64;
-#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u64, b: __u64): __u64;
+#[__nanyc_builtinalias: or] public operator or (a: cref u64, b: cref u64): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: cref u64, b: __u64): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u64, b: cref u64): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u64, b: __u64): any;
 
-#[__nanyc_builtinalias: xor] public operator xor (a: cref u64, b: cref u32): ref u64;
-#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: cref u64, b: __u32): ref u64;
-#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u64, b: cref u32): ref u64;
-#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u64, b: __u32): __u64;
+#[__nanyc_builtinalias: or] public operator or (a: cref u64, b: cref u32): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: cref u64, b: __u32): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u64, b: cref u32): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u64, b: __u32): any;
 
-#[__nanyc_builtinalias: xor] public operator xor (a: cref u64, b: cref u16): ref u64;
-#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: cref u64, b: __u16): ref u64;
-#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u64, b: cref u16): ref u64;
-#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u64, b: __u16): __u64;
+#[__nanyc_builtinalias: or] public operator or (a: cref u64, b: cref u16): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: cref u64, b: __u16): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u64, b: cref u16): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u64, b: __u16): any;
 
-#[__nanyc_builtinalias: xor] public operator xor (a: cref u64, b: cref u8): ref u64;
-#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: cref u64, b: __u8): ref u64;
-#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u64, b: cref u8): ref u64;
-#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u64, b: __u8): __u64;
+#[__nanyc_builtinalias: or] public operator or (a: cref u64, b: cref u8): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: cref u64, b: __u8): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u64, b: cref u8): any;
+#[__nanyc_builtinalias: or, nosuggest] public operator or (a: __u64, b: __u8): any;
+
+
+#[__nanyc_builtinalias: xor] public operator xor (a: cref u64, b: cref u64): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: cref u64, b: __u64): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u64, b: cref u64): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u64, b: __u64): any;
+
+#[__nanyc_builtinalias: xor] public operator xor (a: cref u64, b: cref u32): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: cref u64, b: __u32): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u64, b: cref u32): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u64, b: __u32): any;
+
+#[__nanyc_builtinalias: xor] public operator xor (a: cref u64, b: cref u16): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: cref u64, b: __u16): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u64, b: cref u16): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u64, b: __u16): any;
+
+#[__nanyc_builtinalias: xor] public operator xor (a: cref u64, b: cref u8): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: cref u64, b: __u8): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u64, b: cref u8): any;
+#[__nanyc_builtinalias: xor, nosuggest] public operator xor (a: __u64, b: __u8): any;
 
 
 
