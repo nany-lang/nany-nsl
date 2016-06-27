@@ -51,11 +51,7 @@ public func reallocate(ptr: __pointer, oldsize: __u64, newsize: __u64): __pointe
 ** \brief Re-allocate a new chunk of memory
 */
 public func reallocate(ptr: __pointer, oldsize: u64, newsize: u64): __pointer
-{
-	// note: ptr will be modified
-	!!memory.realloc(ptr, oldsize.pod, newsize.pod);
-	return ptr;
-}
+	-> !!memory.realloc(ptr, oldsize.pod, newsize.pod);
 
 
 
