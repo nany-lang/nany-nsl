@@ -16,6 +16,8 @@
 */
 class pointer<:T:>
 {
+	typedef ValueType: T;
+
 	operator new;
 	operator new(p: __pointer)
 	{
@@ -66,49 +68,25 @@ class pointer<:T:>
 
 
 
-	operator += (cref count: u64): ref
-	{
-		pod = !!add(pod, count.pod * !!sizeof(#[__nanyc_synthetic] T));
-		return self;
-	}
-
-	#[nosuggest] operator += (count: __u64): ref
+	operator += (count): ref
 	{
 		pod = !!add(pod, count * !!sizeof(#[__nanyc_synthetic] T));
 		return self;
 	}
 
-	operator -= (cref count: u64): ref
-	{
-		pod = !!sub(pod, count.pod * !!sizeof(#[__nanyc_synthetic] T));
-		return self;
-	}
-
-	#[nosuggest] operator -= (count: __u64): ref
+	operator -= (count): ref
 	{
 		pod = !!sub(pod, count * !!sizeof(#[__nanyc_synthetic] T));
 		return self;
 	}
 
-	operator *= (cref count: u64): ref
-	{
-		pod = !!mul(pod, count.pod * !!sizeof(T));
-		return self;
-	}
-
-	#[nosuggest] operator *= (count: __u64): ref
+	operator *= (count): ref
 	{
 		pod = !!mul(pod, count * !!sizeof(T));
 		return self;
 	}
 
-	operator /= (cref count: u64): ref
-	{
-		pod = !!div(pod, count.pod * !!sizeof(T));
-		return self;
-	}
-
-	#[nosuggest] operator /= (count: __u64): ref
+	operator /= (count): ref
 	{
 		pod = !!div(pod, count * !!sizeof(T));
 		return self;
