@@ -98,6 +98,9 @@ class string
 	#[nosuggest] func append(n: void)
 		-> append("<void>");
 
+	#[nosuggest] func append(n: __pointer)
+		-> !!yuni.string.append.ptr(pod, n);
+
 	#[nosuggest] func append(cref n: __i8)
 		-> !!yuni.string.append.i8(pod, n);
 
