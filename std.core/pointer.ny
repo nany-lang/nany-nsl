@@ -21,80 +21,90 @@ class pointer<:T:>
 	operator new;
 	operator new(p: __pointer)
 	{
-		pod = p;
+		m_ptr = p;
+	}
+
+	operator new(p: __pointer, offset)
+	{
+		m_ptr = !!add(p, offset * !!sizeof(#[__nanyc_synthetic] T));
 	}
 
 	operator new(ref object: T)
 	{
-		pod = !!pointer(object);
+		m_ptr = !!pointer(object);
+	}
+
+	operator new(ref object: T)
+	{
+		m_ptr = !!add(!!pointer(object), offset * !!sizeof(#[__nanyc_synthetic] T));
+	}
+
+	//! Get if the pointer is null
+	func isNull: ref bool
+		-> new bool(m_ptr == null);
+
+	//! Reset the pointer to null
+	func clear
+	{
+		m_ptr = null;
+	}
+
+	//! Get the object referenced by the pointer
+	func deref: ref T
+	{
+		assert(m_ptr != null);
+		return !!__reinterpret(m_ptr, #[__nanyc_synthetic] T);
 	}
 
 
-	func nil: ref bool
-		-> new bool(pod == null);
-
-	func get: ref
+	func move(to: __pointer)
 	{
-		assert(pod != null);
-		return !!__reinterpret(pod, #[__nanyc_synthetic] T);
+		m_ptr = to;
 	}
 
-	/*!
-	** \brief Reset the inner pointer to null
-	*/
-	func reset
+	func move(cref to: T)
 	{
-		pod = null;
+		m_ptr = !!pointer(to);
 	}
 
-	func reset(p: __pointer)
+	func move(cref to)
 	{
-		pod = p;
-	}
-
-	func reset(ref object: T)
-	{
-		pod = !!pointer(object);
-	}
-
-	func reset(ref ptr)
-	{
-		pod = ptr.pod;
+		m_ptr = to.m_ptr;
 	}
 
 
 	func addressof: ref u64
-		-> new u64(!!__reinterpret(pod, #[__nanyc_synthetic] __u64));
+		-> new u64(!!__reinterpret(m_ptr, #[__nanyc_synthetic] __u64));
 
 
 
-	operator += (count): ref
+	operator += (offset): ref
 	{
-		pod = !!add(pod, count * !!sizeof(#[__nanyc_synthetic] T));
+		m_ptr = !!add(m_ptr, offset * !!sizeof(#[__nanyc_synthetic] T));
 		return self;
 	}
 
-	operator -= (count): ref
+	operator -= (offset): ref
 	{
-		pod = !!sub(pod, count * !!sizeof(#[__nanyc_synthetic] T));
+		m_ptr = !!sub(m_ptr, offset * !!sizeof(#[__nanyc_synthetic] T));
 		return self;
 	}
 
-	operator *= (count): ref
+	operator *= (offset): ref
 	{
-		pod = !!mul(pod, count * !!sizeof(T));
+		m_ptr = !!mul(m_ptr, offset * !!sizeof(T));
 		return self;
 	}
 
-	operator /= (count): ref
+	operator /= (offset): ref
 	{
-		pod = !!div(pod, count * !!sizeof(T));
+		m_ptr = !!div(m_ptr, offset * !!sizeof(T));
 		return self;
 	}
 
 
 internal:
-	var pod: __pointer = null;
+	var m_ptr: __pointer = null;
 
 } // class pointer
 
@@ -106,7 +116,36 @@ internal:
 public operator not (a: __pointer): __bool;
 
 public operator not (cref p: pointer): bool
-	-> not p.pod;
+	-> not p.m_ptr;
+
+
+#[__nanyc_builtinalias: add] public operator + (a: __pointer, b: cref u64): __pointer;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __pointer, b: __u64): __pointer;
+#[__nanyc_builtinalias: add] public operator + (a: __pointer, b: cref u32): __pointer;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __pointer, b: __u32): __pointer;
+#[__nanyc_builtinalias: add] public operator + (a: __pointer, b: cref u16): __pointer;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __pointer, b: __u16): __pointer;
+#[__nanyc_builtinalias: add] public operator + (a: __pointer, b: cref u8): __pointer;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __pointer, b: __u8): __pointer;
+
+#[__nanyc_builtinalias: add] public operator + (a: cref u64, b: __pointer): __pointer;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u64, b: __pointer): __pointer;
+#[__nanyc_builtinalias: add] public operator + (a: cref u32, b: __pointer): __pointer;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u32, b: __pointer): __pointer;
+#[__nanyc_builtinalias: add] public operator + (a: cref u16, b: __pointer): __pointer;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u16, b: __pointer): __pointer;
+#[__nanyc_builtinalias: add] public operator + (a: cref u8, b: __pointer): __pointer;
+#[__nanyc_builtinalias: add, nosuggest] public operator + (a: __u8, b: __pointer): __pointer;
+
+#[__nanyc_builtinalias: sub] public operator - (a: __pointer, b: cref u64): __pointer;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __pointer, b: __u64): __pointer;
+#[__nanyc_builtinalias: sub] public operator - (a: __pointer, b: cref u32): __pointer;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __pointer, b: __u32): __pointer;
+#[__nanyc_builtinalias: sub] public operator - (a: __pointer, b: cref u16): __pointer;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __pointer, b: __u16): __pointer;
+#[__nanyc_builtinalias: sub] public operator - (a: __pointer, b: cref u8): __pointer;
+#[__nanyc_builtinalias: sub, nosuggest] public operator - (a: __pointer, b: __u8): __pointer;
+
 
 
 #[__nanyc_builtinalias: gt]public operator > (a: cref pointer, b: cref pointer): ref bool;
