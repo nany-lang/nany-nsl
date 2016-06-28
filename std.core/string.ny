@@ -101,31 +101,31 @@ class string
 	#[nosuggest] func append(n: __pointer)
 		-> !!yuni.string.append.ptr(pod, n);
 
-	#[nosuggest] func append(cref n: __i8)
+	#[nosuggest] func append(n: __i8)
 		-> !!yuni.string.append.i8(pod, n);
 
-	#[nosuggest] func append(cref n: __i16)
+	#[nosuggest] func append(n: __i16)
 		-> !!yuni.string.append.i16(pod, n);
 
-	#[nosuggest] func append(cref n: __i32)
+	#[nosuggest] func append(n: __i32)
 		-> !!yuni.string.append.i32(pod, n);
 
-	#[nosuggest] func append(cref n: __i64)
+	#[nosuggest] func append(n: __i64)
 		-> !!yuni.string.append.i64(pod, n);
 
-	#[nosuggest] func append(cref n: __u8)
+	#[nosuggest] func append(n: __u8)
 		-> !!yuni.string.append.u8(pod, n);
 
-	#[nosuggest] func append(cref n: __u16)
+	#[nosuggest] func append(n: __u16)
 		-> !!yuni.string.append.u16(pod, n);
 
-	#[nosuggest] func append(cref n: __u32)
+	#[nosuggest] func append(n: __u32)
 		-> !!yuni.string.append.u32(pod, n);
 
-	#[nosuggest] func append(cref n: __u64)
+	#[nosuggest] func append(n: __u64)
 		-> !!yuni.string.append.u64(pod, n);
 
-	#[nosuggest] func append(cref n: __bool)
+	#[nosuggest] func append(n: __bool)
 		-> append(if n then "true" else "false");
 
 	func append(cref n: bool)
