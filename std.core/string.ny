@@ -149,6 +149,15 @@ internal:
 
 
 
+operator == (cref s1: string, cref s2: string): bool
+	-> new bool(!!yuni.string.equals(s1.pod, s2.pod));
+
+operator != (cref s1: string, cref s2: string): bool
+	-> not (new bool(!!yuni.string.equals(s1.pod, s2.pod)));
+
+
+
+
 
 // -*- mode: nany;-*-
 // vim: set filetype=nany:
