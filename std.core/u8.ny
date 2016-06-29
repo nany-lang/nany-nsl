@@ -16,9 +16,13 @@
 /// \ingroup std.core
 public class u8
 {
+	//! Default constructor
 	operator new;
 
-	operator new (self cref pod: u8);
+	operator new (cref x: u8)
+	{
+		pod = x.pod;
+	}
 
 	#[nosuggest] operator new (self pod: __u8);
 

@@ -17,8 +17,14 @@
 public class f64
 {
 	operator new;
-	operator new(self cref pod: f32);
-	operator new(self cref pod: f64);
+	operator new(cref x: f32)
+	{
+		pod = x.pod;
+	}
+	operator new(cref x: f64)
+	{
+		pod = x.pod;
+	}
 	#[nosuggest] operator new(self pod: __f32);
 	#[nosuggest] operator new(self pod: __f64);
 

@@ -17,7 +17,10 @@
 public class f32
 {
 	operator new;
-	operator new(self cref pod: f32);
+	operator new(cref x: f32)
+	{
+		pod = x.pod;
+	}
 	#[nosuggest] operator new(self pod: __f32);
 
 

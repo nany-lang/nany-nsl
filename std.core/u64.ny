@@ -16,12 +16,25 @@
 /// \ingroup std.core
 public class u64
 {
+	//! Default constructor
 	operator new;
 
-	operator new (self cref pod: u64);
-	operator new (self cref pod: u32);
-	operator new (self cref pod: u16);
-	operator new (self cref pod: u8);
+	operator new (cref x: u64)
+	{
+		pod = x.pod;
+	}
+	operator new (cref x: u32)
+	{
+		pod = x.pod;
+	}
+	operator new (cref x: u16)
+	{
+		pod = x.pod;
+	}
+	operator new (cref x: u8)
+	{
+		pod = x.pod;
+	}
 
 	#[nosuggest] operator new (self pod: __u64);
 	#[nosuggest] operator new (self pod: __u32);
