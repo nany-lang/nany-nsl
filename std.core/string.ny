@@ -95,6 +95,12 @@ class string
 	func append(cref n: u64)
 		-> !!yuni.string.append.u64(pod, n.pod);
 
+	func append(cref n: f32)
+		-> !!yuni.string.append.f32(pod, n.pod);
+
+	func append(cref n: f64)
+		-> !!yuni.string.append.f64(pod, n.pod);
+
 	#[nosuggest] func append(n: void)
 		-> append("<void>");
 
@@ -124,6 +130,12 @@ class string
 
 	#[nosuggest] func append(n: __u64)
 		-> !!yuni.string.append.u64(pod, n);
+
+	#[nosuggest] func append(n: __f32)
+		-> !!yuni.string.append.f32(pod, n);
+
+	#[nosuggest] func append(n: __f64)
+		-> !!yuni.string.append.f64(pod, n);
 
 	#[nosuggest] func append(n: __bool)
 		-> append(if n then "true" else "false");
