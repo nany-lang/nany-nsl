@@ -369,7 +369,7 @@ private:
 
 
 internal:
-	// note: u32 by default to have a consistent behavior accros all operating systems
+	// note: u32 by default to have a consistent behavior accross all operating systems
 	// note: currently `__u32` instead of `u32` due to the lack of optimizations by the compiler
 
 	//! The current size of the container
