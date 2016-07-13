@@ -86,6 +86,18 @@ public func copy(dst: __pointer, src: __pointer, size: __u64): void
 	-> !!memory.copy(dst, src, size);
 
 /*!
+** \brief Copy memory regions which may overlap
+*/
+public func copyOverlap(dst: __pointer, src: __pointer, size: u64): void
+	-> !!memory.move(dst, src, size.pod);
+
+/*!
+** \brief Copy memory regions which may overlap
+*/
+public func copyOverlap(dst: __pointer, src: __pointer, size: __u64): void
+	-> !!memory.move(dst, src, size);
+
+/*!
 ** \brief Fill memory with a given pattern
 */
 public func fill(ptr: __pointer, size: u64, pattern: u8): void
