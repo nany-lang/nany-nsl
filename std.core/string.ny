@@ -52,10 +52,6 @@ class string
 	}
 
 
-	//! Get the size of the string
-	var size
-		-> new u64(m_size);
-
 	//! Get if the string is empty
 	var empty
 		-> new bool(m_size == 0__u32);
