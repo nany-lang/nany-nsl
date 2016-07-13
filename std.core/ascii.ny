@@ -39,12 +39,13 @@ class Ascii
 	//! Get if the ascii is a space (real space or tab)
 	// '\f', '\n', '\r', '\t', '\v'
 	var isBlank
-		-> new bool(m_value == 32__u8 or m_value == 9__u8
-		or m_value == 10__u8 or m_value == 11__u8 or m_value == 12__u8);
+		-> m_value == 32__u8 or m_value == 9__u8
+		or m_value == 10__u8 or m_value == 11__u8 or m_value == 12__u8
+		or m_value == 0__u8;
 
 	//! Get if the ascii is a digit
 	var isDigit
-		-> new bool(m_value >= 48__u8 and m_value <= 57__u8);
+		-> m_value >= 48__u8 and m_value <= 57__u8;
 
 	var toDigit
 		-> if isDigit then new u8(m_value - 48__u8) else 0u8;

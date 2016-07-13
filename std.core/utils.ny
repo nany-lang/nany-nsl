@@ -28,13 +28,18 @@ public func assert(expr: __bool);
 ** \brief Print a string to stdout
 */
 public func print(cref text: string)
-	-> !!yuni.string.cout(text.pod);
+{
+	if not text.empty then
+		!!nanyc.cout(text.m_cstr, text.m_size);
+}
 
 /*!
 ** \brief Print to stdout any value convertible to a string
 */
 public func print(cref value)
-	-> !!yuni.string.cout((new string(value)).pod);
+{
+	print((new string) << value);
+}
 
 
 
@@ -50,7 +55,6 @@ public operator * (cref lhs, cref rhs): any
 
 public operator / (cref lhs, cref rhs): any
 	-> (new typeof(lhs) (lhs)) /= rhs;
-
 
 
 
