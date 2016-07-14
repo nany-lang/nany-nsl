@@ -30,7 +30,7 @@ class Ascii
 
 
 	//! Integer representation
-	var asU8 -> { get: m_value, set: reset(value) };
+	var asU8 -> { get: new u8(m_value), set: reset(value) };
 
 	//! Get if the ascii is null (\0)
 	var isNull
