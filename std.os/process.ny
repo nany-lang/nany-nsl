@@ -10,6 +10,8 @@
 namespace std.os;
 
 
+
+
 /*!
 ** \brief Execute a command and wait for it
 **
@@ -17,7 +19,7 @@ namespace std.os;
 ** \return True if the command has been executed and if the exit status is 0
 */
 public func execute(cref cmd: string): ref
-	-> new bool(!!yuni.os.execute(cmd.pod, 0__u32));
+	-> new bool(!!nanyc.os.execute(cmd.pod, 0__u32));
 
 
 /*!
@@ -28,4 +30,4 @@ public func execute(cref cmd: string): ref
 ** \return True if the command has been executed and if the exit status is 0
 */
 public func execute(cref cmd: string, cref timeout: u32): ref
-	-> new bool(!!yuni.os.execute(cmd.pod, timeout.pod));
+	-> new bool(!!nanyc.os.execute(cmd.pod, timeout.pod));

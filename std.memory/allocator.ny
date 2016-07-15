@@ -129,13 +129,30 @@ public func zero(ptr: __pointer, size: __u64): void
 */
 #[nosuggest]
 public func equals(p1: __pointer, p2: __pointer, size: __u64): bool
-	-> new bool(!!memory.equals(p1, p2, size));
+	-> new bool(!!memory.cmp(p1, p2, size) == 0__u32);
 
 /*!
 ** \brief Get if 2 memory areas are identical
 */
 public func equals(p1: __pointer, p2: __pointer, size: u64): bool
-	-> new bool(!!memory.equals(p1, p2, size.pod));
+	-> new bool(!!memory.cmp(p1, p2, size.pod) == 0__u32);
+
+
+#[nosuggest]
+public func less(p1: __pointer, p2: __pointer, size: __u64): bool
+	-> new bool(!!memory.cmp(p1, p2, size) == 2__u32);
+
+public func less(p1: __pointer, p2: __pointer, size: u64): bool
+	-> new bool(!!memory.cmp(p1, p2, size.pod) == 2__u32);
+
+#[nosuggest]
+public func greater(p1: __pointer, p2: __pointer, size: __u64): bool
+	-> new bool(!!memory.cmp(p1, p2, size) == 1__u32);
+
+public func greater(p1: __pointer, p2: __pointer, size: u64): bool
+	-> new bool(!!memory.cmp(p1, p2, size.pod) == 1__u32);
+
+
 
 
 
