@@ -56,6 +56,10 @@ class string
 	var empty
 		-> new bool(m_size == 0__u32);
 
+	//! Get if the string is empty or contains only blank characters
+	var blank
+		-> isBlank();
+
 	//! Get the size of the string (in bytes)
 	var size
 		-> new u32(m_size);
@@ -136,7 +140,7 @@ class string
 		var newsize = oldsize + 1__u32;
 		if m_capacity < newsize then
 			doGrow(newsize);
-		!!store.u8(m_cstr + oldsize, ascii.asU8);
+		!!store.u8(m_cstr + oldsize, ascii.asU8.pod);
 		m_size = newsize;
 	}
 
@@ -253,48 +257,170 @@ class string
 
 
 	/*!
+	** \brief Fill the string with a given pattern
+	*/
+	func fill(cref ascii: std.Ascii)
+	{
+		if m_size != 0__u32 then
+			std.memory.fill(m_cstr, 0__u64 + m_size, ascii.asU8.pod);
+	}
+
+
+	/*!
+	** \brief Get if the string contains a given ascii
+	*/
+	func contains(cref ascii: std.Ascii): bool
+	{
+		if m_size != 0__u32 then
+		{
+			var i = 0u;
+			var size = m_size;
+			var needle = ascii.asU8.pod;
+			do
+			{
+				if needle == !!load.u8(m_cstr + i.pod) then
+					return true;
+			}
+			while (i += 1u) < size;
+		}
+		return false;
+	}
+
+
+	/*!
+	** \brief Get the number of ascii
+	*/
+	func count(cref ascii: std.Ascii): u32
+	{
+		var c = 0u;
+		if m_size != 0__u32 then
+		{
+			var i = 0u;
+			var size = m_size;
+			var needle = ascii.asU8.pod;
+			do
+			{
+				if needle == !!load.u8(m_cstr + i.pod) then
+					c += 1u;
+			}
+			while (i += 1u) < size;
+		}
+		return c;
+	}
+
+
+	/*!
+	** \brief Determines whether the string begins with the characters of another string
+	*/
+	func startsWith(cref prefix: string): bool
+	{
+		return (m_size != 0__u32 and prefix.m_size <= m_size)
+			and std.memory.equals(m_cstr, prefix.m_cstr, 0__u64 + prefix.m_size);
+	}
+
+
+	/*!
+	** \brief Determines whether the string ends with the characters of another string
+	*/
+	func endsWith(cref suffix: string): bool
+	{
+		var fsize = suffix.m_size;
+		return (m_size != 0__u32 and fsize <= m_size)
+			and std.memory.equals(m_cstr + m_size - fsize, prefix.m_cstr, 0__u64 + fsize);
+	}
+
+
+	/*!
+	** \brief Remove the 'count' ascii from the end of the string
+	*/
+	func chop(ascii: u32)
+	{
+		if ascii != 0u then
+		{
+			var size = m_size;
+			if size >= ascii.pod then
+				m_size = size - ascii.pod;
+			else
+				m_size = 0__u32;
+		}
+	}
+
+
+	/*!
+	** \brief Remove the 'count' ascii from the begining of the string
+	*/
+	func consume(ascii: u32)
+	{
+		if ascii != 0u then
+		{
+			var size = m_size;
+			if size > ascii.pod then
+			{
+				size = size - ascii.pod;
+				std.memory.copyOverlap(m_cstr, m_cstr + ascii.pod, 0__u64 + size);
+				m_size = size;
+			}
+			else
+				m_size = 0__u32;
+		}
+	}
+
+
+	/*!
+	** \brief Reduce the size of the string
+	*/
+	func truncate(ascii: u32)
+	{
+		if m_size > ascii.pod then
+			m_size = ascii.pod;
+	}
+
+
+	/*!
+	** \brief Remove last ascii if any
+	*/
+	func removeLastAscii
+	{
+		var size = m_size;
+		if size != 0__u32 then
+			m_size = size - 1__u32;
+	}
+
+
+	/*!
 	** \brief Remove whitespace from both sides of the string
 	*/
 	func trim
+		-> trim(func (cref ascii) -> ascii.isBlank);
+
+	/*!
+	** \brief Remove all ascii matching the predicate from both sides of the string
+	*/
+	func trim(cref predicate)
 	{
-		trimRight();
-		trimLeft(); // from the left, if something remains
+		trimRight(predicate);
+		trimLeft(predicate);
 	}
+
 
 	/*!
 	** \brief Remove whitespace from the right side of the string
 	*/
 	func trimRight
-	{
-		var size = new u32(m_size);
-		if size != 0u32 then
-		{
-			var p = m_cstr;
-			var ascii = new std.Ascii;
-			do
-			{
-				size -= 1u;
-				ascii.asU8 = !!load.u8(p + size.pod);
+		-> trimRight(func (cref ascii) -> ascii.isBlank);
 
-				if not ascii.isBlank then
-				{
-					m_size = size.pod + 1__u32;
-					return;
-				}
-				if size == 0u32 then
-				{
-					m_size = 0__u32;
-					return;
-				}
-			}
-			while __true;
-		}
-	}
 
 	/*!
 	** \brief Remove whitespace from the left side of the string
 	*/
 	func trimLeft
+		-> trimLeft(func (cref ascii) -> ascii.isBlank);
+
+
+	/*!
+	** \brief Remove all ascii matching the predicate from the left side of the string
+	*/
+	func trimLeft(cref predicate)
 	{
 		var size = new u32(m_size);
 		if size != 0u32 then
@@ -306,7 +432,7 @@ class string
 			{
 				ascii.asU8 = !!load.u8(p + i.pod);
 
-				if not ascii.isBlank then
+				if not predicate(ascii) then
 				{
 					if i != 0u then
 					{
@@ -326,12 +452,64 @@ class string
 		}
 	}
 
+	/*!
+	** \brief Remove all ascii matching the predicate from the right side of the string
+	*/
+	func trimRight(cref predicate)
+	{
+		var size = new u32(m_size);
+		if size != 0u32 then
+		{
+			var p = m_cstr;
+			var ascii = new std.Ascii;
+			do
+			{
+				size -= 1u;
+				ascii.asU8 = !!load.u8(p + size.pod);
 
+				if not predicate(ascii) then
+				{
+					m_size = size.pod + 1__u32;
+					return;
+				}
+				if size == 0u32 then
+				{
+					m_size = 0__u32;
+					return;
+				}
+			}
+			while __true;
+		}
+	}
+
+
+	/*!
+	** \brief Get the ascii at offset 'i' (without any check)
+	*/
+	func at(cref i: u32): ref std.Ascii
+	{
+		assert(i < m_size);
+		return new std.Ascii(!!load.u8(m_cstr + i.pod));
+	}
+
+
+	/*!
+	** \brief Extend the string by appending a value (see 'append')
+	** \return self
+	*/
 	operator += (cref n): ref string
 	{
 		append(n);
 		return self;
 	}
+
+
+	/*!
+	** \brief Get the ascii at offset 'i' ('\0' if 'i' is out of bound)
+	*/
+	operator [] (cref i: u32)
+		-> new std.Ascii(if i < m_size then !!load.u8(m_cstr + i.pod) else 0__u8);
+
 
 
 private:
@@ -361,6 +539,30 @@ private:
 			m_capacity = 0__u32;
 			m_cstr = null;
 		}
+	}
+
+
+	func isBlank: bool
+	{
+		var size = new u32(m_size);
+		if size != 0u32 then
+		{
+			var i = 0u32;
+			var p = m_cstr;
+			var ascii = new std.Ascii;
+			do
+			{
+				ascii.asU8 = !!load.u8(p + i.pod);
+
+				if not ascii.isBlank then
+					return false;
+
+				if (i += 1u) == size then
+					return true;
+			}
+			while __true;
+		}
+		return true;
 	}
 
 
