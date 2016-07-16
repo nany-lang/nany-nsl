@@ -30,7 +30,7 @@ public func assert(expr: __bool);
 public func print(cref text: string)
 {
 	if not text.empty then
-		!!nanyc.cout(text.m_cstr, text.m_size);
+		!!__nanyc.cout(text.m_cstr, text.m_size);
 }
 
 /*!

@@ -186,7 +186,7 @@ class string
 		if n != null then
 		{
 			if m_capacity < m_size + 64__u32 then doGrow(m_size + 64__u32);
-			m_size = m_size + !!nanyc.string.append.ptr(m_cstr + m_size, n);
+			m_size = m_size + !!__nanyc.string.append.ptr(m_cstr + m_size, n);
 		}
 		else
 			append("0x0");
@@ -195,61 +195,61 @@ class string
 	#[nosuggest] func append(n: __i8)
 	{
 		if m_capacity < m_size + 64__u32 then doGrow(m_size + 64__u32);
-		m_size = m_size + !!nanyc.string.append.i8(m_cstr + m_size, n);
+		m_size = m_size + !!__nanyc.string.append.i8(m_cstr + m_size, n);
 	}
 
 	#[nosuggest] func append(n: __i16)
 	{
 		if m_capacity < m_size + 64__u32 then doGrow(m_size + 64__u32);
-		m_size = m_size + !!nanyc.string.append.i16(m_cstr + m_size, n);
+		m_size = m_size + !!__nanyc.string.append.i16(m_cstr + m_size, n);
 	}
 
 	#[nosuggest] func append(n: __i32)
 	{
 		if m_capacity < m_size + 64__u32 then doGrow(m_size + 64__u32);
-		m_size = m_size + !!nanyc.string.append.i32(m_cstr + m_size, n);
+		m_size = m_size + !!__nanyc.string.append.i32(m_cstr + m_size, n);
 	}
 
 	#[nosuggest] func append(n: __i64)
 	{
 		if m_capacity < m_size + 64__u32 then doGrow(m_size + 64__u32);
-		m_size = m_size + !!nanyc.string.append.i64(m_cstr + m_size, n);
+		m_size = m_size + !!__nanyc.string.append.i64(m_cstr + m_size, n);
 	}
 
 	#[nosuggest] func append(n: __u8)
 	{
 		if m_capacity < m_size + 64__u32 then doGrow(m_size + 64__u32);
-		m_size = m_size + !!nanyc.string.append.u8(m_cstr + m_size, n);
+		m_size = m_size + !!__nanyc.string.append.u8(m_cstr + m_size, n);
 	}
 
 	#[nosuggest] func append(n: __u16)
 	{
 		if m_capacity < m_size + 64__u32 then doGrow(m_size + 64__u32);
-		m_size = m_size + !!nanyc.string.append.u16(m_cstr + m_size, n);
+		m_size = m_size + !!__nanyc.string.append.u16(m_cstr + m_size, n);
 	}
 
 	#[nosuggest] func append(n: __u32)
 	{
 		if m_capacity < m_size + 64__u32 then doGrow(m_size + 64__u32);
-		m_size = m_size + !!nanyc.string.append.u32(m_cstr + m_size, n);
+		m_size = m_size + !!__nanyc.string.append.u32(m_cstr + m_size, n);
 	}
 
 	#[nosuggest] func append(n: __u64)
 	{
 		if m_capacity < m_size + 64__u32 then doGrow(m_size + 64__u32);
-		m_size = m_size + !!nanyc.string.append.u64(m_cstr + m_size, n);
+		m_size = m_size + !!__nanyc.string.append.u64(m_cstr + m_size, n);
 	}
 
 	#[nosuggest] func append(n: __f32)
 	{
 		if m_capacity < m_size + 64__u32 then doGrow(m_size + 64__u32);
-		m_size = m_size + !!nanyc.string.append.f32(m_cstr + m_size, n);
+		m_size = m_size + !!__nanyc.string.append.f32(m_cstr + m_size, n);
 	}
 
 	#[nosuggest] func append(n: __f64)
 	{
 		if m_capacity < m_size + 64__u32 then doGrow(m_size + 64__u32);
-		m_size = m_size + !!nanyc.string.append.f64(m_cstr + m_size, n);
+		m_size = m_size + !!__nanyc.string.append.f64(m_cstr + m_size, n);
 	}
 
 	#[nosuggest] func append(n: __bool)
