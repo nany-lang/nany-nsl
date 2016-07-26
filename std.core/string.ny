@@ -23,6 +23,11 @@ class string
 		append(value);
 	}
 
+	operator new (cref cstring: string, size: u32)
+	{
+		append(cstring.m_cstr, size.pod);
+	}
+
 	operator new (cstring: __pointer, size: __u32)
 	{
 		append(cstring, size);
@@ -75,7 +80,7 @@ class string
 
 	//! Get the last character, \0 if empty
 	var last
-		-> new std.Ascii(if m_size != 0__u32 then !!load.u8(m_cstr + m_size - 1) else 0__u8);
+		-> new std.Ascii(if m_size != 0__u32 then !!load.u8(m_cstr + m_size - 1__u32) else 0__u8);
 
 
 	/*!
@@ -87,8 +92,8 @@ class string
 			doGrow(size);
 	}
 
-	func shrink
-		-> doShrink();
+	func squeeze
+		-> doSqueeze();
 
 
 	//! Assign a new value to the string
@@ -120,6 +125,7 @@ class string
 	{
 		if size != 0__u32 then
 		{
+			assert(cstring != null);
 			var oldsize = m_size;
 			var newsize = oldsize + size;
 			if m_capacity < newsize then
@@ -185,7 +191,8 @@ class string
 	{
 		if n != null then
 		{
-			if m_capacity < m_size + 64__u32 then doGrow(m_size + 64__u32);
+			if m_capacity < m_size + 64__u32 then
+				doGrow(m_size + 64__u32);
 			m_size = m_size + !!__nanyc.string.append.ptr(m_cstr + m_size, n);
 		}
 		else
@@ -256,6 +263,71 @@ class string
 		-> append(if n then "true" else "false");
 
 
+	func prepend(cref str: string)
+		-> insert(0__u32, str.m_cstr, str.m_size);
+
+	#[nosuggest] func prepend(n: __bool)
+		-> insert(0u, if n then "true" else "false");
+
+	func prepend(n: bool)
+		-> prepend(n.pod);
+
+	#[nosuggest] func prepend(cstring: __pointer, size: __u32)
+		-> insert(0__u32, cstring, size);
+
+
+	func prepend(ascii: std.Ascii)
+	{
+		var oldsize = m_size;
+		var newsize = oldsize + 1__u32;
+		if m_capacity < newsize then
+			doGrow(newsize);
+
+		var p = m_cstr;
+		if oldsize != 0__u32 then
+			std.memory.copyOverlap(p + 1__u32, p, 1__u64);
+		!!store.u8(p, ascii.asU8.pod);
+		m_size = newsize;
+	}
+
+
+	func insert(offset: u32, cref str: string)
+		-> insert(offset.pod, str.m_cstr, str.m_size);
+
+	func insert(offset: u32, cref str: string, size: u32)
+		-> insert(offset.pod, str.m_cstr, (if str.size < size then str.size else size));
+
+	func insert(offset: u32, cref value)
+		-> insert(offset, ((new string) += value));
+
+	func insert(offset: u32, cref value, size: u32)
+		-> insert(offset, ((new string) += value), size);
+
+
+	func insert(offset: __u32, cstring: __pointer, size: __u32)
+	{
+		if size != 0__u32 then
+		{
+			assert(cstring != null);
+			var oldsize = m_size;
+
+			if offset < oldsize then
+			{
+				var newsize = oldsize + size;
+				if m_capacity < newsize then
+					doGrow(newsize);
+
+				var p = m_cstr + offset;
+				std.memory.copyOverlap(dst: p + size, src: p, size: 0__u64 + (oldsize - offset));
+				std.memory.copy(dst: p, src: cstring, size: 0__u64 + size);
+				m_size = newsize;
+			}
+			else
+				append(cstring, size);
+		}
+	}
+
+
 	/*!
 	** \brief Fill the string with a given pattern
 	*/
@@ -276,9 +348,10 @@ class string
 			var i = 0u;
 			var size = m_size;
 			var needle = ascii.asU8.pod;
+			var p = m_cstr;
 			do
 			{
-				if needle == !!load.u8(m_cstr + i.pod) then
+				if needle == !!load.u8(p + i.pod) then
 					return true;
 			}
 			while (i += 1u) < size;
@@ -287,8 +360,107 @@ class string
 	}
 
 
+	func index(cref predicate): u32
+		-> index(0u, predicate);
+
+
+	func index(offset: u32, cref predicate): u32
+	{
+		var size = m_size;
+		if offset < size then
+		{
+			var p = m_cstr + offset.pod;
+			var ascii = new std.Ascii;
+			do
+			{
+				ascii.asU8 = !!load.u8(p);
+				if predicate(ascii) then
+					return offset;
+				offset += 1u;
+				p = p + 1__u32;
+			}
+			while offset < size;
+		}
+		return new u32(size);
+	}
+
+
+	func index(cref ascii: std.Ascii): u32
+		-> index(0u, ascii);
+
+
+	func index(offset: u32, cref ascii: std.Ascii): u32
+	{
+		var size = m_size;
+		if offset < size then
+		{
+			var p = m_cstr + offset.pod;
+			var needle = ascii.asU8.pod;
+			do
+			{
+				if needle == !!load.u8(p) then
+					return offset;
+				offset += 1u;
+				p = p + 1__u32;
+			}
+			while offset < size;
+		}
+		return new u32(size);
+	}
+
+
+	func index(cref needle: string): u32
+		-> index(0u, needle);
+
+
+	func index(offset: u32, cref needle: string): u32
+	{
+		var size = m_size;
+		var needlesize = needle.size;
+		if needlesize != 0u and (offset + needlesize <= size) then
+		{
+			var maxsize = size - needlesize.pod;
+			do
+			{
+				if maxsize != offset then
+				{
+					offset = index(offset, needle.at(0u));
+					if not (offset <= maxsize) then
+						return new u32(size);
+				}
+
+				if std.memory.equals(m_cstr + offset.pod, needle.m_cstr, 0__u64 + needlesize.pod) then
+					return offset;
+
+				offset = offset + 1u;
+			}
+			while offset < maxsize;
+		}
+		return new u32(size);
+	}
+
+
+	func lastIndex(offset: u32, cref ascii: std.Ascii): u32
+	{
+		var size = m_size;
+		if offset > size then
+			offset.pod = size;
+
+		var p = m_cstr + offset.pod;
+		var needle = ascii.asU8.pod;
+		while offset != 0u do
+		{
+			offset -= 1u;
+			p = p - 1__u32;
+			if needle == !!load.u8(p) then
+				return offset;
+		}
+		return new u32(size);
+	}
+
+
 	/*!
-	** \brief Get the number of ascii
+	** \brief Get the number of ascii in the string
 	*/
 	func count(cref ascii: std.Ascii): u32
 	{
@@ -307,6 +479,12 @@ class string
 		}
 		return c;
 	}
+
+	/*!
+	** \brief Get the total number of ascii in the string (same as 'size')
+	*/
+	func count: u32
+		-> new u32(m_size);
 
 
 	/*!
@@ -369,10 +547,10 @@ class string
 	/*!
 	** \brief Reduce the size of the string
 	*/
-	func truncate(ascii: u32)
+	func truncate(count: u32)
 	{
-		if m_size > ascii.pod then
-			m_size = ascii.pod;
+		if m_size > count.pod then
+			m_size = count.pod;
 	}
 
 
@@ -388,10 +566,43 @@ class string
 
 
 	/*!
+	** \brief Get a new string with the first N characters
+	*/
+	func left(count: u32): ref string
+	{
+		// TODO: utf8 instead of ascii
+		if count.pod < m_size then
+			return new string(self, count);
+		return new string();
+	}
+
+	/*!
+	** \brief Get the Nth part of the string
+	*/
+	func part(index: u32): ref string
+		-> part(index, func (cref ascii) -> ascii.blank);
+
+	/*!
+	** \brief Get the Nth part of the string
+	*/
+	func part(index: u32, cref separator): ref string
+	{
+		for p in self:split(separator) do
+		{
+			if index == 0u then
+				return p;
+			index -= 1u;
+		}
+		return new string;
+	}
+
+
+
+	/*!
 	** \brief Remove whitespace from both sides of the string
 	*/
 	func trim
-		-> trim(func (cref ascii) -> ascii.isBlank);
+		-> trim(func (cref ascii) -> ascii.blank);
 
 	/*!
 	** \brief Remove all ascii matching the predicate from both sides of the string
@@ -407,14 +618,14 @@ class string
 	** \brief Remove whitespace from the right side of the string
 	*/
 	func trimRight
-		-> trimRight(func (cref ascii) -> ascii.isBlank);
+		-> trimRight(func (cref ascii) -> ascii.blank);
 
 
 	/*!
 	** \brief Remove whitespace from the left side of the string
 	*/
 	func trimLeft
-		-> trimLeft(func (cref ascii) -> ascii.isBlank);
+		-> trimLeft(func (cref ascii) -> ascii.blank);
 
 
 	/*!
@@ -484,6 +695,15 @@ class string
 
 
 	/*!
+	** \brief Get a string that has whitespace removed from the start and the end
+	** \see blank
+	*/
+	var trimmed
+		-> makeTrimmed();
+
+
+
+	/*!
 	** \brief Get the ascii at offset 'i' (without any check)
 	*/
 	func at(cref i: u32): ref std.Ascii
@@ -491,6 +711,65 @@ class string
 		assert(i < m_size);
 		return new std.Ascii(!!load.u8(m_cstr + i.pod));
 	}
+
+
+	/*!
+	** \brief View on each UTF8 character
+	** \TODO UTF8 support (UTF8cpp?)
+	*/
+	view (cref filter): ref
+		-> makeViewAscii(filter);
+
+	/*!
+	** \brief View on each ascii
+	*/
+	view ascii(cref filter): ref
+		-> makeViewAscii(filter);
+
+	/*!
+	** \brief View on each ascii as u8
+	*/
+	view bytes(cref filter): ref
+		-> makeViewBytes(filter);
+
+	/*!
+	** \brief Split the string
+	*/
+	view split(cref filter): ref
+		-> makeViewSplit(filter, func (cref ascii) -> ascii.blank);
+
+	/*!
+	** \brief Split the string
+	*/
+	view split(cref filter, cref separator: std.Ascii): ref
+	{
+		ref sep = separator;
+		return makeViewSplit(filter, func (cref ascii) -> ascii == sep);
+	}
+
+	/*!
+	** \brief Split the string
+	*/
+	view split(cref filter, cref predicate): ref
+		-> makeViewSplit(filter, predicate);
+
+	/*!
+	** \brief Split the string
+	*/
+	view lines(cref filter): ref
+		-> makeViewSplitByLines(filter);
+
+	/*!
+	** \brief Find occurences
+	*/
+	view index(cref filter, cref pattern): ref
+		-> makeViewIndex(filter, 0u, pattern);
+
+	/*!
+	** \brief Find occurences
+	*/
+	view index(cref filter, offset: u32, cref pattern): ref
+		-> makeViewIndex(filter, offset, pattern);
 
 
 	/*!
@@ -531,7 +810,7 @@ private:
 	}
 
 
-	func doShrink
+	func doSqueeze
 	{
 		if m_size == 0__u32 then
 		{
@@ -554,7 +833,7 @@ private:
 			{
 				ascii.asU8 = !!load.u8(p + i.pod);
 
-				if not ascii.isBlank then
+				if not ascii.blank then
 					return false;
 
 				if (i += 1u) == size then
@@ -564,6 +843,233 @@ private:
 		}
 		return true;
 	}
+
+
+	func makeTrimmed: ref
+	{
+		var newstr = new string(self);
+		newstr.trim();
+		return newstr;
+	}
+
+
+	func makeViewAscii(cref filter): ref
+	{
+		ref m_parentString = self;
+		ref m_parentFilter = filter;
+		return new class {
+			func cursor: ref
+			{
+				ref origstr = m_parentString;
+				ref accept = m_parentFilter;
+				return new class
+				{
+					func findFirst: bool
+						-> (not origstr.empty) and (accept(origstr.at(0u)) or next());
+
+					func next: bool
+					{
+						do
+						{
+							m_index += 1u;
+							if not (m_index < origstr.size) then
+								return false;
+						}
+						while not accept(origstr.at(m_index));
+						return true;
+					}
+
+					func get: ref
+						-> origstr.at(m_index);
+
+					var m_index = 0u;
+				};
+			}
+		};
+	}
+
+
+	func makeViewBytes(cref filter): ref
+	{
+		ref m_parentString = self;
+		ref m_parentFilter = filter;
+		return new class {
+			func cursor: ref
+			{
+				ref origstr = m_parentString;
+				ref accept = m_parentFilter;
+				return new class
+				{
+					func findFirst: bool
+						-> (not origstr.empty) and (accept(origstr.at(0u).asU8) or next());
+
+					func next: bool
+					{
+						do
+						{
+							m_index += 1u;
+							if not (m_index < origstr.size) then
+								return false;
+						}
+						while not accept(origstr.at(m_index).asU8);
+						return true;
+					}
+
+					func get: ref
+						-> origstr.at(m_index).asU8;
+
+					var m_index = 0u;
+				};
+			}
+		};
+	}
+
+
+	func makeViewSplit(cref filter, cref predicate): ref
+	{
+		ref m_parentString = self;
+		ref m_parentFilter = filter;
+		ref m_parentPredicate = predicate;
+		return new class {
+			func cursor: ref
+			{
+				ref origstr = m_parentString;
+				ref accept = m_parentFilter;
+				ref predicate = m_parentPredicate;
+				return new class
+				{
+					func findFirst: bool
+						-> next();
+
+					func next: bool
+					{
+						ref str = origstr;
+						if not (m_index < str.size) then
+							return false;
+						do
+						{
+							var nextOffset = str.index(m_index, predicate);
+
+							if nextOffset > m_index then
+							{
+								var distance = nextOffset - m_index;
+								m_word.assign(str.m_cstr + m_index.pod, distance.pod);
+							}
+							else
+								m_word.clear();
+
+							m_index = nextOffset + 1u;
+						}
+						while not accept(m_word);
+						return true;
+					}
+
+					func get: ref
+						-> m_word;
+
+					var m_index = 0u;
+					var m_word = "";
+				};
+			}
+		};
+	}
+
+
+	func makeViewSplitByLines(cref filter): ref
+	{
+		ref m_parentString = self;
+		ref m_parentFilter = filter;
+		return new class {
+			func cursor: ref
+			{
+				ref origstr = m_parentString;
+				ref accept = m_parentFilter;
+				return new class
+				{
+					func findFirst: bool
+						-> next();
+
+					func next: bool
+					{
+						ref str = origstr;
+						if not (m_index < str.size) then
+							return false;
+						do
+						{
+							var nextOffset = str.index(m_index, '\n');
+
+							if nextOffset > m_index then
+							{
+								var distance = nextOffset - m_index;
+								m_word.assign(str.m_cstr + m_index.pod, distance.pod);
+								if m_word.last == '\r' then
+									m_word.removeLastAscii();
+							}
+							else
+								m_word.clear();
+
+							m_index = nextOffset + 1u;
+						}
+						while not accept(m_word);
+						return true;
+					}
+
+					func get: ref
+						-> m_word;
+
+					var m_index = 0u;
+					var m_word = "";
+				};
+			}
+		};
+	}
+
+
+	func makeViewIndex(cref filter, offset: u32, cref pattern): ref
+	{
+		ref m_parentString = self;
+		ref m_parentFilter = filter;
+		ref m_parentPattern = pattern;
+		ref m_parentOffset = offset;
+		return new class {
+			func cursor: ref
+			{
+				ref origstr = m_parentString;
+				ref accept = m_parentFilter;
+				ref pattern = m_parentPattern;
+				ref startOffset = m_parentOffset;
+				return new class
+				{
+					func findFirst: bool
+						-> next();
+
+					func next: bool
+					{
+						ref str = origstr;
+						if not (m_index < str.size) then
+							return false;
+						do
+						{
+							m_offset = str.index(m_index, pattern);
+							if not (m_offset < str.size) then
+								return false;
+							m_index = m_offset + 1u;
+						}
+						while not accept(m_offset);
+						return true;
+					}
+
+					func get: ref
+						-> m_offset;
+
+					var m_index = startOffset;
+					var m_offset = 0u;
+				};
+			}
+		};
+	}
+
+
 
 
 internal:
@@ -584,6 +1090,16 @@ internal:
 
 
 
+public operator + (cref s1: string, cref s2: string): ref string
+	-> ((new string(s1)) += s2);
+
+public operator + (cref s1: string, cref s2: std.Ascii): ref string
+	-> ((new string(s1)) += s2);
+
+public operator + (cref s1: std.Ascii, cref s2: string): ref string
+	-> ((new string(s1)) += s2);
+
+
 public operator == (cref s1: string, cref s2: string): bool
 	-> (s1.size == s2.size)
 	and (s1.empty or std.memory.equals(s1.m_cstr, s2.m_cstr, 0__u64 + s1.m_size));
@@ -591,6 +1107,20 @@ public operator == (cref s1: string, cref s2: string): bool
 public operator != (cref s1: string, cref s2: string): bool
 	-> (s1.size != s2.size)
 	or (not s1.empty and not std.memory.equals(s1.m_cstr, s2.m_cstr, 0__u64 + s1.m_size));
+
+
+public operator == (cref s1: string, cref s2: std.Ascii): bool
+	-> s1.size == 1u and s1.at(0u) == s2;
+
+public operator == (cref s1: std.Ascii, cref s2: string): bool
+	-> s2.size == 1u and s2.at(0u) == s1;
+
+public operator != (cref s1: string, cref s2: std.Ascii): bool
+	-> not (s1.size == 1u and s1.at(0u) == s2);
+
+public operator != (cref s1: std.Ascii, cref s2: string): bool
+	-> not (s2.size == 1u and s2.at(0u) == s1);
+
 
 public operator << (cref s: string, cref value): ref string
 	-> s += value;
