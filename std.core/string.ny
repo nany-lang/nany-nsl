@@ -89,7 +89,7 @@ class string
 	func reserve(size: u32)
 	{
 		if m_capacity < size.pod then
-			doGrow(size);
+			doGrow(size.pod);
 	}
 
 	func squeeze
