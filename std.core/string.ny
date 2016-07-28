@@ -443,17 +443,24 @@ class string
 	func lastIndex(offset: u32, cref ascii: std.Ascii): u32
 	{
 		var size = m_size;
-		if offset > size then
-			offset.pod = size;
-
-		var p = m_cstr + offset.pod;
-		var needle = ascii.asU8.pod;
-		while offset != 0u do
+		if size != 0__u32 then
 		{
-			offset -= 1u;
-			p = p - 1__u32;
-			if needle == !!load.u8(p) then
-				return offset;
+			if offset.pod >= size then
+				offset = size - 1u;
+
+			var p = m_cstr + offset.pod;
+			var needle = ascii.asU8.pod;
+			do
+			{
+				if needle == !!load.u8(p) then
+					return offset;
+
+				if offset == 0u then
+					return new u32(size); // break
+				offset -= 1u;
+				p = p - 1__u32;
+			}
+			while true;
 		}
 		return new u32(size);
 	}
@@ -736,7 +743,7 @@ class string
 	** \brief Split the string
 	*/
 	view split(cref filter): ref
-		-> makeViewSplit(filter, func (cref ascii) -> ascii.blank);
+		-> makeViewSplit(filter, 1u, func (cref ascii) -> ascii.blank);
 
 	/*!
 	** \brief Split the string
@@ -744,14 +751,20 @@ class string
 	view split(cref filter, cref separator: std.Ascii): ref
 	{
 		ref sep = separator;
-		return makeViewSplit(filter, func (cref ascii) -> ascii == sep);
+		return makeViewSplit(filter, 1u, func (cref ascii) -> ascii == sep);
 	}
 
 	/*!
 	** \brief Split the string
 	*/
+	view split(cref filter, cref pattern: string): ref
+		-> makeViewSplit(filter, pattern.size, pattern);
+
+	/*!
+	** \brief Split the string
+	*/
 	view split(cref filter, cref predicate): ref
-		-> makeViewSplit(filter, predicate);
+		-> makeViewSplit(filter, 1u, predicate);
 
 	/*!
 	** \brief Split the string
@@ -925,17 +938,19 @@ private:
 	}
 
 
-	func makeViewSplit(cref filter, cref predicate): ref
+	func makeViewSplit(cref filter, separatorLength: u32, cref predicate): ref
 	{
 		ref m_parentString = self;
 		ref m_parentFilter = filter;
 		ref m_parentPredicate = predicate;
+		ref m_parentSepLength = separatorLength;
 		return new class {
 			func cursor: ref
 			{
 				ref origstr = m_parentString;
 				ref accept = m_parentFilter;
 				ref predicate = m_parentPredicate;
+				ref separatorLength = m_parentSepLength;
 				return new class
 				{
 					func findFirst: bool
@@ -958,7 +973,7 @@ private:
 							else
 								m_word.clear();
 
-							m_index = nextOffset + 1u;
+							m_index = nextOffset + separatorLength;
 						}
 						while not accept(m_word);
 						return true;
