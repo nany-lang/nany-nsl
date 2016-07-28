@@ -28,6 +28,7 @@ set(nsl_files
 	# std.io
 	"${nsl_root}/std.io/native/native.ny"
 	"${nsl_root}/std.io/native/file.ny"
+	"${nsl_root}/std.io/path.ny"
 
 	# std.math
 	"${nsl_root}/std.math/math.ny"
