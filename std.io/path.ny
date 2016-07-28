@@ -143,40 +143,6 @@ public func normalize(cref path: string): ref string
 
 
 
-public func makeRelativeTo(cref path: string, cref origin: string): ref string;
-
-
-/*!
-** \brief Get the path name
-*/
-public func name(cref path: string): ref;
-
-
-/*!
-** \brief Get the path name
-*/
-public func parent(cref path: string): ref;
-
-
-public func extension(cref path: string): ref;
-
-
-public func hasExtension(cref path: string): bool;
-
-
-public func filename(cref path: string): ref;
-
-
-public func stem(cref path: string): ref;
-
-
-public func fromNative(cref native: string): ref string
-	-> new string(!!__nanyc_io_from_native_path(native.pod));
-
-
-public func toNative(cref path: string): ref string
-	-> new string(!!__nanyc_io_to_native_path(path.pod));
-
 
 
 
