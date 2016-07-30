@@ -73,7 +73,7 @@ class pointer<:T:>
 	}
 
 
-	func addressof: ref u64
+	var addressof
 		-> new u64(!!__reinterpret(m_ptr, #[__nanyc_synthetic] __u64));
 
 
