@@ -49,6 +49,11 @@ public class string
 		}
 	}
 
+	operator new (str: __pointer)
+	{
+		appendCString(str);
+	}
+
 	operator new (str: __pointer, size: __u32)
 	{
 		append(str, size);
@@ -140,6 +145,9 @@ public class string
 	//! Extend the string by appending another string
 	func append(cref text: string)
 		-> append(text.m_cstr, text.m_size);
+
+	func appendCString(str: __pointer)
+		-> append(str, std.memory.strlen(str));
 
 	//! Extend the string by appending a C-string
 	#[nosuggest] func append(str: __pointer, size: __u32)
