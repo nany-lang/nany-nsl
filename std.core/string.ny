@@ -12,7 +12,7 @@
 /*!
 ** \brief UTF-8 encoded sequences of characters
 */
-class string
+public class string
 {
 	//! \name Constructors
 	//@{
@@ -439,6 +439,9 @@ class string
 		return new u32(size);
 	}
 
+
+	func lastIndex(cref ascii: std.Ascii): u32
+		-> lastIndex(size, ascii);
 
 	func lastIndex(offset: u32, cref ascii: std.Ascii): u32
 	{
@@ -1139,6 +1142,9 @@ public operator != (cref s1: std.Ascii, cref s2: string): bool
 
 public operator << (cref s: string, cref value): ref string
 	-> s += value;
+
+
+
 
 
 
