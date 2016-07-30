@@ -23,29 +23,50 @@ public class string
 		append(value);
 	}
 
-	operator new (cref cstring: string, size: u32)
+	operator new (cref str: string, size: u32)
 	{
-		append(cstring.m_cstr, size.pod);
+		var clen = str.size;
+		append(str.m_cstr, (if size < clen then size else clen));
 	}
 
-	operator new (cstring: __pointer, size: __u32)
+	operator new (cref str: string, offset: u32)
 	{
-		append(cstring, size);
+		var clen = str.size;
+		if offset < clen then
+			append(str.m_cstr + offset.pod, clen - offset);
 	}
 
-	operator new (cstring: __pointer, cref size: u32)
+	operator new (cref str: string, size: u32, offset: u32)
 	{
-		append(cstring, size.pod);
+		var clen = str.size;
+		if offset < clen then
+		{
+			size += offset;
+			if size > clen then
+				size = clen;
+			size -= offset;
+			append(str.m_cstr + offset.pod, size);
+		}
 	}
 
-	operator dispose
+	operator new (str: __pointer, size: __u32)
 	{
-		std.memory.dispose(m_cstr, 0__u64 + m_capacity);
+		append(str, size);
+	}
+
+	operator new (str: __pointer, cref size: u32)
+	{
+		append(str, size.pod);
 	}
 
 	operator clone(cref rhs: string)
 	{
 		 append(rhs);
+	}
+
+	operator dispose
+	{
+		std.memory.dispose(m_cstr, 0__u64 + m_capacity);
 	}
 	//@}
 
@@ -103,17 +124,17 @@ public class string
 		append(text);
 	}
 
-	#[nosuggest] func assign(cstring: __pointer, size: __u32)
+	#[nosuggest] func assign(str: __pointer, size: __u32)
 	{
 		m_size = 0__u32;
-		append(cstring, size);
+		append(str, size);
 	}
 
 	//! Extend the string by appending a C-string
-	func assign(cstring: __pointer, cref size: u32)
+	func assign(str: __pointer, cref size: u32)
 	{
 		m_size = 0__u32;
-		append(cstring, size.pod);
+		append(str, size.pod);
 	}
 
 	//! Extend the string by appending another string
@@ -121,23 +142,23 @@ public class string
 		-> append(text.m_cstr, text.m_size);
 
 	//! Extend the string by appending a C-string
-	#[nosuggest] func append(cstring: __pointer, size: __u32)
+	#[nosuggest] func append(str: __pointer, size: __u32)
 	{
 		if size != 0__u32 then
 		{
-			assert(cstring != null);
+			assert(str != null);
 			var oldsize = m_size;
 			var newsize = oldsize + size;
 			if m_capacity < newsize then
 				doGrow(newsize);
-			std.memory.copy(m_cstr + oldsize, cstring, 0__u64 + size);
+			std.memory.copy(m_cstr + oldsize, str, 0__u64 + size);
 			m_size = newsize;
 		}
 	}
 
 	//! Extend the string by appending a C-string
-	func append(cstring: __pointer, cref size: u32)
-		-> append(cstring, size.pod);
+	func append(str: __pointer, cref size: u32)
+		-> append(str, size.pod);
 
 	//! Extend the string by appending an ascii
 	func append(cref ascii: std.Ascii)
@@ -272,8 +293,8 @@ public class string
 	func prepend(n: bool)
 		-> prepend(n.pod);
 
-	#[nosuggest] func prepend(cstring: __pointer, size: __u32)
-		-> insert(0__u32, cstring, size);
+	#[nosuggest] func prepend(str: __pointer, size: __u32)
+		-> insert(0__u32, str, size);
 
 
 	func prepend(ascii: std.Ascii)
@@ -304,11 +325,11 @@ public class string
 		-> insert(offset, ((new string) += value), size);
 
 
-	func insert(offset: __u32, cstring: __pointer, size: __u32)
+	func insert(offset: __u32, str: __pointer, size: __u32)
 	{
 		if size != 0__u32 then
 		{
-			assert(cstring != null);
+			assert(str != null);
 			var oldsize = m_size;
 
 			if offset < oldsize then
@@ -319,11 +340,11 @@ public class string
 
 				var p = m_cstr + offset;
 				std.memory.copyOverlap(dst: p + size, src: p, size: 0__u64 + (oldsize - offset));
-				std.memory.copy(dst: p, src: cstring, size: 0__u64 + size);
+				std.memory.copy(dst: p, src: str, size: 0__u64 + size);
 				m_size = newsize;
 			}
 			else
-				append(cstring, size);
+				append(str, size);
 		}
 	}
 
@@ -441,7 +462,7 @@ public class string
 
 
 	func lastIndex(cref ascii: std.Ascii): u32
-		-> lastIndex(size, ascii);
+		-> lastIndex(new u32(m_size), ascii);
 
 	func lastIndex(offset: u32, cref ascii: std.Ascii): u32
 	{
