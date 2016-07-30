@@ -37,10 +37,16 @@ public func absolute(cref path: string, cref root: string): ref string
 		else ((new string(root) += '/') += path);
 
 
+/*!
+** \brief Get if a path is absolute
+*/
 public func isAbsolute(cref path: string): bool
 	-> path.first == '/';
 
 
+/*!
+** \brief Get if a path is relative to a current folder
+*/
 public func isRelative(cref path: string): bool
 	-> path.first != '/';
 
@@ -143,11 +149,16 @@ public func normalize(cref path: string): ref string
 
 
 
+/*!
+** \brief Get the extension of a path (with the dot)
+*/
 public func extension(cref path: string): ref string
 	-> extension(path, withDot: true);
 
 
-
+/*!
+** \brief Get the extension of a path (with or without the dot)
+*/
 public func extension(cref path: string, withDot: bool): ref string
 {
 	ref ext = new string;
@@ -188,6 +199,9 @@ public func extension(cref path: string, withDot: bool): ref string
 }
 
 
+/*!
+** \brief Get if a path contains an extension
+*/
 public func hasExtension(cref path: string): bool
 {
 	var size = path.size;
@@ -215,6 +229,56 @@ public func hasExtension(cref path: string): bool
 	}
 	return false;
 }
+
+
+/*!
+** \brief Get the folder from a path
+*/
+public func folder(cref path: string): ref string
+{
+	var rindex = path.lastIndex('/');
+	var clen = path.size;
+	return new string(path, size: if rindex < clen then rindex else clen);
+}
+
+
+/*!
+** \brief Get the parent folder from a path
+*/
+public func parent(cref path: string): ref string
+{
+	var rindex = path.lastIndex('/');
+	var clen = path.size;
+	if rindex < clen and rindex != 0u then
+		rindex = path.lastIndex(rindex - 1u, '/');
+	return new string(path, size: if rindex < clen then rindex else clen);
+}
+
+
+/*!
+ ** \brief Get the filename part of a path
+ */
+public func filename(cref path: string): ref string
+{
+	var rindex = path.lastIndex('/');
+	return new string(path, offset: if rindex < path.size then rindex + 1u else 0u);
+}
+
+
+/*!
+** \brief Get the filename of the given path without the extension
+*/
+public func stem(cref path: string): ref string
+{
+	ref filename = std.io.path.filename(path);
+	var rindex = filename.lastIndex('.');
+	if rindex < filename.size then
+		return new string(filename, size: rindex);
+	return filename;
+}
+
+
+
 
 
 
