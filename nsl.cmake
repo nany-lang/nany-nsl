@@ -38,5 +38,6 @@ set(nsl_files
 
 	# std.os
 	"${nsl_root}/std.os/process.ny"
+	"${nsl_root}/std.os/os.ny"
 
 	CACHE INTERNAL "Nany Standard Library - File list")
