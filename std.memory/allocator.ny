@@ -153,6 +153,11 @@ public func greater(p1: __pointer, p2: __pointer, size: u64): bool
 	-> new bool(!!memory.cmp(p1, p2, size.pod) == 1__u32);
 
 
+/*!
+** \brief Calculate the length of a string (in bytes)
+*/
+public func strlen(str: __pointer): u32
+	-> new u32(!!__nanyc_strlen(str));
 
 
 
