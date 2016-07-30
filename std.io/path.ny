@@ -143,6 +143,80 @@ public func normalize(cref path: string): ref string
 
 
 
+public func extension(cref path: string): ref string
+	-> extension(path, withDot: true);
+
+
+
+public func extension(cref path: string, withDot: bool): ref string
+{
+	ref ext = new string;
+	var size = path.size;
+	if size != 0u then
+	{
+		var offset = size - 1u;
+		var p = path.m_cstr + offset.pod;
+		var sep = '/'.asU8.pod;
+		var dot = '.'.asU8.pod;
+		do
+		{
+			var r8 = !!load.u8(p);
+
+			if dot == r8 then
+			{
+				var extsize = size - offset;
+				if not withDot then
+				{
+					extsize -= 1u;
+					ext.append(p + 1__u32, extsize);
+				}
+				else
+					ext.append(p, extsize);
+				return ext;
+			}
+			if sep == r8 then
+				return ext;
+
+			if offset == 0u then
+				return ext; // break
+			offset -= 1u;
+			p = p - 1__u32;
+		}
+		while true;
+	}
+	return ext;
+}
+
+
+public func hasExtension(cref path: string): bool
+{
+	var size = path.size;
+	if size != 0u then
+	{
+		var offset = size - 1u;
+		var p = path.m_cstr + offset.pod;
+		var sep = '/'.asU8.pod;
+		var dot = '.'.asU8.pod;
+		do
+		{
+			var r8 = !!load.u8(p);
+
+			if dot == r8 then
+				return true;
+			if sep == r8 then
+				return false;
+
+			if offset == 0u then
+				return false; // break
+			offset -= 1u;
+			p = p - 1__u32;
+		}
+		while true;
+	}
+	return false;
+}
+
+
 
 
 
