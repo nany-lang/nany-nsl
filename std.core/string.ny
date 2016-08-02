@@ -149,6 +149,7 @@ public class string
 	func appendCString(str: __pointer)
 		-> append(str, std.memory.strlen(str));
 
+
 	//! Extend the string by appending a C-string
 	#[nosuggest] func append(str: __pointer, size: __u32)
 	{
@@ -739,7 +740,6 @@ public class string
 	*/
 	var trimmed
 		-> makeTrimmed();
-
 
 
 	/*!

@@ -77,7 +77,6 @@ class pointer<:T:>
 		-> new u64(!!__reinterpret(m_ptr, #[__nanyc_synthetic] __u64));
 
 
-
 	operator += (offset): ref
 	{
 		m_ptr = !!add(m_ptr, offset * !!sizeof(#[__nanyc_synthetic] T));
