@@ -19,7 +19,7 @@ namespace std.os;
 ** \return True if the command has been executed and if the exit status is 0
 */
 public func execute(cref cmd: string): ref
-	-> new bool(!!nanyc.os.execute(cmd.pod, 0__u32));
+	-> new bool(!!nanyc.os.execute(cmd.m_cstr, cmd.size.pod, 0__u32));
 
 
 /*!
@@ -30,4 +30,4 @@ public func execute(cref cmd: string): ref
 ** \return True if the command has been executed and if the exit status is 0
 */
 public func execute(cref cmd: string, cref timeout: u32): ref
-	-> new bool(!!nanyc.os.execute(cmd.pod, timeout.pod));
+	-> new bool(!!nanyc.os.execute(cmd.m_cstr, csm.size.pod, timeout.pod));
