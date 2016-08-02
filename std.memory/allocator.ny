@@ -157,7 +157,7 @@ public func greater(p1: __pointer, p2: __pointer, size: u64): bool
 ** \brief Calculate the length of a string (in bytes)
 */
 public func strlen(str: __pointer): u32
-	-> new u32(!!__nanyc_strlen(str));
+	-> new u32(if str != null then !!__nanyc_strlen(str) else 0__u32);
 
 
 
