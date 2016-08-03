@@ -20,7 +20,7 @@ namespace std.env;
 ** \param value The new value
 */
 public func set(cref name: string, cref value: string)
-	-> !!nanyc.env.set(name.pod, value.pod);
+	-> !!__nanyc_env_set(name.pod, value.pod);
 
 /*!
 ** \brief Set an environment variable for any value convertible into a string
@@ -29,7 +29,7 @@ public func set(cref name: string, cref value: string)
 ** \param value The new value
 */
 public func set(cref name: string, cref value)
-	-> !!nanyc.env.set(name.pod, ((new string()) += value).pod);
+	-> !!__nanyc_env_set(name.pod, ((new string()) += value).pod);
 
 /*!
 ** \brief Set an environment variable flag
@@ -38,7 +38,7 @@ public func set(cref name: string, cref value)
 ** \param value The new value
 */
 public func set(cref name: string, cref flag: bool)
-	-> !!nanyc.env.set(name.pod, (if flag then "1" else "0").pod);
+	-> !!__nanyc_env_set(name.pod, (if flag then "1" else "0").pod);
 
 
 /*!
@@ -46,7 +46,7 @@ public func set(cref name: string, cref flag: bool)
 ** \param name The environment variable name
 */
 public func unset(cref name: string)
-	-> !!nanyc.env.unset(name.pod);
+	-> !!__nanyc_env_unset(name.pod);
 
 
 /*!
@@ -56,7 +56,7 @@ public func unset(cref name: string)
 ** \return The value of the env variable 'name' if it exists, an empty string otherwise
 */
 public func read(cref name: string): ref string
-	-> new string(pod: !!nanyc.env.read(name.pod, null));
+	-> new string(pod: !!__nanyc_env_read(name.pod, null));
 
 
 /*!
@@ -67,7 +67,7 @@ public func read(cref name: string): ref string
 ** \return The value of the env variable 'name' if it exists, 'default' otherwise
 */
 public func read(cref name: string, cref default: string): ref string
-	-> new string(pod: !!nanyc.env.read(name.pod, default.pod));
+	-> new string(pod: !!__nanyc_env_read(name.pod, default.pod));
 
 
 /*!
@@ -79,7 +79,7 @@ public func read(cref name: string, cref default: string): ref string
 ** \return The value as a flag of the env variable 'name' if it exists, false otherwise
 */
 public func read(cref flag: string): ref bool
-	-> new bool(!!nanyc.env.asbool(flag.pod, __false));
+	-> new bool(!!__nanyc_env_asbool(flag.pod, __false));
 
 
 /*!
@@ -91,7 +91,7 @@ public func read(cref flag: string): ref bool
 ** \return The value as a flag of the env variable 'name' if it exists, 'default' otherwise
 */
 public func read(cref flag: string, cref default: bool): ref bool
-	-> new bool(!!nanyc.env.asbool(flag.pod, default.pod));
+	-> new bool(!!__nanyc_env_asbool(flag.pod, default.pod));
 
 
 /*!
@@ -101,7 +101,7 @@ public func read(cref flag: string, cref default: bool): ref bool
 ** \return The value as a flag of the env variable 'name' if it exists, 'default' otherwise
 */
 public func read(cref asi64: string): ref i64
-	-> new i64(!!nanyc.env.asi64(asi64.pod, 0__i64));
+	-> new i64(!!__nanyc_env_asi64(asi64.pod, 0__i64));
 
 /*!
 ** \brief Read the value of an environment variable as signed 64bits integer
@@ -110,7 +110,7 @@ public func read(cref asi64: string): ref i64
 ** \return The value as a flag of the env variable 'name' if it exists, 'default' otherwise
 */
 public func read(cref asi64: string, cref default: i64): ref i64
-	-> new i64(!!nanyc.env.asi64(asi64.pod, default.pod));
+	-> new i64(!!__nanyc_env_asi64(asi64.pod, default.pod));
 
 
 /*!
@@ -120,7 +120,7 @@ public func read(cref asi64: string, cref default: i64): ref i64
 ** \return The value as a flag of the env variable 'name' if it exists, 'default' otherwise
 */
 public func read(cref asu64: string): ref u64
-	-> new u64(!!nanyc.env.asu64(asu64.pod, 0__u64));
+	-> new u64(!!__nanyc_env_asu64(asu64.pod, 0__u64));
 
 /*!
 ** \brief Read the value of an environment variable as unsigned 64bits integer
@@ -129,7 +129,7 @@ public func read(cref asu64: string): ref u64
 ** \return The value as a flag of the env variable 'name' if it exists, 'default' otherwise
 */
 public func read(cref asu64: string, cref default: u64): ref u64
-	-> new u64(!!nanyc.env.asu64(asu64.pod, default.pod));
+	-> new u64(!!__nanyc_env_asu64(asu64.pod, default.pod));
 
 
 
@@ -140,4 +140,4 @@ public func read(cref asu64: string, cref default: u64): ref u64
 ** \return True if the variable is set (can be empty), false otherwise
 */
 public func exists(cref name: string): ref bool
-	-> new bool(!!nanyc.env.exists(name.pod));
+	-> new bool(!!__nanyc_env_exists(name.pod));
