@@ -118,6 +118,15 @@ public class string
 			doGrow(size.pod);
 	}
 
+	/*!
+	** \brief Increase the capacity of the container if necessary
+	*/
+	#[nosuggest] func reserve(size: __u32)
+	{
+		if m_capacity < size then
+			doGrow(size);
+	}
+
 	func squeeze
 		-> doSqueeze();
 
@@ -594,6 +603,21 @@ public class string
 	}
 
 
+	func resize(count: u32)
+	{
+		if m_capacity < count then
+			reserve(count);
+		m_size = count.pod;
+	}
+
+	#[nosuggest] func resize(count: __u32)
+	{
+		if m_capacity < count then
+			reserve(count);
+		m_size = count;
+	}
+
+
 	/*!
 	** \brief Remove last ascii if any
 	*/
@@ -751,6 +775,15 @@ public class string
 		return new std.Ascii(!!load.u8(m_cstr + i.pod));
 	}
 
+
+	func adopt(ptr: __pointer, size: __u32, capacity: __u32)
+	{
+		std.memory.dispose(m_cstr, 0__u64 + m_capacity);
+		m_cstr = ptr;
+		m_size = size;
+		m_capacity = capacity;
+		print("adopt: \(ptr), size: \(size), capa: \(capacity)\n");
+	}
 
 	/*!
 	** \brief View on each UTF8 character
@@ -1169,7 +1202,7 @@ public operator != (cref s1: std.Ascii, cref s2: string): bool
 	-> not (s2.size == 1u and s2.at(0u) == s1);
 
 
-public operator << (cref s: string, cref value): ref string
+public operator << (ref s: string, cref value): ref string
 	-> s += value;
 
 
