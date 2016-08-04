@@ -26,7 +26,7 @@ public func canonicalize(cref path: string, cref root: string): ref string
 public func absolute(cref path: string): ref string
 	-> if isAbsolute(path)
 		then new string(path)
-		else ((std.io.folder.current += '/') += path);
+		else ((std.io.folder.cwd += '/') += path);
 
 /*!
 ** \brief Get the absolute path (with a given root path)
