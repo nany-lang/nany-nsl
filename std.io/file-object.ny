@@ -232,6 +232,8 @@ private:
 			m_fd = fd;
 			return new bool(fd != null);
 		}
+		else
+			m_fd = null;
 		return false;
 	}
 
