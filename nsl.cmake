@@ -47,5 +47,7 @@ set(nsl_files
 	"${nsl_root}/std.console/console.ny"
 	"${nsl_root}/std.console/global.ny"
 
+	# Digest
+	"${nsl_root}/std.digest/digest.ny"
 
 	CACHE INTERNAL "Nany Standard Library - File list")
