@@ -8,6 +8,7 @@ namespace std.io.path;
 
 
 
+
 /*!
 ** \brief Make the path absolute and normalize it
 */
@@ -276,8 +277,6 @@ public func stem(cref path: string): ref string
 		return new string(filename, size: rindex);
 	return filename;
 }
-
-
 
 
 

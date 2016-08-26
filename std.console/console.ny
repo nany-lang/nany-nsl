@@ -68,7 +68,6 @@ public class Console
 
 
 
-
 public operator << (ref console: std.Console, cref value): ref std.Console
 {
 	console.write(value);
