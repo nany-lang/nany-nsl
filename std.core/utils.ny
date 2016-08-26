@@ -42,6 +42,24 @@ public func print(cref value)
 }
 
 
+/*!
+** \brief Print a string to stderr
+*/
+public func printerr(cref text: string)
+{
+	if not text.empty then
+		!!__nanyc_console_err(text.m_cstr, text.m_size);
+}
+
+/*!
+** \brief Print to stderr any value convertible to a string
+*/
+public func printerr(cref value)
+{
+	printerr((new string) << value);
+}
+
+
 
 
 public operator + (cref lhs, cref rhs): any
