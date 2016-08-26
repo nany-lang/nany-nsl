@@ -8,7 +8,7 @@
 /*!
 ** \brief Global Console input / output
 */
-var console
+public var console
 	-> new std.Console;
 
 
