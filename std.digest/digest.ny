@@ -27,7 +27,7 @@ unittest std.digest.md5
 {
 	var tryMD5 = func (cref text: string, cref expect: string)
 	{
-		ref digest = std.digest.md5(test);
+		ref digest = std.digest.md5(text);
 		if digest != expect then
 		{
 			printerr("error: fail '\(text)'\n");
