@@ -46,6 +46,7 @@ unittest std.digest.md5
 		expect: "57edf4a22be3c955ac49da2e2107b67a");
 	tryMD5("value", expect: "2063c1608d6e0baf80249c42e2be5804");
 	tryMD5("日本", expect: "4dbed2e657457884e67137d3514119b3");
+	tryMD5("", expect: "d41d8cd98f00b204e9800998ecf8427e");
 }
 
 
