@@ -36,6 +36,7 @@ unittest std.digest.md5
 		}
 	}
 
+	// from RFC
 	tryMD5("a", expect: "0cc175b9c0f1b6a831c399e269772661");
 	tryMD5("abc", expect: "900150983cd24fb0d6963f7d28e17f72");
 	tryMD5("message digest", expect: "f96b697d7cb7938d525a2f31aaf161d0");
@@ -44,9 +45,11 @@ unittest std.digest.md5
 		expect: "d174ab98d277d9f5a5611c2c9f419d9f");
 	tryMD5("12345678901234567890123456789012345678901234567890123456789012345678901234567890",
 		expect: "57edf4a22be3c955ac49da2e2107b67a");
+	tryMD5("", expect: "d41d8cd98f00b204e9800998ecf8427e");
+
+	// Home made
 	tryMD5("value", expect: "2063c1608d6e0baf80249c42e2be5804");
 	tryMD5("日本", expect: "4dbed2e657457884e67137d3514119b3");
-	tryMD5("", expect: "d41d8cd98f00b204e9800998ecf8427e");
 }
 
 
