@@ -16,8 +16,7 @@ namespace std.memory;
 /*!
 ** \brief Allocate a new chunk of memory
 */
-#[nosuggest]
-public func allocate(size: __u64): __pointer
+#[nosuggest] public func allocate(size: __u64): __pointer
 	-> !!memory.allocate(size);
 
 /*!
@@ -29,8 +28,7 @@ public func allocate(size: u64): __pointer
 /*!
 ** \brief Allocate a new chunk of memory
 */
-#[nosuggest]
-public func allocate<:T:>(count: __u64): __pointer
+#[nosuggest] public func allocate<:T:>(count: __u64): __pointer
 	-> !!memory.allocate(size * sizeof(T));
 
 /*!
@@ -43,8 +41,7 @@ public func allocate<:T:>(count: u64): __pointer
 /*!
 ** \brief Re-allocate a new chunk of memory
 */
-#[nosuggest]
-public func reallocate(ptr: __pointer, oldsize: __u64, newsize: __u64): __pointer
+#[nosuggest] public func reallocate(ptr: __pointer, oldsize: __u64, newsize: __u64): __pointer
 	-> !!memory.realloc(ptr, oldsize, newsize);
 
 /*!
@@ -60,8 +57,7 @@ public func reallocate(ptr: __pointer, oldsize: u64, newsize: u64): __pointer
 ** \param ptr A pointer previously allocated by allocate()
 ** \param size The size in bytes of the allocated chunk
 */
-#[nosuggest]
-public func dispose(ptr: __pointer, size: __u64): void
+#[nosuggest] public func dispose(ptr: __pointer, size: __u64): void
 	-> !!memory.dispose(ptr, size);
 
 /*!
@@ -106,8 +102,7 @@ public func fill(ptr: __pointer, size: u64, pattern: u8): void
 /*!
 ** \brief Fill memory with a given pattern
 */
-#[nosuggest]
-public func fill(ptr: __pointer, size: __u64, pattern: __u8): void
+#[nosuggest] public func fill(ptr: __pointer, size: __u64, pattern: __u8): void
 	-> !!memory.fill(ptr, size, pattern);
 
 /*!
@@ -119,16 +114,14 @@ public func zero(ptr: __pointer, size: u64): void
 /*!
 ** \brief Fill memory with a given pattern
 */
-#[nosuggest]
-public func zero(ptr: __pointer, size: __u64): void
+#[nosuggest] public func zero(ptr: __pointer, size: __u64): void
 	-> !!memory.fill(ptr, size, 0__u8);
 
 
 /*!
 ** \brief Get if 2 memory areas are identical
 */
-#[nosuggest]
-public func equals(p1: __pointer, p2: __pointer, size: __u64): bool
+#[nosuggest] public func equals(p1: __pointer, p2: __pointer, size: __u64): bool
 	-> new bool(!!memory.cmp(p1, p2, size) == 0__u32);
 
 /*!
@@ -138,15 +131,13 @@ public func equals(p1: __pointer, p2: __pointer, size: u64): bool
 	-> new bool(!!memory.cmp(p1, p2, size.pod) == 0__u32);
 
 
-#[nosuggest]
-public func less(p1: __pointer, p2: __pointer, size: __u64): bool
+#[nosuggest] public func less(p1: __pointer, p2: __pointer, size: __u64): bool
 	-> new bool(!!memory.cmp(p1, p2, size) == 2__u32);
 
 public func less(p1: __pointer, p2: __pointer, size: u64): bool
 	-> new bool(!!memory.cmp(p1, p2, size.pod) == 2__u32);
 
-#[nosuggest]
-public func greater(p1: __pointer, p2: __pointer, size: __u64): bool
+#[nosuggest] public func greater(p1: __pointer, p2: __pointer, size: __u64): bool
 	-> new bool(!!memory.cmp(p1, p2, size) == 1__u32);
 
 public func greater(p1: __pointer, p2: __pointer, size: u64): bool
@@ -160,7 +151,9 @@ public func strlen(str: __pointer): u32
 	-> new u32(if str != null then !!__nanyc_strlen(str) else 0__u32);
 
 
-public func nanyc_internal_create_string(ptr: __pointer): ref string
+
+
+#[nosuggest] public func nanyc_internal_create_string(ptr: __pointer): ref string
 {
 	ref content = new string;
 	// pointer to a special per-thread struct

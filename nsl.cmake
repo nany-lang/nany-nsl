@@ -38,7 +38,7 @@ set(nsl_files
 	"${nsl_root}/std.math/math.ny"
 
 	# std.memory
-	"${nsl_root}/std.memory/allocator.ny"
+	"${nsl_root}/std.memory/utils.ny"
 
 	# std.os
 	"${nsl_root}/std.os/process.ny"
